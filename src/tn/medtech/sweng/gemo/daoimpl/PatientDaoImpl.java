@@ -57,7 +57,7 @@ public class PatientDaoImpl implements PatientDao {
             System.out.println();
             System.out.println();
             System.out.println("updated successfully !!!!! ");
-        }catch(Exception e){
+        } catch(Exception e){
             e.printStackTrace();
         }finally {
             if(preparedStatement != null){
