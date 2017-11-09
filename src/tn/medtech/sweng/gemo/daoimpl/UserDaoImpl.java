@@ -1,7 +1,10 @@
 package tn.medtech.sweng.gemo.daoimpl;
 
+import java.sql.*;
+
 public class UserDaoImpl {
-   public void insert(User user) {
+
+    public void insert(User user) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -9,13 +12,11 @@ public class UserDaoImpl {
         try {
             connection = ConnectionConfig.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO user (last_name,username,Email,password,first_name) VALUES(?,?,?,?,?) ");
-
             preparedStatement.setString(1, user.getLastName());
             preparedStatement.setString(2, user.getUserName());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getFirstName());
-
             preparedStatement.executeUpdate();
             System.out.println();
             System.out.println();
@@ -49,7 +50,6 @@ public class UserDaoImpl {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-
 
         try {
             connection = ConnectionConfig.getConnection();
@@ -113,15 +113,11 @@ public class UserDaoImpl {
                     e.printStackTrace();
                 }
             }
-
-
         }
-
-
     }
-  
+
     public User selectByUserName(String userName) {
-      
+
         User user = new User();
         Connection conection = null;
         PreparedStatement preparedStatement = null;
@@ -166,5 +162,8 @@ public class UserDaoImpl {
         }
 
         return user;
-   }
+
+    }
+
+
 }
