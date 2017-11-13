@@ -1,5 +1,12 @@
 package tn.medtech.sweng.gemo.daoimpl;
 
+import tn.medtech.sweng.gemo.entities.User;
+import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class UserDaoImpl {
    public void insert(User user) {
 
@@ -7,7 +14,7 @@ public class UserDaoImpl {
         PreparedStatement preparedStatement = null;
 
         try {
-            connection = ConnectionConfig.getConnection();
+            connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO user (last_name,username,Email,password,first_name) VALUES(?,?,?,?,?) ");
 
             preparedStatement.setString(1, user.getLastName());
@@ -15,8 +22,7 @@ public class UserDaoImpl {
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getFirstName());
-
-            preparedStatement.executeUpdate();
+           // preparedStatement.executeUpdate();
             System.out.println();
             System.out.println();
             System.out.println();
@@ -52,7 +58,7 @@ public class UserDaoImpl {
 
 
         try {
-            connection = ConnectionConfig.getConnection();
+            connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("UPDATE user SET name=? WHERE name=?");
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, userName);
@@ -89,7 +95,7 @@ public class UserDaoImpl {
 
         try {
             //open connection
-            conection = ConnectionConfig.getConnection();
+            conection = ConnectionConfiguration.getConnection();
             preparedStatement = conection.prepareStatement("DELETE FROM user WHERE name=?");
             preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
@@ -127,7 +133,7 @@ public class UserDaoImpl {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;  // from java sql package ; resultSrt is a table of records from your database
         try {
-            conection = ConnectionConfig.getConnection();
+            conection = ConnectionConfiguration.getConnection();
             preparedStatement = conection.prepareStatement("SELECT  * FROM  user WHERE  username = ?");
             preparedStatement.setString(1, userName);
             resultSet = preparedStatement.executeQuery();
@@ -168,3 +174,4 @@ public class UserDaoImpl {
         return user;
    }
 }
+
