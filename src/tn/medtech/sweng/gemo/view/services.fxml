@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="-1.0" prefHeight="102.0" prefWidth="720.0" style="-fx-background-color: #c7ccee;">
+         <children>
+              <Label layoutX="198.0" layoutY="6.0" prefHeight="52.0" prefWidth="330.0" text="SERVICES" textAlignment="CENTER" textFill="#501475">
+                  <font>
+                      <Font name="Bell MT Bold" size="67.0" />
+                  </font>
+              </Label>
+         </children></AnchorPane>
+        <AnchorPane layoutX="-3.0" layoutY="102.0" prefHeight="460.0" prefWidth="720.0" style="-fx-background-color: #6cafac;">
+         <children>
+            <TableView id="table" layoutX="192.0" layoutY="21.0" prefHeight="255.0" prefWidth="310.0" />
+              <Button id="addbutton" layoutX="75.0" layoutY="388.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="117.0" text="Add" textAlignment="CENTER" wrapText="true">
+                  <font>
+                      <Font size="18.0" />
+                  </font>
+              </Button>
+              <Button id="deletebutton" layoutX="254.0" layoutY="388.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="117.0" text="Delete" />
+              <Button id="updatebutton" layoutX="426.0" layoutY="388.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="117.0" text="Update" />
+            <TextField id="textid" layoutX="125.0" layoutY="316.0" prefHeight="25.0" prefWidth="226.0" promptText="id" />
+            <TextField id="textname" layoutX="371.0" layoutY="316.0" prefHeight="25.0" prefWidth="226.0" promptText="service" />
+            <Label id="checklabel" layoutX="525.0" layoutY="220.0" prefHeight="68.0" prefWidth="191.0" textFill="#60508c" />
+            <TextField id="extratxt" layoutX="589.0" layoutY="399.0" prefHeight="31.0" prefWidth="64.0" promptText="old id" />
+            <Separator layoutX="4.0" layoutY="-9.0" prefHeight="12.0" prefWidth="720.0" style="-fx-background-color: #501475;" />
+         </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
