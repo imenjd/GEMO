@@ -44,6 +44,14 @@ public class ServiceController {
 
     }
 
+    public boolean checkId (int id) {
+        ServiceDaoImpl dao = new ServiceDaoImpl();
+        if (dao.checkId(id) >= 0)
+            return true;
+        else
+            return false;
+    }
+
 
     public static ObservableList fillTable () {
 

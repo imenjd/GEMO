@@ -12,6 +12,6 @@ public interface ServiceDao {
     Service selectById ( int id);
 
     List<Service> selectAll();
-
+    int  checkId(int id);
 
 }

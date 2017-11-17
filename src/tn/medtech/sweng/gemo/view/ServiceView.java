@@ -34,10 +34,16 @@ public class ServiceView {
             String nama= textname.getText();
 
             ServiceController controller = new ServiceController();
-            controller.add ( d, nama ) ;
 
-            checklabel.setText("Service Added Successfully!");
-            fillTable ( scene);
+            if(controller.checkId(d)){
+                checklabel.setText("this id already exists!");
+            }
+            else {
+                controller.add(d, nama);
+
+                checklabel.setText("Service Added Successfully!");
+                fillTable(scene);
+            }
         });
     }
 
@@ -61,11 +67,22 @@ public class ServiceView {
                 int x = Integer.valueOf(extratxt.getText());
 
                 ServiceController controller = new ServiceController() ;
-                controller.update ( id, name , x) ;
 
-                fillTable ( scene);
+                if(controller.checkId(x)){
+                    if(controller.checkId(id) && (id!=x))
+                        checklabel.setText("The id already exists!");
+                    else {
 
-                checklabel.setText("Service Updated Successfully!");
+                        controller.update(id, name, x);
+
+                        fillTable(scene);
+
+                        checklabel.setText("Service Updated Successfully!");
+                    }
+                }
+                else
+                    checklabel.setText("this id does not exist!");
+
 
             });
 
@@ -94,10 +111,15 @@ public class ServiceView {
                 int d = Integer.valueOf(extratxt.getText());//view
 
                 ServiceController controller = new ServiceController() ;
-                controller.delete ( d);
 
-                fillTable (scene);//view
-                checklabel.setText("Service Deleted Successfully!");
+                if(controller.checkId(d)) {
+                    controller.delete(d);
+
+                    fillTable(scene);//view
+                    checklabel.setText("Service Deleted Successfully!");
+                }
+                else
+                    checklabel.setText("this id does not exist!");
             });
 
         }catch (Exception e){
