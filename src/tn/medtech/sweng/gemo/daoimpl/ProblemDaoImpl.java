@@ -1,4 +1,4 @@
 package tn.medtech.sweng.gemo.daoimpl;
 
-public class InterventionsDaoImpl {
+public class ProblemDaoImpl {
 }

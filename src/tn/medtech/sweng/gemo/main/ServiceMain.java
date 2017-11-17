@@ -10,7 +10,7 @@ import tn.medtech.sweng.gemo.view.ServiceView;
 import java.io.IOException;
 import java.lang.Exception;
 
-public class MainService  extends Application {
+public class ServiceMain extends Application {
 
 
 
