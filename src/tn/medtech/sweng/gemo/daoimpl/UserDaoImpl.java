@@ -1,13 +1,19 @@
 package tn.medtech.sweng.gemo.daoimpl;
+import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
+import tn.medtech.sweng.gemo.entities.User;
+
+import java.sql.Connection;
+import java.sql.*;
 
 public class UserDaoImpl {
+
    public void insert(User user) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
-            connection = ConnectionConfig.getConnection();
+            connection= ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO user (last_name,username,Email,password,first_name) VALUES(?,?,?,?,?) ");
 
             preparedStatement.setString(1, user.getLastName());
@@ -52,7 +58,7 @@ public class UserDaoImpl {
 
 
         try {
-            connection = ConnectionConfig.getConnection();
+            connection= ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("UPDATE user SET name=? WHERE name=?");
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, userName);
@@ -84,16 +90,16 @@ public class UserDaoImpl {
 
     public void delete(String name) {
 
-        Connection conection = null;
+        Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             //open connection
-            conection = ConnectionConfig.getConnection();
-            preparedStatement = conection.prepareStatement("DELETE FROM user WHERE name=?");
+            connection= ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("DELETE FROM user WHERE name=?");
             preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
-            System.out.println("DELETE FROM service WHERE name=?");
+            System.out.println("DELETE FROM user WHERE name=?");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,9 +112,9 @@ public class UserDaoImpl {
                 }
             }
 
-            if (conection != null) {
+            if (connection != null) {
                 try {
-                    conection.close();
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -123,12 +129,12 @@ public class UserDaoImpl {
     public User selectByUserName(String userName) {
       
         User user = new User();
-        Connection conection = null;
+        Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;  // from java sql package ; resultSrt is a table of records from your database
         try {
-            conection = ConnectionConfig.getConnection();
-            preparedStatement = conection.prepareStatement("SELECT  * FROM  user WHERE  username = ?");
+            connection= ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT  * FROM  user WHERE  username = ?");
             preparedStatement.setString(1, userName);
             resultSet = preparedStatement.executeQuery();
 
@@ -156,9 +162,9 @@ public class UserDaoImpl {
                     e.printStackTrace();
                 }
             }
-            if (conection != null) {
+            if (connection != null) {
                 try {
-                    conection.close();
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
