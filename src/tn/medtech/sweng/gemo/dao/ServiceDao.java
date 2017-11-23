@@ -10,7 +10,7 @@ public interface ServiceDao {
     void delete(int id);
     Service selectByName(String name);
     Service selectById ( int id);
-
+    List<String> selectAllNames();
     List<Service> selectAll();
     int  checkId(int id);
 
