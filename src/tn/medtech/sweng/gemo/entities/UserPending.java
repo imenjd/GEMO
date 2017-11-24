@@ -9,10 +9,11 @@ public class UserPending {
     private String status;
     private String email;
     private String password;
+    private boolean admin;
     public UserPending () {
 
     }
-    public UserPending( String firstName, String lastName, String userName, String status, String email, String password) {
+    public UserPending( String firstName, String lastName, String userName, String status, String email, String password , boolean admin) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,6 +21,7 @@ public class UserPending {
         this.status = status;
         this.email = email;
         this.password = password;
+        this.admin = admin;
     }
 
     public int getId() {
@@ -79,5 +81,11 @@ public class UserPending {
     }
 
 
+    public boolean isAdmin() {
+        return admin;
+    }
 
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }

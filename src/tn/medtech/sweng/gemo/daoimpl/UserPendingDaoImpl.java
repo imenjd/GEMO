@@ -21,13 +21,15 @@ public class UserPendingDaoImpl implements UserPendingDao {
 
            try {
                connection = ConnectionConfiguration.getConnection();
-               preparedStatement = connection.prepareStatement("INSERT INTO userpending (firstName, lastName ,userName, status, email, password ) VALUES(?,?,?,?,?,?)");
+               preparedStatement = connection.prepareStatement("INSERT INTO userpending (firstName, lastName ,userName, status, email, password, admin ) VALUES(?,?,?,?,?,?,?)");
                preparedStatement.setString(1, userp.getFirstName());
                preparedStatement.setString(2, userp.getLastName());
                preparedStatement.setString(3, userp.getUserName());
                preparedStatement.setString(4, userp.getStatus());
                preparedStatement.setString(5, userp.getEmail());
                preparedStatement.setString(6, userp.getPassword());
+               preparedStatement.setBoolean(7, userp.isAdmin());
+
                preparedStatement.executeUpdate();
                System.out.println();
                System.out.println();
@@ -131,8 +133,9 @@ public class UserPendingDaoImpl implements UserPendingDao {
                userp.setStatus(resultSet.getString("status"));
                userp.setEmail(resultSet.getString("email"));
                userp.setPassword(resultSet.getString("password"));
+               userp.setAdmin(resultSet.getBoolean("admin"));
 
-                System.out.println("00++22++00  "+userp);
+
                usersPs.add(userp);
            }
 

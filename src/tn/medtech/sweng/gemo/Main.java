@@ -24,27 +24,27 @@ public class Main {
         ///hed=hedi.selectByName("iii");
         //System.out.println(hed.getId()+" , "+hed.getName());
         //System.out.println(hedi.checkId(3));
-        //UserPendingDaoImpl dao = new UserPendingDaoImpl();
-        //ServiceDaoImpl dd = new ServiceDaoImpl();
-        //UserPending ena = new UserPending( "no", "nno", "khlffil","doffctor ", "khlfffffil.@.com","henooffo");
+        UserPendingDaoImpl dao = new UserPendingDaoImpl();
+        ServiceDaoImpl dd = new ServiceDaoImpl();
+        UserPending ena = new UserPending( "the man", "hero", "owner","manager ", "kkk@.@.com","lalalalal",true);
         //dao.insert(ena);
-        //dao.delete(4);
+        //dao.delete(5);
         /*List<Service> persons = dd.selectAll();
         for (Service p : persons)
         {
             System.out.println(p.getId()+" , "+p.getName());
         }
+*/
 
 
-        System.out.println();
 
         List<UserPending> users = dao.selectAll();
         for (UserPending u : users)
         {
-            System.out.println(u.getId()+" , "+u.getFirstName()+" , "+u.getLastName()+" , "+u.getUserName()+" , "+u.getStatus()+" , "+u.getEmail()+" , "+u.getPassword());
+            System.out.println(u.getId()+" , "+u.getFirstName()+" , "+u.getLastName()+" , "+u.getUserName()+" , "+u.getStatus()+" , "+u.getEmail()+" , "+u.getPassword()+" , "+u.isAdmin());
         }
 
-*/
+
 
 
     }
