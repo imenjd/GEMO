@@ -2,6 +2,7 @@ package tn.medtech.sweng.gemo.daoimpl;
 
 import tn.medtech.sweng.gemo.dao.UserPendingDao;
 import tn.medtech.sweng.gemo.entities.Service;
+import tn.medtech.sweng.gemo.entities.User;
 import tn.medtech.sweng.gemo.entities.UserPending;
 import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
 
@@ -60,6 +61,68 @@ public class UserPendingDaoImpl implements UserPendingDao {
 
 
    }
+
+
+
+
+    public UserPending selectById(int id) {
+
+
+        UserPending userp = new UserPending();
+        Connection conection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;  // from java sql package ; resultSrt is a table of records from your database
+        try {
+            conection = ConnectionConfiguration.getConnection();
+            preparedStatement = conection.prepareStatement( "SELECT  * FROM  userpending WHERE  id = ?" );
+            preparedStatement.setInt( 1, id);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                userp.setId(resultSet.getInt("id"));
+                userp.setFirstName(resultSet.getString("firstName"));
+                userp.setLastName(resultSet.getString("lastName"));
+                userp.setUserName(resultSet.getString("userName"));
+                userp.setStatus(resultSet.getString("status"));
+                userp.setEmail(resultSet.getString("email"));
+                userp.setPassword(resultSet.getString("password"));
+                userp.setAdmin(resultSet.getBoolean("admin"));
+
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null){
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if ( conection != null) {
+                try {
+                    conection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return userp;
+
+    }
+
+
+
 
    public void delete(int id){
 
