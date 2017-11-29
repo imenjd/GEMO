@@ -130,7 +130,7 @@ public class UserPendingDaoImpl implements UserPendingDao {
        PreparedStatement preparedStatement = null;
 
 
-       UserPendingDao dao = new UserPendingDaoImpl();
+       UserPendingDaoImpl dao = new UserPendingDaoImpl();
 
        if(dao.checkId(id) >= 0) {
 

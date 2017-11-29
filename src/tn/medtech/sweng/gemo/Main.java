@@ -44,6 +44,11 @@ public class Main {
             System.out.println(u.getId()+" , "+u.getFirstName()+" , "+u.getLastName()+" , "+u.getUserName()+" , "+u.getStatus()+" , "+u.getEmail()+" , "+u.getPassword()+" , "+u.isAdmin());
         }
 
+        System.out.println();
+        System.out.println(222);
+        System.out.println();
+        System.out.println(dao.selectById(7));
+        System.out.println(dao.selectById(7).getId()+" , "+dao.selectById(7).getFirstName()+" , "+dao.selectById(7).getLastName()+" , "+dao.selectById(7).getUserName()+" , "+dao.selectById(7).getStatus()+" , "+dao.selectById(7).getEmail()+" , "+dao.selectById(7).getPassword()+" , "+dao.selectById(7).isAdmin());
 
 
 
