@@ -1,14 +1,14 @@
 package tn.medtech.sweng.gemo.daoimpl;
-import tn.medtech.sweng.gemo.daoimpl.PatientDaoImpl;
-import tn.medtech.sweng.gemo.dao.PatientDao;
-import tn.medtech.sweng.gemo.entities.Patient;
-import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
+
+package com.company;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PatientDaoImpl implements PatientDao {
-    public void insert(Patient patient) {
+public class PatientDao {
+
+    public void insert(com.company.Patient patient) {
         Connection connection= null;
         PreparedStatement preparedStatement=null;
 
@@ -43,7 +43,7 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
-    public void update (Patient patient, int id){
+    public void update (com.company.Patient patient, int id){
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
@@ -57,7 +57,7 @@ public class PatientDaoImpl implements PatientDao {
             System.out.println();
             System.out.println();
             System.out.println("updated successfully !!!!! ");
-        } catch(Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             if(preparedStatement != null){
@@ -78,4 +78,34 @@ public class PatientDaoImpl implements PatientDao {
         }
 
     }
+    public boolean exist(int id) {
+        Connection connection=null;
+        connection=ConnectionConfiguration.getConnection();
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+        try {
+            preparedStatement=connection.prepareStatement("SELECT * FROM patient");
+
+        resultSet=preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int idd=0;
+        try {
+            while (resultSet.next()){
+                idd=idd+1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (id>idd){
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
 }
+
