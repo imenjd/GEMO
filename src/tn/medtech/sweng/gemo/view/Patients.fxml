@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane >
-</AnchorPane>
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="-Infinity" prefWidth="-Infinity" VBox.vgrow="ALWAYS">
+            <children>
+                <AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" style="-fx-background-color: #76B7B6;">
+                    <children>
+                        <Button id="add" layoutX="98.0" layoutY="335.0" mnemonicParsing="false" style="-fx-background-color: #387D79;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                        <Button id="update" layoutX="189.0" layoutY="335.0" mnemonicParsing="false" style="-fx-background-color: #387D79;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                        <TextField id="fn" layoutX="65.0" layoutY="152.0" prefHeight="25.0" prefWidth="226.0" promptText="First name" />
+                        <TextField id="ln" layoutX="65.0" layoutY="203.0" prefHeight="25.0" prefWidth="226.0" promptText="Last name" />
+                        <DatePicker id="db" layoutX="65.0" layoutY="252.0" prefHeight="25.0" prefWidth="226.0" promptText="date of birth" />
+                        <AnchorPane prefHeight="56.0" prefWidth="642.0" style="-fx-background-color: #828282;">
+                     <children>
+                        <Separator layoutX="-2.0" layoutY="57.0" prefHeight="4.0" prefWidth="642.0" />
+                     </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect></AnchorPane>
+                        <Label layoutX="77.0" prefHeight="39.0" prefWidth="267.0" text="Patient" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="33.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane layoutX="416.0" layoutY="61.0" prefHeight="395.0" prefWidth="226.0" style="-fx-background-color: #387D79;">
+                            <children>
+                                <Label layoutX="40.0" layoutY="52.0" prefHeight="56.0" prefWidth="127.0" text="GEMO" textAlignment="CENTER" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="39.0" />
+                                    </font>
+                                </Label>
+                        <Separator orientation="VERTICAL" prefHeight="395.0" prefWidth="0.0" />
+                            </children>
+                        </AnchorPane>
+                        <TextField id="id" layoutX="65.0" layoutY="101.0" prefHeight="25.0" prefWidth="226.0" promptText="id">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></TextField>
+                  <Label id="label" layoutX="72.0" layoutY="294.0" prefHeight="25.0" prefWidth="182.0" textAlignment="CENTER" textFill="#17b211">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" />
+    </children>
+</VBox>
