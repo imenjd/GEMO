@@ -1,34 +1,36 @@
 package tn.medtech.sweng.gemo.entities;
 
-
-
 public class Visit {
-
-
-    private int idp;
-    private int ids;
+    private int id;
+    private int id_patient;
     private String comment;
-    private int idu=1;
+
+    private int id_user;
+    private int id_service;
+
+
     private String date;
 
-    public Visit(){
+    public Visit() {
 
     }
 
-    public int getIdp() {
-        return idp;
+
+
+    public int getId() {
+        return id;
     }
 
-    public void setIdp(int idp) {
-        this.idp = idp;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getIds() {
-        return ids;
+    public int getId_patient() {
+        return id_patient;
     }
 
-    public void setIds(int ids) {
-        this.ids = ids;
+    public void setId_patient(int id_patient) {
+        this.id_patient = id_patient;
     }
 
     public String getComment() {
@@ -38,15 +40,6 @@ public class Visit {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-    public int getIdu() {
-        return idu;
-    }
-
-    public void setIdu(int idu) {
-        this.idu = idu;
-    }
-
     public String getDate() {
         return date;
     }
@@ -55,18 +48,23 @@ public class Visit {
         this.date = date;
     }
 
+    public int getId_user() {
+        return id_user;
+    }
 
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
 
-    public Visit(int idp, int ids, String comment, String date, int idu){
-        this.idp=idp;
-        this.ids=ids;
-        this.date=date;
-        this.comment=comment;
-        this.idu=idu;
+    public int getId_service() {
+        return id_service;
+    }
+
+    public void setId_service(int id_service) {
+        this.id_service = id_service;
     }
 
 
 
 
 }
-
