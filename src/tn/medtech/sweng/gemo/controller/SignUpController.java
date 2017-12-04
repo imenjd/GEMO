@@ -10,7 +10,7 @@ public class SignUpController {
         UserPendingDaoImpl dao = new UserPendingDaoImpl();
         UserPending userp = new UserPending();
 
-        userp.setPass2(pass2);
+
         userp.setFirstName(firstName);
         userp.setLastName(LastName);
         userp.setUserName(userName);

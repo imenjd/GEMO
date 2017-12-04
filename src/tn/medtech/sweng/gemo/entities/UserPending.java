@@ -9,7 +9,7 @@ public class UserPending {
     private String email;
     private String password;
     private boolean admin;
-    private String pass2;
+
 
 
 
@@ -95,12 +95,6 @@ public class UserPending {
         this.admin = admin;
     }
 
-    public String getPass2() {
-        return pass2;
-    }
 
-    public void setPass2(String pass2) {
-        this.pass2 = pass2;
-    }
 }
 
