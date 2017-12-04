@@ -1,7 +1,7 @@
 package tn.medtech.sweng.gemo.entities;
 
 public class User {
-  private String firstName;
+    private String firstName;
     private String password;
     private String lastName;
     private String userName;

@@ -1,7 +1,6 @@
 package tn.medtech.sweng.gemo.entities;
 
 public class UserPending {
-
     private int id;
     private String firstName;
     private String lastName;
@@ -10,10 +9,17 @@ public class UserPending {
     private String email;
     private String password;
     private boolean admin;
-    public UserPending () {
+    private String pass2;
+
+
+
+
+
+    public UserPending() {
 
     }
-    public UserPending( String firstName, String lastName, String userName, String status, String email, String password , boolean admin) {
+
+    public UserPending(String firstName, String lastName, String userName, String status, String email, String password, boolean admin) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,4 +94,13 @@ public class UserPending {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
+
+    public String getPass2() {
+        return pass2;
+    }
+
+    public void setPass2(String pass2) {
+        this.pass2 = pass2;
+    }
 }
+

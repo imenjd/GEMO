@@ -1,11 +1,13 @@
 package tn.medtech.sweng.gemo.daoimpl;
+import tn.medtech.sweng.gemo.dao.UserDao;
 import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
 import tn.medtech.sweng.gemo.entities.User;
 
 import java.sql.Connection;
 import java.sql.*;
 
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDao {
+
 
    public void insert(User user) {
 
