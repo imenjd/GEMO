@@ -20,7 +20,7 @@ public class MedView {
             btnInfo.setOnAction(e -> {
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/InfoMed.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/InfoMed.fxml"));
                 Parent root1 = null;
                 try {
                     root1 = (Parent) fxmlLoader.load();

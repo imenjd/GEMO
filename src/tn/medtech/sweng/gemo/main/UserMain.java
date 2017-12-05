@@ -1,5 +1,4 @@
 package tn.medtech.sweng.gemo.main;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import tn.medtech.sweng.gemo.view.SignUpView;
 import tn.medtech.sweng.gemo.view.UserView;
 import javafx.application.Application;
@@ -18,7 +17,7 @@ public  class UserMain extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception  {
         try {
-            Root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+            Root = FXMLLoader.load(getClass().getResource("../view/fxml/Login.fxml"));
 
             Scene scene = new Scene(Root, 1000, 550);
             primaryStage.setScene(scene);

@@ -21,7 +21,7 @@ public class ServiceMain extends Application {
 
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/services.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/services.fxml"));
             primaryStage.setTitle("SERVICES");
             Scene scene = new Scene(root, 710, 562);
             primaryStage.setScene(scene);

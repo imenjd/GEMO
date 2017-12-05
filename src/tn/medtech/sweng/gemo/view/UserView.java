@@ -6,10 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tn.medtech.sweng.gemo.controller.SignUpController;
 import tn.medtech.sweng.gemo.controller.UserController;
 import tn.medtech.sweng.gemo.entities.User;
-import tn.medtech.sweng.gemo.view.SignUpView;
 
 import java.io.IOException;
 
@@ -65,7 +63,7 @@ public class UserView {
         try {
             Button ToSignUp = (Button) scene.lookup("#ToSignUp");
             ToSignUp.setOnAction(e -> {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/SignUp.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/SignUp.fxml"));
                 Parent root1 = null;
                 try {
                     root1 = (Parent) fxmlLoader.load();

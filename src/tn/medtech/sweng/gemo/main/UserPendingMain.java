@@ -5,11 +5,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import tn.medtech.sweng.gemo.entities.UserPending;
 import tn.medtech.sweng.gemo.view.UserPendingView;
-import tn.medtech.sweng.gemo.view.UserView;
 
 import java.io.IOException;
 
@@ -22,7 +19,7 @@ public class UserPendingMain extends Application {
 
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/UserPending.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/UserPending.fxml"));
             primaryStage.setTitle("User Authorization");
             Scene scene = new Scene(root, 727, 450);
             primaryStage.setScene(scene);

@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.view.MedView;
 
@@ -25,7 +24,7 @@ public class MedMain extends Application {
 
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Med.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/Med.fxml"));
             primaryStage.setTitle("Med");
             Scene scene = new Scene(root, 266, 563);
             primaryStage.setScene(scene);

@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.view.DciView;
 
@@ -26,7 +25,7 @@ public class DciMain extends Application {
 
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/Dci.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/Dci.fxml"));
             primaryStage.setTitle("Dci");
             Scene scene = new Scene(root, 270, 563);
             primaryStage.setScene(scene);

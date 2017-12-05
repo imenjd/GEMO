@@ -23,7 +23,7 @@ public class DciView {
             btnInfo.setOnAction(e -> {
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/InfoDci.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/InfoDci.fxml"));
                 Parent root1 = null;
                 try {
                     root1 = (Parent) fxmlLoader.load();

@@ -23,7 +23,7 @@ public class UserPendingView {
             btnInformation.setOnAction(e -> {
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/UserPendingInfo.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/UserPendingInfo.fxml"));
                 Parent root1 = null;
                 try {
                     root1 = (Parent) fxmlLoader.load();
@@ -47,7 +47,7 @@ public class UserPendingView {
             Button btnUser = (Button) scene2.lookup("#btnUser");
 
             btnUser.setOnAction((ActionEvent e) -> {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/UserInfo.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/UserInfo.fxml"));
                 Parent root2 = null;
                 try {
                     root2 =  fxmlLoader.load();
