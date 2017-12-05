@@ -1,47 +1,48 @@
 package tn.medtech.sweng.gemo.entities;
 
 public class User {
+
+    private int id;
     private String firstName;
-    private String password;
     private String lastName;
     private String userName;
+    private String status;
     private String email;
+    private String password;
+    private boolean admin;
 
 
-    public void setId(int id) {
-        this.id = id;}
+    public User () {
+
+    }
+    public User( int id ,String firstName, String lastName, String userName, String status, String email, String password , boolean admin) {
+
+        this.id=id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.status = status;
+        this.email = email;
+        this.password = password;
+        this.admin = admin;
+    }
+
+    public User(String firstName, String lastName, String userName, String status, String email, String password, boolean admin) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.status = status;
+        this.email = email;
+        this.password = password;
+        this.admin = admin;
+    }
 
     public int getId() {
         return id;
     }
 
-    private int id;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    private String status;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -60,6 +61,22 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -68,15 +85,20 @@ public class User {
         this.email = email;
     }
 
-    public User (){
-
+    public String getPassword() {
+        return password;
     }
 
-    public User(String userName,String password) {
-        this.firstName = firstName;
+    public void setPassword(String password) {
         this.password = password;
-        this.lastName = lastName;
-        this.email = email;
-        this.userName=userName;
+    }
+
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

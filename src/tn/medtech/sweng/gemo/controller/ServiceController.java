@@ -53,7 +53,7 @@ public class ServiceController {
     }
 
 
-    public static ObservableList fillTable () {
+    public  ObservableList fillTable () {
 
 
         ServiceDaoImpl allservices = new ServiceDaoImpl();

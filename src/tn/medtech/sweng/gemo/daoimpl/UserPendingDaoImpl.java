@@ -1,8 +1,6 @@
 package tn.medtech.sweng.gemo.daoimpl;
 
 import tn.medtech.sweng.gemo.dao.UserPendingDao;
-import tn.medtech.sweng.gemo.entities.Service;
-import tn.medtech.sweng.gemo.entities.User;
 import tn.medtech.sweng.gemo.entities.UserPending;
 import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
 
@@ -17,7 +15,7 @@ public class UserPendingDaoImpl implements UserPendingDao {
        Connection connection= null;
        PreparedStatement preparedStatement=null;
 
-       UserPendingDaoImpl dao = new UserPendingDaoImpl();
+
 
 
            try {

@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.SignUpController;
 import tn.medtech.sweng.gemo.controller.UserController;
@@ -13,6 +14,10 @@ import tn.medtech.sweng.gemo.view.SignUpView;
 import java.io.IOException;
 
 public class UserView {
+
+    public UserView() {
+    }
+
     public static void BtnLogin(Scene scene) {
         Button btn;
         TextField userName;
@@ -77,6 +82,45 @@ public class UserView {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public static void fillTable (Scene scene) {
+
+        try{
+            TableView TableUser  = (TableView) scene.lookup("#TableUser");
+
+            //view
+            UserController controller =new UserController();
+
+            TableUser.setItems(controller.fillTable());
+
+
+            TableColumn<User,Integer> columnid = new TableColumn<User,Integer>("Id");
+            columnid.setCellValueFactory(new PropertyValueFactory("id"));
+            TableColumn<User,String> columnfirstname = new TableColumn<User,String>("FirstName");
+            columnfirstname.setCellValueFactory(new PropertyValueFactory("firstName"));
+            TableColumn<User,String> columnlastname = new TableColumn<User,String>("LastName");
+            columnlastname.setCellValueFactory(new PropertyValueFactory("lastName"));
+            TableColumn<User,String> columnusername = new TableColumn<User,String>("UserName");
+            columnusername.setCellValueFactory(new PropertyValueFactory("userName"));
+            TableColumn<User,String> columnstatus = new TableColumn<User,String>("Status");
+            columnstatus.setCellValueFactory(new PropertyValueFactory("status"));
+            TableColumn<User,String> columnemail = new TableColumn<User,String>("email");
+            columnemail.setCellValueFactory(new PropertyValueFactory("email"));
+            TableColumn<User,String> columnpassword = new TableColumn<User,String>("password");
+            columnpassword.setCellValueFactory(new PropertyValueFactory("password"));
+            TableColumn<User,Boolean> columnadmin = new TableColumn<User,Boolean>("Admin");
+            columnadmin.setCellValueFactory(new PropertyValueFactory("admin"));
+
+            TableUser.getColumns().setAll(columnid, columnfirstname,columnlastname,columnusername,columnemail,columnpassword,columnadmin);
+            TableUser.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }
