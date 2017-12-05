@@ -16,7 +16,6 @@ public class Visit {
     }
 
 
-
     public int getId() {
         return id;
     }
@@ -40,6 +39,7 @@ public class Visit {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
     public String getDate() {
         return date;
     }
@@ -63,8 +63,6 @@ public class Visit {
     public void setId_service(int id_service) {
         this.id_service = id_service;
     }
-
-
 
 
 }

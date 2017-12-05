@@ -1,13 +1,13 @@
 package tn.medtech.sweng.gemo.daoimpl;
-import tn.medtech.sweng.gemo.daoimpl.PatientDaoImpl;
-import tn.medtech.sweng.gemo.dao.PatientDao;
-import tn.medtech.sweng.gemo.entities.Patient;
-import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
+import tn.medtech.sweng.gemo.entities.Patient ;
 
-public class PatientDaoImpl implements PatientDao {
+public class PatientDaoImpl {
+
     public void insert(Patient patient) {
         Connection connection= null;
         PreparedStatement preparedStatement=null;
@@ -57,7 +57,7 @@ public class PatientDaoImpl implements PatientDao {
             System.out.println();
             System.out.println();
             System.out.println("updated successfully !!!!! ");
-        } catch(Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }finally {
             if(preparedStatement != null){
@@ -75,6 +75,35 @@ public class PatientDaoImpl implements PatientDao {
                     e.printStackTrace();
                 }
             }
+        }
+
+    }
+    public boolean exist(int id) {
+        Connection connection=null;
+        connection=ConnectionConfiguration.getConnection();
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+        try {
+            preparedStatement=connection.prepareStatement("SELECT * FROM patient");
+
+            resultSet=preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int idd=0;
+        try {
+            while (resultSet.next()){
+                idd=idd+1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (id>idd){
+            return false;
+        }
+        else {
+            return true;
         }
 
     }
