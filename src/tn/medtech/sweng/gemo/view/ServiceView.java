@@ -1,21 +1,26 @@
 package tn.medtech.sweng.gemo.view;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.ServiceController;
 import tn.medtech.sweng.gemo.entities.Service;
+
+import java.io.IOException;
 
 
 public class ServiceView {
 
 
-    Scene scene;
-    //public Button addbutton= (Button) scene.lookup("#addbutton");
-
-    public Button deletebutton = (Button) scene.lookup("#deletebutton");
 
 
+    public ServiceView() {
+    }
 
 
     public static void add(Scene scene ) {
@@ -48,7 +53,7 @@ public class ServiceView {
     }
 
 
-    public  static void update (Scene scene ) {
+    public  static void update (Scene scene) {
 
         try{
 
