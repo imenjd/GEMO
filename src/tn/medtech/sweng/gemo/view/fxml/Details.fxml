@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+    <tabs>
+        <Tab text="Patient details">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="50.0" layoutY="105.0" text="First Name" />
+                        <Label layoutX="50.0" layoutY="155.0" text="Last Name" />
+                        <Label layoutX="50.0" layoutY="205.0" text="Date of Birth" />
+                        <TextField fx:id="fn_patient" editable="false" layoutX="180.0" layoutY="100.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="ln_patient" editable="false" layoutX="180.0" layoutY="150.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="db_patient" editable="false" layoutX="180.0" layoutY="200.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="id_patient" editable="false" layoutX="180.0" layoutY="50.0" style="-fx-background-radius: 7;" />
+                        <Label layoutX="50.0" layoutY="55.0" text="Reference Patient" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Visit details">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="50.0" layoutY="30.0" text="ID Visit" />
+                        <Label layoutX="50.0" layoutY="80.0" text="Date" />
+                        <Label layoutX="50.0" layoutY="130.0" text="Service" />
+                        <Label layoutX="50.0" layoutY="180.0" text="Probleme" />
+                        <Label layoutX="50.0" layoutY="230.0" text="Intervention" />
+                        <Label layoutX="50.0" layoutY="280.0" text="Medicament" />
+                        <TextField fx:id="id_visit" editable="false" layoutX="140.0" layoutY="25.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="date_visit" editable="false" layoutX="140.0" layoutY="75.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="service" editable="false" layoutX="140.0" layoutY="125.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="probleme" editable="false" layoutX="140.0" layoutY="175.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="interv" editable="false" layoutX="140.0" layoutY="225.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="med" editable="false" layoutX="140.0" layoutY="275.0" style="-fx-background-radius: 7;" text="hello" />
+                        <TextField fx:id="dci" editable="false" layoutX="140.0" layoutY="325.0" style="-fx-background-radius: 7;" />
+                        <Label layoutX="58.0" layoutY="330.0" text="DCI" />
+                        <Label layoutX="360.0" layoutY="20.0" text="Comment" />
+                        <Label layoutX="360.0" layoutY="175.0" text="Context" />
+                        <TextArea fx:id="comm" editable="false" layoutX="360.0" layoutY="41.0" prefHeight="130.0" prefWidth="220.0" style="-fx-background-radius: 7;" />
+                        <TextArea fx:id="cxte" editable="false" layoutX="360.0" layoutY="200.0" prefHeight="130.0" prefWidth="220.0" style="-fx-background-radius: 7;" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Data filled by">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="50.0" layoutY="55.0" text="First name" />
+                        <Label layoutX="50.0" layoutY="105.0" text="Last Name" />
+                        <Label layoutX="50.0" layoutY="155.0" text="Status" />
+                        <TextField fx:id="fn_user" editable="false" layoutX="180.0" layoutY="50.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="ln_user" editable="false" layoutX="180.0" layoutY="100.0" style="-fx-background-radius: 7;" />
+                        <TextField fx:id="status" editable="false" layoutX="180.0" layoutY="150.0" style="-fx-background-radius: 7;" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

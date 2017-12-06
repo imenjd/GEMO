@@ -209,4 +209,62 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+
+    public List<String> selectAllNames() {
+
+        //create array list of names
+
+        List<String> names = new ArrayList<String>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery( "SELECT userName FROM user"  );
+
+            while (resultSet.next()){
+                String name;
+
+                name = (resultSet.getString("userName"));
+
+                names.add(name);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+        return names;
+
+    }
+
+
 }

@@ -49,7 +49,7 @@ public class UserView {
                     Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                     newstage.setScene(sc2);
                     newstage.show();
-                    
+
 
 
                 } else if (u.isEmpty() || p.isEmpty()) {
