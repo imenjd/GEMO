@@ -22,10 +22,11 @@ public  class UserMain extends Application {
             Scene scene = new Scene(Root, 1000, 550);
             primaryStage.setScene(scene);
             primaryStage.show();
-            UserView.BtnLogin(scene);
+
             UserView view = new UserView();
+            view.BtnLogin(scene);
             view.ToSignUp(scene);
-            SignUpView.BtnSignUp(scene);
+
             System.out.println("aaa");
 
         } catch (IOException e) {

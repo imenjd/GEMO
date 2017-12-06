@@ -1,6 +1,7 @@
 package tn.medtech.sweng.gemo.view;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,7 +17,7 @@ public class UserView {
     public UserView() {
     }
 
-    public static void BtnLogin(Scene scene) {
+    public void BtnLogin(Scene scene) {
         Button btn;
         TextField userName;
         PasswordField password;
@@ -35,10 +36,21 @@ public class UserView {
                 if (ctrl.sample(u, p)) {
 
                     lblStatus.setText("Login Success");
-                    Stage stage = new Stage();
-                    stage.show();
-                    //user.setToken();
-                    //System.out.println(user.getToken());
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
+                    Parent root = null;
+                    try {
+                        root =  fxmlLoader.load();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    Scene sc2 = new Scene(root);
+                    Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                    newstage.setScene(sc2);
+                    newstage.show();
+                    
+
 
                 } else if (u.isEmpty() || p.isEmpty()) {
                     lblStatus.setText("Cannot leave username or password blank");
@@ -62,19 +74,28 @@ public class UserView {
 
         try {
             Button ToSignUp = (Button) scene.lookup("#ToSignUp");
-            ToSignUp.setOnAction(e -> {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/SignUp.fxml"));
+            ToSignUp.setOnAction(event -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/SignUp.fxml"));
                 Parent root1 = null;
                 try {
-                    root1 = (Parent) fxmlLoader.load();
+                    root1 =  fxmlLoader.load();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                Stage stage = new Stage();
+
                 Scene sc2 = new Scene(root1);
-                stage.setScene(sc2);
-                stage.show();
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
                 SignUpView.BtnSignUp(sc2);
+                SignUpView sview = new SignUpView();
+                sview.toLogin(sc2);
+
+
+
+
 
             });
         } catch (Exception e) {

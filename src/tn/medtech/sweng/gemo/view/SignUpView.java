@@ -1,14 +1,23 @@
 package tn.medtech.sweng.gemo.view;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.SignUpController;
 import tn.medtech.sweng.gemo.controller.UserController;
 
+import java.io.IOException;
+
 public class SignUpView {
+
+    public SignUpView() {
+    }
 
     public static void BtnSignUp(Scene scene1) {
 
@@ -51,5 +60,39 @@ public class SignUpView {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void toLogin(Scene scene) {
+        try {
+        Button BtnToLogin = (Button) scene.lookup("#ToLogin");
+
+        BtnToLogin.setOnAction(event -> {
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Login.fxml"));
+            Parent root1 = null;
+            try {
+                root1 =  fxmlLoader.load();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            Scene sc2 = new Scene(root1);
+            Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+            newstage.setScene(sc2);
+            newstage.show();
+            UserView view = new UserView();
+            view.BtnLogin(sc2);
+            view.ToSignUp(sc2);
+
+
+
+        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
