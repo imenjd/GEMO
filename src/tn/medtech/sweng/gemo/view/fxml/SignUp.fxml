@@ -26,7 +26,7 @@
                   <PasswordField fx:id="txtConfPass" layoutX="56.0" layoutY="280.0" prefHeight="51.0" prefWidth="338.0" promptText="ConfirmPassword" />
                   <TextField fx:id="txtOccupation" layoutX="56.0" layoutY="332.0" prefHeight="51.0" prefWidth="338.0" promptText="Status/Occupation" />
                   <TextField fx:id="txtEmail" layoutX="56.0" layoutY="384.0" prefHeight="51.0" prefWidth="338.0" promptText="E-mail" />
-                  <CheckBox layoutX="56.0" layoutY="449.0" mnemonicParsing="false" text="Admin" />
+                  <CheckBox fx:id="check" layoutX="56.0" layoutY="449.0" mnemonicParsing="false" text="Admin" />
                   <Button fx:id="btnSignUp" layoutX="320.0" layoutY="444.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #63c5a6;" text="Sign up">
                      <font>
                         <Font size="24.0" />

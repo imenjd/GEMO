@@ -139,4 +139,62 @@ public class ProblemDaoImpl implements ProblemDao {
 
 
     }
+
+    public List<Problem> selectAll() {
+
+        //create array list of service object
+
+        List<Problem> services = new ArrayList<Problem>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery( "SELECT  * FROM problem"  );
+
+            while (resultSet.next()){
+                Problem service = new Problem();
+                service.setId(resultSet.getInt("id"));
+                service.setName(resultSet.getString("name"));
+
+                services.add(service);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+        return services;
+
+    }
+
+
 }

@@ -12,7 +12,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class SearchDaoImpl implements SearchDao {
+
     ObservableList<String> Problem_list = FXCollections.observableArrayList();
     ObservableList<String> Medicament_list = FXCollections.observableArrayList();
     ObservableList<String> Intervention_list = FXCollections.observableArrayList();

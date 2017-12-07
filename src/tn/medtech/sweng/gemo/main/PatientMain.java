@@ -24,7 +24,6 @@ public class PatientMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            Patient patient = new Patient();
             Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Patients.fxml"));
             Scene scene = new Scene(Root, 1000, 600);
             primaryStage.setScene(scene);

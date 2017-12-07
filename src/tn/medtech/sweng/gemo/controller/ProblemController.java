@@ -1,6 +1,10 @@
 package tn.medtech.sweng.gemo.controller;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.medtech.sweng.gemo.daoimpl.ProblemDaoImpl;
 import tn.medtech.sweng.gemo.entities.Problem;
+
+import java.util.List;
 
 public class ProblemController {
     public ProblemController() {
@@ -20,5 +24,21 @@ public class ProblemController {
         ProblemDaoImpl dao=new ProblemDaoImpl();
         dao.delete(id);
     }
+
+
+    public ObservableList fillTable () {
+
+
+        ProblemDaoImpl allservices = new ProblemDaoImpl();
+
+        List<Problem> services = allservices.selectAll();
+        ObservableList<Problem> oblservices = FXCollections.observableArrayList();
+        for (Problem p : services) {
+            oblservices.add(p);
+        }
+
+        return oblservices;
+    }
+
 }
 

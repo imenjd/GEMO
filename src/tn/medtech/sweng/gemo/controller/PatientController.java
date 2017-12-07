@@ -1,7 +1,11 @@
 package tn.medtech.sweng.gemo.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.medtech.sweng.gemo.entities.Patient;
 import tn.medtech.sweng.gemo.daoimpl.PatientDaoImpl;
+
+import java.util.List;
 
 
 public class PatientController {
@@ -31,4 +35,21 @@ public class PatientController {
 
         return dao.exist(id);
     }
+
+
+    public ObservableList fillTable () {
+
+
+        PatientDaoImpl allservices = new PatientDaoImpl();
+
+        List<Patient> services = allservices.selectAll();
+        ObservableList<Patient> oblservices = FXCollections.observableArrayList();
+        for (Patient p : services) {
+            oblservices.add(p);
+        }
+
+        return oblservices;
+    }
+
+
 }

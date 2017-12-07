@@ -3,6 +3,9 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import tn.medtech.sweng.gemo.util.ConnectionConfiguration;
 import tn.medtech.sweng.gemo.entities.Patient ;
 
@@ -107,4 +110,65 @@ public class PatientDaoImpl {
         }
 
     }
+
+    public List<Patient> selectAll() {
+
+        //create array list of service object
+
+        List<Patient> patients = new ArrayList<Patient>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery( "SELECT  * FROM patient"  );
+
+            while (resultSet.next()){
+                Patient patient = new Patient();
+                patient.setId(resultSet.getInt("id"));
+                patient.setFirstName(resultSet.getString("first_name"));
+                patient.setLastName(resultSet.getString("last_name"));
+                patient.setBirthDate(resultSet.getString("birth_date"));
+
+
+                patients.add(patient);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+        return patients;
+
+    }
+
+
 }

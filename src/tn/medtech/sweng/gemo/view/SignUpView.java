@@ -4,10 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.SignUpController;
 import tn.medtech.sweng.gemo.controller.UserController;
@@ -32,6 +29,7 @@ public class SignUpView {
             TextField occupation = (TextField) scene1.lookup("#txtOccupation");
             PasswordField password = (PasswordField) scene1.lookup("#txtPassword1");
             Label lbl = (Label) scene1.lookup("#lblSign") ;
+        CheckBox cc = (CheckBox)scene1.lookup("#check");
 
         try {
              btnS.setOnAction(actionEvent -> {
@@ -42,16 +40,23 @@ public class SignUpView {
                  String em = email.getText();
                  String o = occupation.getText();
                  String p = password.getText();
+                 boolean c=cc.isSelected();
 
 
                  if (l.isEmpty() || f.isEmpty() || u.isEmpty() || em.isEmpty() || o.isEmpty() || p.isEmpty()) {
                      lbl.setText("You can not leave an empty field.");
-                 } else if (!SignUpController.doesPasswordMatch(p, p2)) {
+               } else if (!SignUpController.doesPasswordMatch(p, p2)) {
                      lbl.setText("Passwords do not match!");
-                 } else {
-                     boolean a = false;
+                  }   else if( !(SignUpController.checkUsername(u))){
+
+                     lbl.setText("Choose a different UserName, it alreasy exists!!");
+                 }
+
+                 else {
+                     System.out.println(c);
                      SignUpController ctrler = new SignUpController();
-                     ctrler.add(f, l, u, p, p2, em, o, a);
+                     ctrler.add(f, l, u, p, p2, em, o, c);
+                     lbl.setText("Successfully registered! wait for approval.");
                  }
 
              });

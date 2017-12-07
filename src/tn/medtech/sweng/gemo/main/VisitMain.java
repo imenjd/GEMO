@@ -19,7 +19,7 @@ public class VisitMain extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
             Visit visit = new Visit();
-            Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Visit.fxml"));
+            Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Visite.fxml"));
             Scene scene = new Scene(Root, 1000, 600);
 
             primaryStage.setScene(scene);
@@ -28,6 +28,13 @@ public class VisitMain extends Application {
 
             VisitView.add(scene);
             VisitView.update(scene);
+            VisitView view = new VisitView();
+            view.ServiceLoad(scene);
+            view.DciLoad(scene);
+            view.interload(scene);
+            view.patientload(scene);
+            view.problemload(scene);
+
 
         } catch (Exception e) {
             e.printStackTrace();

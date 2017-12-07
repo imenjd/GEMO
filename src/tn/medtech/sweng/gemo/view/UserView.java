@@ -49,6 +49,12 @@ public class UserView {
                     Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                     newstage.setScene(sc2);
                     newstage.show();
+                    SearchView searchView=new SearchView();
+                    searchView.fillCombobox(sc2);
+                    searchView.filltable(sc2);
+                    searchView.getLoad(sc2);
+                    searchView.addPatient(sc2);
+                    searchView.addVisit(sc2);
 
 
 

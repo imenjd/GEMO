@@ -9,10 +9,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import tn.medtech.sweng.gemo.controller.PatientController ;
+import tn.medtech.sweng.gemo.entities.Patient;
 
 public class PatientView {
-    Scene scene;
+
+
+    public PatientView() {
+    }
 
 
     public static void add(Scene scene){
@@ -65,4 +70,39 @@ public class PatientView {
             }
         });
     }
+
+
+    public static void fillTable (Scene scene) {
+
+        try{
+            TableView table  = (TableView) scene.lookup("#table");
+
+            //view
+            PatientController controller =new PatientController();
+
+            table.setItems(controller.fillTable());
+
+
+            TableColumn<Patient,Integer> columnid = new TableColumn<Patient,Integer>("id");
+            columnid.setCellValueFactory(new PropertyValueFactory("id"));
+            TableColumn<Patient,String> columFname = new TableColumn<Patient,String>("firstName");
+            columFname.setCellValueFactory(new PropertyValueFactory("firstName"));
+            TableColumn<Patient,String> columnLname = new TableColumn<Patient,String>("lastName");
+            columnLname.setCellValueFactory(new PropertyValueFactory("lastName"));
+            TableColumn<Patient,String> columnDate = new TableColumn<Patient,String>("birthDate");
+            columnDate.setCellValueFactory(new PropertyValueFactory("birthDate"));
+
+            table.getColumns().setAll(columnid, columFname,columnLname,columnDate );
+            table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);//don't touch this!! remove it and table gets messed up! don't know what it does tho!!!
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
 }

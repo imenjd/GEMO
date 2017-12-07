@@ -2,6 +2,7 @@ package tn.medtech.sweng.gemo.view;
 
 import javafx.application.Application;
 
+import java.io.IOException;
 import java.lang.Exception;
 
 import javafx.event.ActionEvent;
@@ -11,10 +12,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.*;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.VisitController;
 
 public class VisitView {
-    Scene scene;
+
+
+    public VisitView() {
+    }
 
 
     public static void add(Scene scene) {
@@ -76,5 +81,155 @@ public class VisitView {
                 e.printStackTrace();
             }
         });
+    }
+
+
+    public void ServiceLoad(Scene scene) {
+
+        try {
+            Button serviceload = (Button) scene.lookup("#serviceload");
+            serviceload.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/ServiceLoad.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Services");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                ServiceView.fillTable(sc2);
+
+
+
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void DciLoad(Scene scene) {
+
+        try {
+            Button DciLoad = (Button) scene.lookup("#dciload");
+            DciLoad.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/DciLoad.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("DCI");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                DciView.fillTable(sc2);
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public void interload(Scene scene) {
+
+        try {
+            Button interload = (Button) scene.lookup("#interload");
+            interload.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/interload.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Interventions");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                DciView.fillTable(sc2);
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public void patientload(Scene scene) {
+
+        try {
+            Button patientload = (Button) scene.lookup("#patientload");
+            patientload.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/patientload.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Patients");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                PatientView.fillTable(sc2);
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+    public void problemload(Scene scene) {
+
+        try {
+            Button problemload = (Button) scene.lookup("#problemload");
+            problemload.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/problemload.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Problems");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                ProblemView.fillTable(sc2);
+
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

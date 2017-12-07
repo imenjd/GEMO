@@ -2,13 +2,13 @@ package tn.medtech.sweng.gemo.view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import javafx.event.EventHandler;
-import javafx.event.Event;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.IOException;
@@ -16,14 +16,20 @@ import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.SearchController;
 import tn.medtech.sweng.gemo.entities.Search;
 
+
+
 public class SearchView {
 
+
+    public SearchView() {
+    }
 
     public static void fillCombobox(Scene scene) {
         ObservableList<String> option_one = FXCollections.observableArrayList("Problème", "DCI", "Médicament", "Intervention", "Contexte", "Commentaire", "Date", "Patient", "Service");
         Button searchbtn = (Button) scene.lookup("#BtnSearch");
         ComboBox CBSearch = (ComboBox) scene.lookup("#CBSearchBy");
         ComboBox keyword = (ComboBox) scene.lookup("#keyword");
+        Label warning = (Label)scene.lookup("#warning");
         TableView searchTable = (TableView) scene.lookup("#SearchResult");
         SearchController a = new SearchController();
         ObservableList<String> fill_problem = a.fillProblemlist();
@@ -51,6 +57,7 @@ public class SearchView {
         ComboBox CBSearch = (ComboBox) scene.lookup("#CBSearchBy");
         ComboBox keyword = (ComboBox) scene.lookup("#keyword");
         TableView searchTable = (TableView) scene.lookup("#SearchResult");
+        Label warning = (Label) scene.lookup("#warning");
         SearchController a=new SearchController();
         TableColumn<Search,String> id_visite=new TableColumn<Search,String>("Ref visite");
         id_visite.setCellValueFactory(new PropertyValueFactory<>("ref"));
@@ -66,6 +73,12 @@ public class SearchView {
         searchbtn.setOnAction(event ->{
             String first=String.valueOf(CBSearch.getValue().toString());
             String second=String.valueOf(keyword.getValue().toString());
+            if (second.isEmpty()){
+                warning.setText("You have to specify your search");
+            }
+            else{
+                warning.setText("");
+            }
 
             if(first.equals("Problème")){
                 searchTable.setItems(a.SearchbProblem(second));
@@ -96,14 +109,23 @@ public class SearchView {
             else if(first.equals("Service")){
                 searchTable.setItems(a.SearchByService(second));
             }
+
         });
     }
     public void getLoad(Scene scene){
         Button btnload=(Button)scene.lookup("#btnload");
         TextField b=(TextField)scene.lookup("#idvisite");
+        Label warning =(Label)scene.lookup("#warning");
+
 
         btnload.setOnAction(event -> {
             String idtosearch=b.getText();
+            if(idtosearch.isEmpty()){
+                warning.setText("Specify your id");
+            }
+            else{
+                warning.setText("");
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fxml/Details.fxml"));
             Parent root1=null;
             try {
@@ -122,5 +144,72 @@ public class SearchView {
     }
 
 
-}
+    public void addPatient(Scene scene){
+        try {
+        Button addPatientbt=(Button)scene.lookup("#addPatient");
 
+        addPatientbt.setOnAction(event -> {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Patients.fxml"));
+            Parent root = null;
+            try {
+                root =  fxmlLoader.load();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            Scene sc2 = new Scene(root);
+            Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+            newstage.setScene(sc2);
+            newstage.show();
+            PatientView view = new PatientView();
+            view.add(sc2);
+            view.update(sc2);
+        });
+
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+
+
+
+    }
+
+
+    public void addVisit(Scene scene){
+        try {
+            Button addVisit=(Button)scene.lookup("#addVisit");
+
+            addVisit.setOnAction(event -> {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Visite.fxml"));
+                Parent root = null;
+                try {
+                    root =  fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                VisitView.add(sc2);
+                VisitView.update(sc2);
+                VisitView view = new VisitView();
+                view.ServiceLoad(sc2);
+                view.DciLoad(sc2);
+                view.interload(sc2);
+                view.patientload(sc2);
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+}

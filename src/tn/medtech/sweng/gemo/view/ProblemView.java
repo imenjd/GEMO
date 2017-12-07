@@ -4,7 +4,9 @@ package tn.medtech.sweng.gemo.view;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import tn.medtech.sweng.gemo.controller.ProblemController;
+import tn.medtech.sweng.gemo.entities.Problem;
 
 public class ProblemView {
 
@@ -44,4 +46,34 @@ public class ProblemView {
         });
 
     }
+
+    public static void fillTable (Scene scene) {
+
+        try{
+            TableView table  = (TableView) scene.lookup("#table");
+
+            //view
+            ProblemController controller =new ProblemController();
+
+            table.setItems(controller.fillTable());
+
+
+            TableColumn<Problem,Integer> columnid = new TableColumn<Problem,Integer>("id");
+            columnid.setCellValueFactory(new PropertyValueFactory("id"));
+            TableColumn<Problem,String> columnname = new TableColumn<Problem,String>("Service");
+            columnname.setCellValueFactory(new PropertyValueFactory("name"));
+
+            table.getColumns().setAll(columnid, columnname);
+            table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);//don't touch this!! remove it and table gets messed up! don't know what it does tho!!!
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+
 }

@@ -8,7 +8,6 @@ import tn.medtech.sweng.gemo.entities.Search;
 
 import java.util.List;
 import javax.jws.Oneway;
-
 public class SearchController {
     public ObservableList fillProblemlist(){
         SearchDaoImpl dao=new SearchDaoImpl();
