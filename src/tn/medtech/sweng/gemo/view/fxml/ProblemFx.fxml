@@ -30,6 +30,7 @@
                         <Font name="System Bold" size="39.0" />
                     </font>
                 </Label>
+            <Button fx:id="Dashboard" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Dashboard" textAlignment="CENTER" />
             </children>
         </VBox>
     </children>

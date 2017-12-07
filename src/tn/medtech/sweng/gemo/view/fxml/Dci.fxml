@@ -12,13 +12,14 @@
     <children>
         <AnchorPane prefHeight="103.0" prefWidth="270.0" style="-fx-background-color: #387D79;">
          <children>
-              <Label layoutX="80.0" layoutY="-12.0" prefHeight="67.0" prefWidth="101.0" text="DCI" textFill="WHITE">
+              <Label layoutX="45.0" layoutY="14.0" prefHeight="67.0" prefWidth="101.0" text="DCI" textFill="WHITE">
                   <font>
-                      <Font size="60.0" />
+                      <Font name="Calibri Bold" size="59.0" />
                   </font>
               </Label>
+            <Button fx:id="Dashboard" layoutX="172.0" layoutY="52.0" mnemonicParsing="false" text="Dashboard" />
          </children></AnchorPane>
-        <AnchorPane layoutX="-9.0" layoutY="90.0" prefHeight="480.0" prefWidth="279.0" style="-fx-background-color: #76b7b6;">
+        <AnchorPane layoutY="90.0" prefHeight="480.0" prefWidth="270.0" style="-fx-background-color: #76b7b6;">
             <children>
                 <TextField id="txtNameFirst" layoutX="42.0" layoutY="76.0" prefHeight="25.0" prefWidth="175.0" promptText="Name" />
             <TextField id="txtIdNewFirst" layoutX="145.0" layoutY="45.0" prefHeight="25.0" prefWidth="71.0" promptText="New Id" />

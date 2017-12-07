@@ -18,11 +18,11 @@ public class VisitDaoImpl {
         try {
             connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO visit (id_patient, date ,comment,id_service,id_user) VALUES(?,?,?,?,?)");
-            preparedStatement.setInt(1, visit.getId_patient());
+            preparedStatement.setInt(1, visit.getIdp());
             preparedStatement.setString(2, visit.getDate());
             preparedStatement.setString(3, visit.getComment());
-            preparedStatement.setInt(4, visit.getId_service());
-            preparedStatement.setInt(5, visit.getId_user());
+            preparedStatement.setInt(4, visit.getIds());
+            preparedStatement.setInt(5, 1);
             try {
                 preparedStatement.executeUpdate();
             } catch (Exception e) {
@@ -50,6 +50,90 @@ public class VisitDaoImpl {
                 }
             }
         }
+
+        insert2(visit);
+        insert3(visit);
+    }
+
+
+    public void insert2(Visit visit) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("INSERT INTO visit_inter SET id_visit=?,id_intervention=?,context=?");
+            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(2, visit.getIdi());
+            preparedStatement.setString(3, visit.getContext());
+
+
+            try {
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
+
+    public void insert3(Visit visit) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("INSERT INTO visit_dci SET id_visit=?,id_dci=?,id_problem=?");
+            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(2, visit.getIdd());
+            preparedStatement.setInt(3, visit.getIdpb());
+
+
+            try {
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
     }
 
     public void update(Visit visit, int id) {
@@ -58,10 +142,10 @@ public class VisitDaoImpl {
         try {
             connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("UPDATE visit SET id_patient=?,date=?,comment=?,id_service=? WHERE id=?");
-            preparedStatement.setInt(1, visit.getId_patient());
+            preparedStatement.setInt(1, visit.getIdp());
             preparedStatement.setString(2, visit.getDate());
             preparedStatement.setString(3, visit.getComment());
-            preparedStatement.setInt(4, visit.getId_service());
+            preparedStatement.setInt(4, visit.getIds());
             preparedStatement.setInt(5, id);
             preparedStatement.executeUpdate();
             System.out.println();

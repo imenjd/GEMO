@@ -1,35 +1,70 @@
 package tn.medtech.sweng.gemo.entities;
 
 public class Visit {
-    private int id;
-    private int id_patient;
+
+
+    private int idp;
+    private int ids;
     private String comment;
-
-    private int id_user;
-    private int id_service;
-
-
+    private int idu = 1; // session id of the connected user
     private String date;
+    private int idd;
+    private int idi;
+    private String context;
+
+    public int getIdpb() {
+        return idpb;
+    }
+
+    public void setIdpb(int idpb) {
+        this.idpb = idpb;
+    }
+
+    private int idpb;
+
 
     public Visit() {
 
     }
 
-
-    public int getId() {
-        return id;
+    public int getIdd() {
+        return idd;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdd(int idd) {
+        this.idd = idd;
     }
 
-    public int getId_patient() {
-        return id_patient;
+    public int getIdi() {
+        return idi;
     }
 
-    public void setId_patient(int id_patient) {
-        this.id_patient = id_patient;
+    public void setIdi(int idi) {
+        this.idi = idi;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    public int getIdp() {
+        return idp;
+    }
+
+    public void setIdp(int idp) {
+        this.idp = idp;
+    }
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
     }
 
     public String getComment() {
@@ -40,6 +75,14 @@ public class Visit {
         this.comment = comment;
     }
 
+    public int getIdu() {
+        return idu;
+    }
+
+    public void setIdu(int idu) {
+        this.idu = idu;
+    }
+
     public String getDate() {
         return date;
     }
@@ -48,20 +91,13 @@ public class Visit {
         this.date = date;
     }
 
-    public int getId_user() {
-        return id_user;
-    }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
-
-    public int getId_service() {
-        return id_service;
-    }
-
-    public void setId_service(int id_service) {
-        this.id_service = id_service;
+    public Visit(int idp, int ids, String comment, String date, int idu) {
+        this.idp = idp;
+        this.ids = ids;
+        this.date = date;
+        this.comment = comment;
+        this.idu = idu;
     }
 
 

@@ -125,21 +125,23 @@ public class SearchView {
             }
             else{
                 warning.setText("");
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fxml/Details.fxml"));
+                Parent root1=null;
+                try {
+                    root1=loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene sc=new Scene(root1);
+                Stage stage=new Stage();
+                stage.setTitle("More Details");
+                stage.setScene(sc);
+                stage.show();
+                SearchDetailsView view=new SearchDetailsView();
+                view.fillFields(sc,idtosearch);
             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/fxml/Details.fxml"));
-            Parent root1=null;
-            try {
-                root1=loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Scene sc=new Scene(root1);
-            Stage stage=new Stage();
-            stage.setTitle("More Details");
-            stage.setScene(sc);
-            stage.show();
-            SearchDetailsView view=new SearchDetailsView();
-            view.fillFields(sc,idtosearch);
+
         });
     }
 
@@ -165,6 +167,7 @@ public class SearchView {
             PatientView view = new PatientView();
             view.add(sc2);
             view.update(sc2);
+            view.homebtn(sc2);
         });
 
         } catch (Exception e) {
@@ -201,6 +204,7 @@ public class SearchView {
                 view.DciLoad(sc2);
                 view.interload(sc2);
                 view.patientload(sc2);
+                view.homebtn(sc2);
             });
 
         } catch (Exception e) {
@@ -210,6 +214,81 @@ public class SearchView {
 
 
     }
+
+
+
+    public void logout(Scene scene){
+        try {
+            Button logout=(Button)scene.lookup("#logout");
+
+            logout.setOnAction(event -> {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Login.fxml"));
+                Parent root = null;
+                try {
+                    root =  fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                UserView view = new UserView();
+                view.BtnLogin(sc2);
+                view.ToSignUp(sc2);
+
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
+    public void Dashboard(Scene scene){
+        try {
+            Button Dashboard=(Button)scene.lookup("#Dashboard");
+
+            Dashboard.setOnAction(event -> {
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
+                Parent root = null;
+                try {
+                    root =  fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                DashboardView view = new DashboardView();
+                view.dci(sc2);
+                view.med(sc2);
+                view.problem(sc2);
+                view.service(sc2);
+                view.service(sc2);
+                view.userpending(sc2);
+                view.user(sc2);
+                view.Home(sc2);
+
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
 
 
 }

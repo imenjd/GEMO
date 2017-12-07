@@ -1,15 +1,19 @@
 package tn.medtech.sweng.gemo.view;
 
 import javafx.application.Application;
+
+import java.io.IOException;
 import java.lang.Exception;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.PatientController ;
 import tn.medtech.sweng.gemo.entities.Patient;
 
@@ -100,6 +104,45 @@ public class PatientView {
         }
 
 
+
+    }
+
+
+
+
+    public void homebtn(Scene scene) {
+
+        try {
+            Button homebtnPatient = (Button) scene.lookup("#homebtn");
+            homebtnPatient.setOnAction(e -> {
+
+
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = Loader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
+                stage.setTitle("Home Page");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                SearchView searchView=new SearchView();
+                searchView.fillCombobox(sc2);
+                searchView.filltable(sc2);
+                searchView.getLoad(sc2);
+                searchView.addPatient(sc2);
+                searchView.addVisit(sc2);
+                searchView.logout(sc2);
+                searchView.Dashboard(sc2);
+
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

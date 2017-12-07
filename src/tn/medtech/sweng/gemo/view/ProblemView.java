@@ -1,14 +1,23 @@
 package tn.medtech.sweng.gemo.view;
 
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.ProblemController;
 import tn.medtech.sweng.gemo.entities.Problem;
 
+import java.io.IOException;
+
 public class ProblemView {
+
+    public ProblemView() {
+    }
 
     public static void insert(Scene scene){
 
@@ -75,5 +84,43 @@ public class ProblemView {
     }
 
 
+    public void Dashboard(Scene scene){
+        try {
+            Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+
+            Dashboardprob.setOnAction(event -> {
+
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
+                Parent root = null;
+                try {
+                    root =  Loader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                DashboardView view = new DashboardView();
+                view.dci(sc2);
+                view.med(sc2);
+                view.problem(sc2);
+                view.service(sc2);
+                view.service(sc2);
+                view.userpending(sc2);
+                view.user(sc2);
+                view.Home(sc2);
+
+
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
 
 }

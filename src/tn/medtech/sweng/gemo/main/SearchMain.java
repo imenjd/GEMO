@@ -27,6 +27,8 @@ public class SearchMain extends Application {
             searchView.getLoad(scene);
             searchView.addPatient(scene);
             searchView.addVisit(scene);
+            searchView.logout(scene);
+            searchView.Dashboard(scene);
 
 
 

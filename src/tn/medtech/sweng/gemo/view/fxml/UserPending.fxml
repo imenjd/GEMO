@@ -17,6 +17,7 @@
                   <Font name="Bebas" size="42.0" />
                </font>
             </Label>
+            <Button fx:id="Dashboard" layoutX="573.0" layoutY="32.0" mnemonicParsing="false" text="Dashboard" />
          </children>
       </AnchorPane>
       <Button id="btnAccept" layoutX="257.0" layoutY="380.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #387d79;" text="Accept" textFill="WHITE">

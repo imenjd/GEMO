@@ -10,10 +10,10 @@ public class VisitController {
 
     public static void add(int idp, String date, String comment, int ids) {
         Visit visit = new Visit();
-        visit.setId_patient(idp);
+        visit.setIdp(idp);
         visit.setDate(date);
         visit.setComment(comment);
-        visit.setId_service(ids);
+        visit.setIds(ids);
 
         VisitDaoImpl dao = new VisitDaoImpl();
         dao.insert(visit);
@@ -21,10 +21,10 @@ public class VisitController {
 
     public static void update(int idp, String date, String comment, int ids, int id) {
         Visit visit = new Visit();
-        visit.setId_patient(idp);
+        visit.setIdp(idp);
         visit.setDate(date);
         visit.setComment(comment);
-        visit.setId_service(ids);
+        visit.setIds(ids);
 
         VisitDaoImpl dao = new VisitDaoImpl();
         dao.update(visit, id);

@@ -17,6 +17,7 @@
                         <Font name="System Bold" size="42.0" />
                     </font>
                 </Label>
+            <Button fx:id="homebtn" layoutX="536.0" layoutY="22.0" mnemonicParsing="false" text="Home" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="406.0" layoutY="76.0" prefHeight="505.0" prefWidth="305.0" style="-fx-background-color: #387D79;">
@@ -52,7 +53,7 @@
       <Button id="interload" layoutX="142.0" layoutY="272.0" mnemonicParsing="false" text="?" />
       <Button id="patientload" layoutX="142.0" layoutY="104.0" mnemonicParsing="false" text="?" />
       <TextField id="context" alignment="TOP_LEFT" layoutX="59.0" layoutY="433.0" prefHeight="69.0" prefWidth="236.0" promptText="Context..." />
-      <TextField id="idprob" layoutX="192.0" layoutY="272.0" prefHeight="25.0" prefWidth="85.0" promptText="ID problem" />
-      <Button id="problemload" layoutX="277.0" layoutY="272.0" mnemonicParsing="false" text="?"  />
+      <TextField id="idprob" layoutX="192.0" layoutY="272.0" prefHeight="31.0" prefWidth="94.0" promptText="ID problem" />
+      <Button id="problemload" layoutX="285.0" layoutY="272.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="27.0" text="?" />
     </children>
 </AnchorPane>

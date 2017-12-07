@@ -18,7 +18,7 @@ public class VisitMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            Visit visit = new Visit();
+
             Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Visite.fxml"));
             Scene scene = new Scene(Root, 1000, 600);
 
@@ -34,6 +34,7 @@ public class VisitMain extends Application {
             view.interload(scene);
             view.patientload(scene);
             view.problemload(scene);
+            view.homebtn(scene);
 
 
         } catch (Exception e) {

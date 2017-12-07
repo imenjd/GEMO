@@ -35,4 +35,11 @@ public class UserController {
 
         return obluzers;
     }
+
+    public void delete (int id) {
+
+        UserDaoImpl dao = new UserDaoImpl();
+        dao.delete(id);
+    }
+
 }

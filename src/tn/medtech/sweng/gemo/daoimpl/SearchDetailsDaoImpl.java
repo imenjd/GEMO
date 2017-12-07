@@ -27,7 +27,7 @@ public class SearchDetailsDaoImpl implements SearchDetailsDao {
 
             connection = ConnectionConfiguration.getConnection();
             statement = connection.prepareStatement("SELECT med.name, DCI.name, visit.id, visit.id_patient,visit.date,visit.comment," +
-                    "problem.name, patient.first_name, patient.last_name,patient.birth_date,user.first_name,user.last_name,user.status," +
+                    "problem.name, patient.first_name, patient.last_name,patient.birth_date,user.firstName,user.lastName,user.status," +
                     "service.name,visit_inter.context,intervention.name FROM visit " +
                     "JOIN visit_dci ON visit_dci.id_visit=visit.id " +
                     "JOIN problem ON visit_dci.id_problem=problem.id " +

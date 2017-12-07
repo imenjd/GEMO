@@ -29,9 +29,11 @@ public class PatientMain extends Application {
             primaryStage.setScene(scene);
 
             primaryStage.show();
+            PatientView viewP = new PatientView();
+            viewP.add(scene);
+            viewP.update(scene);
 
-            PatientView.add(scene);
-            PatientView.update(scene);
+            viewP.homebtn(scene);
 
         } catch (Exception e) {
             e.printStackTrace();

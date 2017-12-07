@@ -55,6 +55,8 @@ public class UserView {
                     searchView.getLoad(sc2);
                     searchView.addPatient(sc2);
                     searchView.addVisit(sc2);
+                    searchView.logout(sc2);
+                    searchView.Dashboard(sc2);
 
 
 

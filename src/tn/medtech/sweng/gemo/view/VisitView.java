@@ -8,6 +8,7 @@ import java.lang.Exception;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -232,4 +233,42 @@ public class VisitView {
         }
 
     }
+
+
+    public void homebtn(Scene scene) {
+
+        try {
+            Button homebtn = (Button) scene.lookup("#homebtn");
+            homebtn.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
+                stage.setTitle("Home Page");
+                Scene sc2 = new Scene(root1);
+                stage.setScene(sc2);
+                stage.show();
+                SearchView searchView=new SearchView();
+                searchView.fillCombobox(sc2);
+                searchView.filltable(sc2);
+                searchView.getLoad(sc2);
+                searchView.addPatient(sc2);
+                searchView.addVisit(sc2);
+                searchView.logout(sc2);
+                searchView.Dashboard(sc2);
+
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
