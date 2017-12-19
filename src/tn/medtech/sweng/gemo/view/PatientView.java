@@ -44,6 +44,17 @@ public class PatientView {
 
         });
     }
+
+    public String SessionStorage(Scene scene){
+
+        Label username =(Label)scene.lookup("#username");
+
+        String u= username.getText();
+
+
+        return  u;
+    }
+
     public static void update(Scene scene){
 
         Button update=(Button) scene.lookup("#update");
@@ -124,11 +135,20 @@ public class PatientView {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                PatientView pview = new PatientView();
+                String u=pview.SessionStorage(scene);
+
+
                 Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
                 stage.setTitle("Home Page");
                 Scene sc2 = new Scene(root1);
                 stage.setScene(sc2);
                 stage.show();
+
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
+
+
                 SearchView searchView=new SearchView();
                 searchView.fillCombobox(sc2);
                 searchView.filltable(sc2);

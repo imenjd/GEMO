@@ -70,6 +70,8 @@
                         </TableView>
                   <Label fx:id="warning" layoutX="187.0" layoutY="127.0" prefHeight="17.0" prefWidth="198.0" textFill="#387d79" />
                   <Button fx:id="logout" layoutX="474.0" layoutY="6.0" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: #387d79;" text="Log out" textFill="WHITE" />
+                  <Label id="username" layoutX="104.0" layoutY="11.0" prefHeight="21.0" prefWidth="167.0" />
+                  <Label layoutX="14.0" layoutY="11.0" text="Current User: " />
                     </children>
                 </AnchorPane>
             </items>

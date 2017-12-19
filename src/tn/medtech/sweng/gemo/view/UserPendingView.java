@@ -198,11 +198,15 @@ public class UserPendingView {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                UserPendingView dview = new UserPendingView();
+                String u=dview.SessionStorage(scene);
 
                 Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 DashboardView view = new DashboardView();
                 view.dci(sc2);
                 view.med(sc2);
@@ -222,6 +226,16 @@ public class UserPendingView {
 
 
 
+    }
+
+    public String SessionStorage(Scene scene){
+
+        Label username =(Label)scene.lookup("#username");
+
+        String u= username.getText();
+
+
+        return  u;
     }
 }
 

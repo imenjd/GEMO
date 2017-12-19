@@ -17,6 +17,8 @@
                </font>
             </Label>
             <Button fx:id="Dashboard" layoutX="591.0" layoutY="16.0" mnemonicParsing="false" text="Dashboard" />
+             <Label layoutX="323.0" layoutY="37.0" text="Active User: " />
+             <Label id="username" layoutX="405.0" layoutY="37.0" prefHeight="21.0" prefWidth="167.0"  />
          </children>
       </AnchorPane>
       <TableView id="TableUser" layoutX="39.0" layoutY="90.0" prefHeight="200.0" prefWidth="649.0">

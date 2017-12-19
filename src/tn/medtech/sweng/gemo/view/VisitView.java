@@ -36,6 +36,8 @@ public class VisitView {
          TextField idint = (TextField) scene.lookup("#idint");
          TextField iddci = (TextField) scene.lookup("#iddci");
          TextField idprob = (TextField) scene.lookup("#idprob");
+        Label username =(Label)scene.lookup("#username");
+
 
 
 
@@ -53,10 +55,11 @@ public class VisitView {
                 int idint1 = Integer.parseInt(idint.getText());
                 int iddci1 = Integer.parseInt(iddci.getText());
                 int idprob1 = Integer.parseInt(idprob.getText());
+                String u= username.getText();
 
                 VisitController ctrrl = new VisitController();
 
-                ctrrl.add(idp1, date1, comment1, ids1,idint1,context1,iddci1,idprob1,"hela");
+                ctrrl.add(idp1, date1, comment1, ids1,idint1,context1,iddci1,idprob1,u);
                 label.setText("Added successfully !!");
 
 
@@ -107,7 +110,7 @@ public class VisitView {
             serviceload.setOnAction(e -> {
 
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/ServiceLoad.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/serviceload.fxml"));
                 Parent root1 = null;
                 try {
                     root1 = (Parent) fxmlLoader.load();
@@ -179,7 +182,7 @@ public class VisitView {
                 Scene sc2 = new Scene(root1);
                 stage.setScene(sc2);
                 stage.show();
-                DciView.fillTable(sc2);
+                InterventionView.fillTable(sc2);
 
             });
         } catch(Exception e) {
@@ -230,7 +233,7 @@ public class VisitView {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/problemload.fxml"));
                 Parent root1 = null;
                 try {
-                    root1 = fxmlLoader.load();
+                    root1 = (Parent)fxmlLoader.load();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -264,11 +267,17 @@ public class VisitView {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+
+                VisitView sview = new VisitView();
+                String u=sview.SessionStorage(scene);
+
                 Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
                 stage.setTitle("Home Page");
                 Scene sc2 = new Scene(root1);
                 stage.setScene(sc2);
                 stage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 SearchView searchView=new SearchView();
                 searchView.fillCombobox(sc2);
                 searchView.filltable(sc2);
@@ -286,4 +295,13 @@ public class VisitView {
 
     }
 
+    public String SessionStorage(Scene scene){
+
+        Label username =(Label)scene.lookup("#username");
+
+        String u= username.getText();
+
+
+        return  u;
+    }
 }

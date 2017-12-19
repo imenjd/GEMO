@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,10 +29,15 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
                 Scene sc2 = new Scene(root,1000,550);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
+
                 SearchView searchView=new SearchView();
                 searchView.fillCombobox(sc2);
                 searchView.filltable(sc2);
@@ -52,6 +58,8 @@ public class DashboardView {
 
     }
 
+
+
     public void dci (Scene scene) {
 
         try {
@@ -67,10 +75,15 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
+
                 Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 DciView view3 = new DciView();
                 view3.winInfo(sc2);
                 view3.fillTable(sc2);
@@ -106,10 +119,14 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
                 Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 MedView view1 = new MedView();
                 view1.fillTable2(sc2);
                 view1.add2(sc2);
@@ -144,10 +161,14 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
                 Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 ProblemView view = new ProblemView();
                 view.insert(sc2);
                 view.update(sc2);
@@ -182,10 +203,15 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
+
                 Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
                 InterventionView view = new InterventionView();
                view.Dashboard(sc2);
                view.insert(sc2);
@@ -225,10 +251,17 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
+
+
                 Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
+
                 ServiceView view = new ServiceView();
                 view.fillTable(sc2);
                 view.add(sc2);
@@ -262,11 +295,16 @@ public class DashboardView {
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                DashboardView dview = new DashboardView();
+                String u=dview.SessionStorage(scene);
 
                 Scene sc2 = new Scene(root);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
+                Label username =(Label)sc2.lookup("#username");
+                username.setText(u);
+
                 UserPendingView view = new UserPendingView();
                 view.fillTable(sc2);
                 view.reject(sc2);
@@ -302,11 +340,15 @@ public class DashboardView {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-
+                    DashboardView dview = new DashboardView();
+                    String u=dview.SessionStorage(scene);
                     Scene sc2 = new Scene(root);
                     Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                     newstage.setScene(sc2);
                     newstage.show();
+                    Label username =(Label)sc2.lookup("#username");
+                    username.setText(u);
+
                     UserView uview = new UserView();
                     uview.fillTable(sc2);
 
@@ -325,6 +367,16 @@ public class DashboardView {
 
 
 
+    }
+
+    public String SessionStorage(Scene scene){
+
+        Label username =(Label)scene.lookup("#username");
+
+        String u= username.getText();
+
+
+        return  u;
     }
 
 

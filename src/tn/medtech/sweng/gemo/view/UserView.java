@@ -44,13 +44,18 @@ public class UserView {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-
+                    UserView uview = new UserView();
+                    String un= uview.SessionStorage(scene);
                     Scene sc2 = new Scene(root, 1000, 550);
                     Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                     newstage.setScene(sc2);
                     newstage.show();
+                    Label username =(Label)sc2.lookup("#username");
+                    username.setText(un);
+
                     SearchView searchView=new SearchView();
-                    searchView.SessionStorage(u);
+
+                    searchView.SessionStorage(sc2);
                     searchView.fillCombobox(sc2);
                     searchView.filltable(sc2);
                     searchView.getLoad(sc2);

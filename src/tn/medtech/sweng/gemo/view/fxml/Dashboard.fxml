@@ -14,6 +14,8 @@
                   <Font name="Calibri Bold" size="41.0" />
                </font>
             </Label>
+            <Label layoutX="571.0" layoutY="54.0" prefHeight="21.0" prefWidth="111.0" text="Currently active:" />
+            <Label id="username" layoutX="682.0" layoutY="54.0" prefHeight="21.0" prefWidth="167.0" text="imenfaith" />
          </children>
       </AnchorPane>
       <Button id="dci" layoutX="124.0" layoutY="153.0" mnemonicParsing="false" style="-fx-background-color: #387d79;" text="DCI" textFill="WHITE">

@@ -11,12 +11,14 @@
     <children>
         <AnchorPane layoutX="-1.0" prefHeight="102.0" prefWidth="602.0" style="-fx-background-color: #387d79;">
          <children>
-              <Label layoutX="161.0" layoutY="13.0" prefHeight="77.0" prefWidth="281.0" text="Problems" textAlignment="CENTER" textFill="WHITE">
+              <Label layoutX="161.0" layoutY="-2.0" prefHeight="77.0" prefWidth="281.0" text="Problems" textAlignment="CENTER" textFill="WHITE">
                   <font>
                       <Font name="Calibri Bold" size="67.0" />
                   </font>
               </Label>
             <Button fx:id="Dashboard" layoutX="469.0" layoutY="36.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="108.0" text="Dashboard" />
+             <Label layoutX="27.0" layoutY="77.0" text="Active User: " />
+             <Label id="username" layoutX="109.0" layoutY="77.0" prefHeight="21.0" prefWidth="167.0" />
          </children></AnchorPane>
         <AnchorPane layoutX="-1.0" layoutY="102.0" prefHeight="540.0" prefWidth="602.0" style="-fx-background-color: #76b7b6;">
          <children>
