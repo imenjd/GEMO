@@ -21,6 +21,15 @@ public class UserController {
         }
     }
 
+    public int sessionStorage(String userName) {
+        User user;
+        UserDaoImpl dao = new UserDaoImpl();
+        user = dao.selectByUserName(userName);
+        int id=user.getId();
+        return id;
+
+    }
+
 
     public  ObservableList fillTable () {
 

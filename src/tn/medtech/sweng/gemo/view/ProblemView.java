@@ -69,7 +69,7 @@ public class ProblemView {
 
             TableColumn<Problem,Integer> columnid = new TableColumn<Problem,Integer>("id");
             columnid.setCellValueFactory(new PropertyValueFactory("id"));
-            TableColumn<Problem,String> columnname = new TableColumn<Problem,String>("Service");
+            TableColumn<Problem,String> columnname = new TableColumn<Problem,String>("Problem");
             columnname.setCellValueFactory(new PropertyValueFactory("name"));
 
             table.getColumns().setAll(columnid, columnname);
@@ -82,6 +82,32 @@ public class ProblemView {
 
 
     }
+
+    public void winInfo(Scene scene){
+
+        try {
+            Button btnInfo = (Button) scene.lookup("#info");
+            btnInfo.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/InfoDci.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Information");
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     public void Dashboard(Scene scene){
@@ -98,7 +124,7 @@ public class ProblemView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -111,6 +137,7 @@ public class ProblemView {
                 view.userpending(sc2);
                 view.user(sc2);
                 view.Home(sc2);
+                view.intervention(sc2);
 
 
             });

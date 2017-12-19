@@ -68,7 +68,7 @@ public class UserDashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -81,6 +81,7 @@ public class UserDashboardView {
                 view.userpending(sc2);
                 view.user(sc2);
                 view.Home(sc2);
+                view.intervention(sc2);
 
             });
 

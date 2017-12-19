@@ -25,14 +25,15 @@ public class ProblemMain extends Application {
 
 
             Problem problem = new Problem();
-            Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/ProblemFx.fxml"));
-            Scene scene = new Scene(Root, 1000, 600);
+            Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Problem.fxml"));
+            Scene scene = new Scene(Root, 596, 638);
 
             primaryStage.setScene(scene);
             primaryStage.show();
             ProblemView.insert(scene);
             ProblemView.update(scene);
             ProblemView.delete(scene);
+            ProblemView.fillTable(scene);
         }catch (Exception e){
             e.printStackTrace();
         }

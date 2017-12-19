@@ -46,7 +46,7 @@ public class MedView {
         TextField txtIdFirst2 = (TextField) scene.lookup("#txtIdFirst2");
         TextField txtNameFirst2 = (TextField) scene.lookup("#txtNameFirst2");
         Label txtStatusId2  = (Label) scene.lookup("#txtStatusId2");
-        Label txtStatusIdN2  = (Label) scene.lookup("#txtStatusIdN2");
+
         TableView table2  = (TableView) scene.lookup("#tabl2e");
 
         btnAdd2.setOnAction(event -> {
@@ -55,12 +55,12 @@ public class MedView {
             String s= txtNameFirst2.getText();
             MedController controller = new MedController() ;
             if(controller.checkId2(d)){
-                txtStatusId2.setText("");
-                txtStatusIdN2.setText("This ID already exists!");
+
+                txtStatusId2.setText("This ID already exists!");
             }
             else {
                 controller.add2(d, s);
-                txtStatusIdN2.setText("");
+
                 txtStatusId2.setText("Med Added Successfully!");
                 fillTable2(scene);
 
@@ -77,7 +77,7 @@ public class MedView {
             TextField txtIdFirst2 = (TextField) scene.lookup("#txtIdFirst2");
             TextField txtNameFirst2 = (TextField) scene.lookup("#txtNameFirst2");
             Label txtStatusId2  = (Label) scene.lookup("#txtStatusId2");
-            Label txtStatusIdN2  = (Label) scene.lookup("#txtStatusIdN2");
+
             TableView table2  = (TableView) scene.lookup("#table2");
             TextField txtIdNewFirst2 = (TextField) scene.lookup("#txtIdNewFirst2");
 
@@ -92,20 +92,20 @@ public class MedView {
                 MedController controller = new MedController() ;
                 if(controller.checkId2(x)){
                     if(controller.checkId2(id) && (id!=x)) {
-                        txtStatusId2.setText("");
-                        txtStatusIdN2.setText("The ID already exists!");
+
+                        txtStatusId2.setText("The ID already exists!");
                     }
                     else {
 
                         controller.update2(id, name, x);
                         fillTable2(scene);
-                        txtStatusIdN2.setText("");
+
                         txtStatusId2.setText("Med Updated Successfully!");
                     }
                 }
                 else {
-                    txtStatusId2.setText("");
-                    txtStatusIdN2.setText("This ID does not exist!");
+
+                    txtStatusId2.setText("This ID does not exist!");
                 }
             });
 
@@ -127,7 +127,7 @@ public class MedView {
 
             Button btnDelete2 =(Button) scene.lookup("#btnDelete2");
             Label txtStatusId2  = (Label) scene.lookup("#txtStatusId2");
-            Label txtStatusIdN2  = (Label) scene.lookup("#txtStatusIdN2");
+
             TableView table2  = (TableView) scene.lookup("#table2");
             TextField txtIdNewFirst2 = (TextField) scene.lookup("#txtIdNewFirst2");
 
@@ -140,12 +140,12 @@ public class MedView {
                     controller.delete2(d);
 
                     fillTable2(scene);//view
-                    txtStatusIdN2.setText("");
+
                     txtStatusId2.setText("Med Deleted Successfully!");
                 }
                 else {
-                    txtStatusId2.setText("");
-                    txtStatusIdN2.setText("This ID does not exist!");
+
+                    txtStatusId2.setText("This ID does not exist!");
                 }
             });
 
@@ -200,7 +200,7 @@ public class MedView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -213,6 +213,7 @@ public class MedView {
                 view.userpending(sc2);
                 view.user(sc2);
                 view.Home(sc2);
+                view.intervention(sc2);
 
             });
 

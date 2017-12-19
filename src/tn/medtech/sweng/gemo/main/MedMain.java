@@ -26,14 +26,15 @@ public class MedMain extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/Med.fxml"));
             primaryStage.setTitle("Med");
-            Scene scene = new Scene(root, 266, 563);
+            Scene scene = new Scene(root, 596, 638);
             primaryStage.setScene(scene);
             primaryStage.show();
-            MedView.fillTable2(scene);
-            MedView.add2(scene);
-            MedView.delete2(scene);
-            MedView.update2(scene);
             MedView view1 = new MedView();
+            view1.fillTable2(scene);
+            view1.add2(scene);
+            view1.delete2(scene);
+            view1.update2(scene);
+            view1.Dashboard(scene);
             view1.winInfo(scene);
 
         } catch (IOException e) {

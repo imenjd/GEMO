@@ -22,7 +22,7 @@ public class VisitDaoImpl {
             preparedStatement.setString(2, visit.getDate());
             preparedStatement.setString(3, visit.getComment());
             preparedStatement.setInt(4, visit.getIds());
-            preparedStatement.setInt(5, 1);
+            preparedStatement.setInt(5, visit.getUserid());
             try {
                 preparedStatement.executeUpdate();
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public class VisitDaoImpl {
             }
         }
 
-        insert2(visit);
-        insert3(visit);
+        //insert2(visit);
+       // insert3(visit);
     }
 
 
@@ -63,7 +63,7 @@ public class VisitDaoImpl {
         try {
             connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO visit_inter SET id_visit=?,id_intervention=?,context=?");
-            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(1, visit.getId());
             preparedStatement.setInt(2, visit.getIdi());
             preparedStatement.setString(3, visit.getContext());
 
@@ -103,7 +103,7 @@ public class VisitDaoImpl {
         try {
             connection = ConnectionConfiguration.getConnection();
             preparedStatement = connection.prepareStatement("INSERT INTO visit_dci SET id_visit=?,id_dci=?,id_problem=?");
-            preparedStatement.setInt(1, 1);
+            preparedStatement.setInt(1, visit.getId());
             preparedStatement.setInt(2, visit.getIdd());
             preparedStatement.setInt(3, visit.getIdpb());
 
@@ -178,8 +178,9 @@ public class VisitDaoImpl {
         connection = ConnectionConfiguration.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM visit");
+            preparedStatement = connection.prepareStatement("SELECT id FROM visit");
 
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
@@ -194,6 +195,7 @@ public class VisitDaoImpl {
             e.printStackTrace();
         }
 
+
         if (id > idd) {
             return false;
         } else {
@@ -201,4 +203,34 @@ public class VisitDaoImpl {
         }
 
     }
+
+    public int findId() {
+        Connection connection = null;
+        connection = ConnectionConfiguration.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("SELECT id FROM visit");
+
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int max =0;int id;
+        try {
+            while (resultSet.next()) {
+                id = resultSet.getInt("id");
+                if(id>max)
+                    max=id;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return max+1;
+
+    }
+
 }

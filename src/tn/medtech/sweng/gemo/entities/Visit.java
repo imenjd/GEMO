@@ -3,6 +3,28 @@ package tn.medtech.sweng.gemo.entities;
 public class Visit {
 
 
+    public Visit(int id, int idp, int ids, String comment, int idu, String date, int idd, int idi, String context, int idpb) {
+        this.id = id;
+        this.idp = idp;
+        this.ids = ids;
+        this.comment = comment;
+        this.idu = idu;
+        this.date = date;
+        this.idd = idd;
+        this.idi = idi;
+        this.context = context;
+        this.idpb = idpb;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private int idp;
     private int ids;
     private String comment;
@@ -11,6 +33,17 @@ public class Visit {
     private int idd;
     private int idi;
     private String context;
+    private int idpb;
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
+    private int userid;
 
     public int getIdpb() {
         return idpb;
@@ -20,7 +53,7 @@ public class Visit {
         this.idpb = idpb;
     }
 
-    private int idpb;
+
 
 
     public Visit() {
@@ -92,13 +125,6 @@ public class Visit {
     }
 
 
-    public Visit(int idp, int ids, String comment, String date, int idu) {
-        this.idp = idp;
-        this.ids = ids;
-        this.date = date;
-        this.comment = comment;
-        this.idu = idu;
-    }
 
 
 }

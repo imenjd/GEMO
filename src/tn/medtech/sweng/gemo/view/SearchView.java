@@ -152,7 +152,7 @@ public class SearchView {
 
         addPatientbt.setOnAction(event -> {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Patients.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Patients1.fxml"));
             Parent root = null;
             try {
                 root =  fxmlLoader.load();
@@ -248,7 +248,11 @@ public class SearchView {
 
 
     }
+    public String SessionStorage(String u){
 
+
+        return  u;
+    }
 
     public void Dashboard(Scene scene){
         try {
@@ -264,7 +268,7 @@ public class SearchView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -277,6 +281,7 @@ public class SearchView {
                 view.userpending(sc2);
                 view.user(sc2);
                 view.Home(sc2);
+                view.intervention(sc2);
 
             });
 

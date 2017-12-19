@@ -24,13 +24,14 @@ public class InterventionMain extends Application {
 
             Intervention intervention = new Intervention();
             Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Intervention.fxml"));
-            Scene scene = new Scene(Root, 1000, 600);
+            Scene scene = new Scene(Root, 596, 638);
 
             primaryStage.setScene(scene);
             primaryStage.show();
             InterventionView.insert(scene);
             InterventionView.update(scene);
             InterventionView.delete(scene);
+            InterventionView.fillTable(scene);
         } catch (Exception e) {
             e.printStackTrace();
         }

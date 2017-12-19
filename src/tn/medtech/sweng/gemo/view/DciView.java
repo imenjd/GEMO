@@ -61,12 +61,12 @@ public class DciView {
             DciController controller = new DciController() ;
 
             if(controller.checkId(d)){
-                txtStatusId.setText("");
-                txtStatusIdN.setText("This ID already exists!");
+
+                txtStatusId.setText("This ID already exists!");
             }
             else {
                 controller.add(d, s);
-                txtStatusIdN.setText("");
+
                 txtStatusId.setText("Dci Added Successfully!");
                 fillTable(scene);
 
@@ -97,19 +97,19 @@ public class DciView {
                 DciController controller = new DciController() ;
                 if(controller.checkId(x)){
                     if(controller.checkId(id) && (id!=x)){
-                        txtStatusId.setText("");
-                        txtStatusIdN.setText("The ID already exists!");}
+
+                        txtStatusId.setText("The ID already exists!");}
                     else {
 
                         controller.update(id, name, x);
                         fillTable(scene);
-                        txtStatusIdN.setText("");
+
                         txtStatusId.setText("Dci Updated Successfully!");
                     }
                 }
                 else {
-                    txtStatusId.setText("");
-                    txtStatusIdN.setText("This ID does not exist!");
+
+                    txtStatusId.setText("This ID does not exist!");
                 }
             });
 
@@ -142,13 +142,13 @@ public class DciView {
 
                     fillTable(scene);
 
-                    txtStatusIdN.setText("");
+
                     txtStatusId.setText("Dci Deleted Successfully!");
 
                 }
                 else{
-                    txtStatusId.setText("");
-                    txtStatusIdN.setText("This ID does not exist!");
+
+                    txtStatusId.setText("This ID does not exist!");
                 }
 
             });
@@ -201,7 +201,7 @@ public class DciView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 849, 494);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -214,6 +214,7 @@ public class DciView {
                 view.userpending(sc2);
                 view.user(sc2);
                 view.Home(sc2);
+                view.intervention(sc2);
 
             });
 

@@ -27,8 +27,6 @@ public  class UserMain extends Application {
             view.BtnLogin(scene);
             view.ToSignUp(scene);
 
-            System.out.println("aaa");
-
         } catch (IOException e) {
             e.printStackTrace();
         }

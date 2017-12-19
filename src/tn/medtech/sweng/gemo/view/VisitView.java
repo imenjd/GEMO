@@ -24,12 +24,21 @@ public class VisitView {
 
 
     public static void add(Scene scene) {
+
         Button add = (Button) scene.lookup("#add");
-        final TextField idp = (TextField) scene.lookup("#idp");
-        final TextField ids = (TextField) scene.lookup("#ids");
-        final TextField comment = (TextField) scene.lookup("#comment");
-        final DatePicker date = (DatePicker) scene.lookup("#date");
+         TextField idp = (TextField) scene.lookup("#idp");
+         TextField ids = (TextField) scene.lookup("#ids");
+         TextField comment = (TextField) scene.lookup("#comment");
+         TextField context = (TextField) scene.lookup("#context");
+         DatePicker date = (DatePicker) scene.lookup("#date");
         Label label = (Label) scene.lookup("#label");
+
+         TextField idint = (TextField) scene.lookup("#idint");
+         TextField iddci = (TextField) scene.lookup("#iddci");
+         TextField idprob = (TextField) scene.lookup("#idprob");
+
+
+
 
         try {
 
@@ -40,8 +49,14 @@ public class VisitView {
                 int idp1 = Integer.parseInt(idp.getText());
                 String date1 = date.getValue().toString();
                 String comment1 = comment.getText();
+                String context1 = context.getText();
+                int idint1 = Integer.parseInt(idint.getText());
+                int iddci1 = Integer.parseInt(iddci.getText());
+                int idprob1 = Integer.parseInt(idprob.getText());
 
-                VisitController.add(idp1, date1, comment1, ids1);
+                VisitController ctrrl = new VisitController();
+
+                ctrrl.add(idp1, date1, comment1, ids1,idint1,context1,iddci1,idprob1,"hela");
                 label.setText("Added successfully !!");
 
 

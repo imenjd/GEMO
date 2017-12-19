@@ -31,8 +31,6 @@ public class SignUpController {
         List<String> names = dao.selectAllNames();
         for (String n : names)
         {
-            System.out.println(x);
-            System.out.println(x+" compareto "+n);
             if(x.equals(n)) {
                 return false;
             }

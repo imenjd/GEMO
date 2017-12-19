@@ -45,11 +45,12 @@ public class UserView {
                         e1.printStackTrace();
                     }
 
-                    Scene sc2 = new Scene(root);
+                    Scene sc2 = new Scene(root, 1000, 550);
                     Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                     newstage.setScene(sc2);
                     newstage.show();
                     SearchView searchView=new SearchView();
+                    searchView.SessionStorage(u);
                     searchView.fillCombobox(sc2);
                     searchView.filltable(sc2);
                     searchView.getLoad(sc2);
@@ -76,6 +77,11 @@ public class UserView {
         }
     }
 
+public String SessionStorage(Scene scene){
+    TextField userName = (TextField) scene.lookup("#txtUserName");
+    String u = userName.getText().toLowerCase();
+    return  u;
+}
 
     public void ToSignUp(Scene scene) {
 
@@ -93,7 +99,8 @@ public class UserView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root1);
+
+                Scene sc2 = new Scene(root1, 1000, 550);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();

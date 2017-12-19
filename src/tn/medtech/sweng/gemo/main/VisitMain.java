@@ -20,7 +20,7 @@ public class VisitMain extends Application {
         try {
 
             Parent Root = FXMLLoader.load(getClass().getResource("../view/fxml/Visite.fxml"));
-            Scene scene = new Scene(Root, 1000, 600);
+            Scene scene = new Scene(Root, 710, 579);
 
             primaryStage.setScene(scene);
 

@@ -23,13 +23,14 @@ public class ServiceMain extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/services.fxml"));
             primaryStage.setTitle("SERVICES");
-            Scene scene = new Scene(root, 710, 562);
+            Scene scene = new Scene(root, 596, 638);
             primaryStage.setScene(scene);
             primaryStage.show();
             ServiceView.fillTable(scene);
             ServiceView.add(scene);
             ServiceView.delete(scene);
             ServiceView.update(scene);
+
 
 
         } catch (IOException e) {

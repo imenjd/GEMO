@@ -27,7 +27,7 @@ public class DciMain extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/Dci.fxml"));
             primaryStage.setTitle("Dci");
-            Scene scene = new Scene(root, 270, 563);
+            Scene scene = new Scene(root, 596, 638);
             primaryStage.setScene(scene);
             primaryStage.show();
             DciView view3 = new DciView();
@@ -36,7 +36,9 @@ public class DciMain extends Application {
             DciView.add(scene);
             DciView.delete(scene);
             DciView.update(scene);
-            //winInfo(scene);
+            view3.Dashboard(scene);
+
+
 
         } catch (IOException e) {
             e.printStackTrace();

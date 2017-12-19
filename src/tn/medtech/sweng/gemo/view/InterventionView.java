@@ -1,12 +1,18 @@
 package tn.medtech.sweng.gemo.view;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.medtech.sweng.gemo.controller.InterventionController;
 import tn.medtech.sweng.gemo.controller.ServiceController;
 import tn.medtech.sweng.gemo.entities.Intervention;
 import tn.medtech.sweng.gemo.entities.Service;
+
+import java.io.IOException;
 
 public class InterventionView {
 
@@ -63,7 +69,7 @@ public class InterventionView {
 
             TableColumn<Intervention,Integer> columnid = new TableColumn<Intervention,Integer>("id");
             columnid.setCellValueFactory(new PropertyValueFactory("id"));
-            TableColumn<Intervention,String> columnname = new TableColumn<Intervention,String>("Service");
+            TableColumn<Intervention,String> columnname = new TableColumn<Intervention,String>("intervention");
             columnname.setCellValueFactory(new PropertyValueFactory("name"));
 
             table.getColumns().setAll(columnid, columnname);
@@ -77,5 +83,75 @@ public class InterventionView {
 
     }
 
+    public void winInfo(Scene scene){
+
+        try {
+            Button btnInfo = (Button) scene.lookup("#info");
+            btnInfo.setOnAction(e -> {
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/InfoDci.fxml"));
+                Parent root1 = null;
+                try {
+                    root1 = (Parent) fxmlLoader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Information");
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    public void Dashboard(Scene scene){
+        try {
+            Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+
+            Dashboardprob.setOnAction(event -> {
+
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
+                Parent root = null;
+                try {
+                    root =  Loader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root, 849, 494);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                DashboardView view = new DashboardView();
+                view.dci(sc2);
+                view.med(sc2);
+                view.problem(sc2);
+                view.service(sc2);
+                view.service(sc2);
+                view.userpending(sc2);
+                view.user(sc2);
+                view.Home(sc2);
+                view.intervention(sc2);
+
+
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
 }
+
+
 

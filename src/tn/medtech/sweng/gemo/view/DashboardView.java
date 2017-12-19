@@ -28,7 +28,7 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root,1000,550);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -67,7 +67,7 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -78,6 +78,7 @@ public class DashboardView {
                 view3.delete(sc2);
                 view3.update(sc2);
                 view3.Dashboard(sc2);
+
 
 
             });
@@ -105,7 +106,7 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -135,7 +136,7 @@ public class DashboardView {
 
             problem.setOnAction(event -> {
 
-                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/ProblemFx.fxml"));
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Problem.fxml"));
                 Parent root = null;
                 try {
                     root =  Loader.load();
@@ -143,7 +144,7 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -151,7 +152,8 @@ public class DashboardView {
                 view.insert(sc2);
                 view.update(sc2);
                 view.delete(sc2);
-
+                view.fillTable(sc2);
+                view.winInfo(sc2);
                 view.Dashboard(sc2);
 
 
@@ -163,6 +165,50 @@ public class DashboardView {
 
 
     }
+
+
+    public void intervention (Scene scene) {
+
+        try {
+            Button problem=(Button)scene.lookup("#interventions");
+
+            problem.setOnAction(event -> {
+
+                FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Intervention.fxml"));
+                Parent root = null;
+                try {
+                    root =  Loader.load();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                Scene sc2 = new Scene(root, 596, 638);
+                Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+                newstage.setScene(sc2);
+                newstage.show();
+                InterventionView view = new InterventionView();
+               view.Dashboard(sc2);
+               view.insert(sc2);
+               view.delete(sc2);
+               view.update(sc2);
+               view.winInfo(sc2);
+               view.fillTable(sc2);
+
+
+
+
+
+
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 
     public void service (Scene scene) {
 
@@ -179,7 +225,7 @@ public class DashboardView {
                     e1.printStackTrace();
                 }
 
-                Scene sc2 = new Scene(root);
+                Scene sc2 = new Scene(root, 596, 638);
                 Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
                 newstage.setScene(sc2);
                 newstage.show();
@@ -188,7 +234,7 @@ public class DashboardView {
                 view.add(sc2);
                 view.delete(sc2);
                 view.update(sc2);
-
+                view.winInfo(sc2);
                 view.Dashboard(sc2);
 
 
