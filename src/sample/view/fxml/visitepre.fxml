@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button id="new" layoutX="47.0" layoutY="95.0" mnemonicParsing="false" text="Nouveau patient ?" />
+        <Button id="old" layoutX="223.0" layoutY="95.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" text="Ancien Patient ?" />
+    </children>
+</AnchorPane>

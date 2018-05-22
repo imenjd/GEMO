@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane prefHeight="104.0" prefWidth="734.0" style="-fx-background-color: #63c5a6;">
+            <children>
+                <TextField editable="false" layoutX="230.0" layoutY="30.0" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #63c5a6;" text="Dashboard">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </TextField>
+                <Button id="Home" layoutX="23.0" layoutY="39.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Home" />
+                <TextField layoutX="440.0" layoutY="62.0" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #63c5a6;" text="Currently active" />
+                <TextField id="txtUserName" editable="false" layoutX="555.0" layoutY="62.0" style="-fx-background-color: #63c5a6;" />
+            </children>
+        </AnchorPane>
+        <Button id="Dcibtn" layoutX="150.0" layoutY="200.0" mnemonicParsing="false" prefWidth="200.0" text="DCI">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="UserPendingBtn" layoutX="348.0" layoutY="200.0" mnemonicParsing="false" prefWidth="200.0" text="User Pending">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="UsersBtn" layoutX="150.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Users">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="PatientsBtn" layoutX="150.0" layoutY="276.0" mnemonicParsing="false" prefWidth="200.0" text="Patients">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="InterBtn" layoutX="348.0" layoutY="276.0" mnemonicParsing="false" prefWidth="200.0" text="Interventions">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="ProbBtn" layoutX="348.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Problemes">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="MedBtn" layoutX="150.0" layoutY="363.0" mnemonicParsing="false" prefWidth="200.0" text="Medicaments">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+        <Button id="ServiceBtn" layoutX="348.0" layoutY="363.0" mnemonicParsing="false" prefWidth="200.0" text="Services">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
