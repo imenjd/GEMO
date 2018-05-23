@@ -151,7 +151,7 @@ public class SearchView {
 	}
 	
 	
-	public void addVisit(Scene scene){
+	public void addVisit(Scene scene, String b){
 		
 		
 				Button visit=(Button)scene.lookup("#addVisit");
@@ -170,7 +170,7 @@ public class SearchView {
 					newstage.setScene(sc2);
 					newstage.show();
 					PreVisiteVIew a=new PreVisiteVIew();
-					a.choose(sc2);
+					a.choose(sc2,b);
 					
 				});
 					
@@ -179,8 +179,10 @@ public class SearchView {
 	
 	
 	public void logout(Scene scene){
+		
+		Button logout=(Button)scene.lookup("#LogOut");
 		try {
-			Button logout=(Button)scene.lookup("#LogOut");
+			
 			
 			logout.setOnAction(event -> {
 				
@@ -209,19 +211,11 @@ public class SearchView {
 		
 		
 	}
-	public String SessionStorage(Scene scene){
-		
-		TextField username =(TextField) scene.lookup("#txtUserName");
-		
-		String u= username.getText();
-		
-		
-		return  u;
-	}
 	
-	public void Dashboard(Scene scene){
+	
+	public void Dashboard(Scene scene, String b){
+		Button Dashboard=(Button)scene.lookup("#Dashboard");
 		try {
-			Button Dashboard=(Button)scene.lookup("#Dashboard");
 			
 			Dashboard.setOnAction(event -> {
 				
@@ -232,28 +226,24 @@ public class SearchView {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				//SearchView a=new SearchView();
-				//String u=a.SessionStorage(scene);
-				
-				SearchView sview=new SearchView();
-				String u=sview.SessionStorage(scene);
 				
 				Scene sc2 = new Scene(root, 849, 494);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
-				TextField username =(TextField) scene.lookup("#txtUserName");
-				username.setText(u);
+				TextField username =(TextField) sc2.lookup("#txtUserName");
+				username.setText(b);
 				HomeView view = new HomeView();
-				view.dci(sc2);
-				view.med(sc2);
-				view.problem(sc2);
-				view.service(sc2);
-				view.userpending(sc2);
-				view.user(sc2);
-				view.Home(sc2);
-				view.intervention(sc2);
-				view.patient(sc2);
+				
+				view.dci(sc2,b);
+				view.med(sc2,b);
+				view.problem(sc2,b);
+				view.service(sc2,b);
+				view.userpending(sc2,b);
+				view.user(sc2,b);
+				view.Home(sc2,b);
+				view.intervention(sc2,b);
+				view.patient(sc2,b);
 				
 			});
 			
@@ -271,6 +261,12 @@ public class SearchView {
 			
 			
 			
+	
+		
+		
+		
+	
+
 	
 		
 		
