@@ -88,10 +88,10 @@ public class VisitView {
 	
 	
 	
-	public void homebtn(Scene scene) {
-		
+	public void homebtn(Scene scene,String b) {
+		Button homebtn = (Button) scene.lookup("#Home");
 		try {
-			Button homebtn = (Button) scene.lookup("#Home");
+			
 			homebtn.setOnAction(e -> {
 				
 				
@@ -111,13 +111,13 @@ public class VisitView {
 				stage.setScene(sc2);
 				stage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				SearchView searchView=new SearchView();
 				searchView.fillCombobox(sc2);
 				searchView.filltable(sc2);
-				searchView.addVisit(sc2);
+				searchView.addVisit(sc2,b);
 				searchView.logout(sc2);
-				searchView.Dashboard(sc2);
+				searchView.Dashboard(sc2,b);
 				
 				
 			});
