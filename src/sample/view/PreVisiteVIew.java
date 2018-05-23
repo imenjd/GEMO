@@ -5,13 +5,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PreVisiteVIew {
 	
-	public  void choose (Scene scene){
+	public  void choose (Scene scene,String d){
 		Button newpatient=(Button) scene.lookup("#new");
 		Button olpatient=(Button) scene.lookup("#old");
 		
@@ -28,18 +29,18 @@ public class PreVisiteVIew {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			SearchView sview = new SearchView();
-			//String u=sview.SessionStorage(scene);
+			
 			
 			Scene sc2 = new Scene(root);
+			TextField username =(TextField)sc2.lookup("#username");
+			username.setText(d);
 			Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 			newstage.setScene(sc2);
 			newstage.show();
 			PatientView a=new PatientView();
-			VisitView b=new VisitView();
-			a.add(sc2);
-			b.homebtn(sc2);
-			//b.SessionStorage(sc2);
+			a.add(sc2,d);
+			a.homebtn(sc2,d);
+		
 			
 		} );
 		
@@ -54,15 +55,18 @@ public class PreVisiteVIew {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			SearchView sview = new SearchView();
-			//String u=sview.SessionStorage(scene);
+			;
+			
 			
 			Scene sc3 = new Scene(root1);
+			TextField username =(TextField)sc3.lookup("#username");
+			username.setText(d);
 			Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 			newstage.setScene(sc3);
 			newstage.show();
 			PatientView b=new PatientView();
-			b.SearchPatient(sc3);
+			b.SearchPatient(sc3,d);
+			b.homebtn(sc3,d);
 			
 		});
 		
