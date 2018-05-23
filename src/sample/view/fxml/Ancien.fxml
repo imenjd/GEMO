@@ -14,7 +14,7 @@
                 <Label layoutX="255.0" layoutY="28.0" text="Ancien Patient" />
                 <Label id="active" layoutX="524.0" layoutY="28.0" />
                 <Label id="usernameLabel" layoutX="438.0" layoutY="28.0" prefHeight="17.0" prefWidth="75.0" text="username" />
-                <Button id="home" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6;" text="Home" />
+                <Button id="Home" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6;" text="Home" />
             <TextField id="username" layoutX="504.0" layoutY="23.0" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6;" />
             </children>
         </AnchorPane>
