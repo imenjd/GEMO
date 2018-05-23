@@ -163,7 +163,7 @@ import sample.controller.UserPendingController;
 			
 		}
 		
-		public void Dashboard(Scene scene){
+		public void Dashboard(Scene scene,String b){
 			try {
 				Button Dashboard=(Button)scene.lookup("#Dashboard");
 				
@@ -183,17 +183,17 @@ import sample.controller.UserPendingController;
 					newstage.setScene(sc2);
 					newstage.show();
 					TextField username =(TextField)sc2.lookup("#txtUserName");
-					username.setText(a.SessionStorage(sc2));
+					username.setText(b);
 					HomeView view = new HomeView();
-					view.dci(sc2);
-					view.med(sc2);
-					view.problem(sc2);
-					view.service(sc2);
-					view.service(sc2);
-					view.userpending(sc2);
-					view.user(sc2);
-					view.Home(sc2);
-					view.intervention(sc2);
+					view.dci(sc2,b);
+					view.med(sc2,b);
+					view.problem(sc2,b);
+					view.service(sc2,b);
+					view.service(sc2,b);
+					view.userpending(sc2,b);
+					view.user(sc2,b);
+					view.Home(sc2,b);
+					view.intervention(sc2,b);
 					
 				});
 				
