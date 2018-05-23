@@ -6,15 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane prefHeight="72.0" prefWidth="632.0" style="-fx-background-color: #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6;">
+        <AnchorPane prefHeight="72.0" prefWidth="632.0" style="-fx-background-color: #63c5a6 ;">
             <children>
                 <Label layoutX="255.0" layoutY="28.0" text="Nouveau Patient" />
                 <Label id="active" layoutX="524.0" layoutY="28.0" />
-                <Label layoutX="487.0" layoutY="28.0" prefHeight="17.0" prefWidth="125.0" text="username" />
-                <Button layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6 #63c5a6;" text="Home" />
+                <Button id="Home" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 ;" text="Home" />
             </children>
         </AnchorPane>
         <Label layoutX="88.0" layoutY="128.0" text="Nom de famille" />
@@ -24,5 +22,7 @@
         <TextField id="fn" layoutX="219.0" layoutY="169.0" prefHeight="27.0" prefWidth="194.0" />
         <DatePicker id="db" layoutX="219.0" layoutY="214.0" />
         <Button id="add" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" text="Ajouter" />
+      <TextField id="username" editable="false" layoutX="407.0" style="-fx-background-color: #63c5a6;" layoutY="18.0" />
     </children>
 </AnchorPane>
+
