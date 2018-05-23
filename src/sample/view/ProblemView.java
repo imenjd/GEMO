@@ -35,7 +35,9 @@ public class ProblemView {
 	
 		
 		public static void fillTable (Scene scene) {
+			Button load=(Button) scene.lookup("#LoadDataProb");
 			
+			load.setOnAction(event ->{
 			try{
 				TableView table  = (TableView) scene.lookup("#table");
 				
@@ -59,17 +61,19 @@ public class ProblemView {
 			
 			
 			
+		});
 		}
 		
 		
 		
 		
-		
-		public void Dashboard(Scene scene){
-			try {
-				Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+		public void Dashboard(Scene scene,String b){
+			Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+			
+				
 				
 				Dashboardprob.setOnAction(event -> {
+					try {
 					
 					FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
 					Parent root = null;
@@ -79,7 +83,7 @@ public class ProblemView {
 						e1.printStackTrace();
 					}
 					ProblemView dview = new ProblemView();
-					String u=dview.SessionStorage(scene);
+					
 					//User a=new User();
 					UserView a=new UserView();
 					
@@ -88,37 +92,29 @@ public class ProblemView {
 					newstage.setScene(sc2);
 					newstage.show();
 					TextField username =(TextField)sc2.lookup("#txtUserName");
-					username.setText(a.SessionStorage(sc2));
+					username.setText(b);
 					HomeView view = new HomeView();
-					view.dci(sc2);
-					view.med(sc2);
-					view.problem(sc2);
-					view.service(sc2);
-					view.service(sc2);
-					view.userpending(sc2);
-					view.user(sc2);
-					view.Home(sc2);
-					view.intervention(sc2);
+					view.dci(sc2,b);
+					view.med(sc2,b);
+					view.problem(sc2,b);
+					view.service(sc2,b);
+					view.service(sc2,b);
+					view.userpending(sc2,b);
+					view.user(sc2,b);
+					view.Home(sc2,b);
+					view.intervention(sc2,b);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					
 					
 				});
 				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			
 			
 			
 		}
 		
 		
-		public String SessionStorage(Scene scene){
-			
-			TextField username =(TextField)scene.lookup("#txtUserName");
-			
-			String u= username.getText();
-			
-			
-			return  u;
-		}
+		
 }
