@@ -60,21 +60,19 @@ public class InterventionView {
 		
 		
 	}
-	public String SessionStorage(Scene scene){
-		TextField userName = (TextField) scene.lookup("#txtUserName");
-		String u = userName.getText().toLowerCase();
-		return  u;
-	}
 	
 	
 	
 	
 	
-	public void Dashboard(Scene scene){
-		try {
-			Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+	
+	public void Dashboard(Scene scene,String b){
+		Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+		
+			
 			
 			Dashboardprob.setOnAction(event -> {
+				try {
 				
 				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
 				Parent root = null;
@@ -84,7 +82,7 @@ public class InterventionView {
 					e1.printStackTrace();
 				}
 				InterventionView dview = new InterventionView();
-				String u=dview.SessionStorage(scene);
+				//String u=dview.SessionStorage(scene);
 				UserView a=new UserView();
 				
 				Scene sc2 = new Scene(root, 849, 494);
@@ -92,25 +90,25 @@ public class InterventionView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				HomeView view = new HomeView();
-				view.dci(sc2);
-				view.med(sc2);
-				view.problem(sc2);
-				view.service(sc2);
-				view.userpending(sc2);
-				view.user(sc2);
-				view.Home(sc2);
-				view.intervention(sc2);
-				view.patient(sc2);
+				view.dci(sc2,b);
+				view.med(sc2,b);
+				view.problem(sc2,b);
+				view.service(sc2,b);
+				view.userpending(sc2,b);
+				view.user(sc2,b);
+				view.Home(sc2,b);
+				view.intervention(sc2,b);
+				view.patient(sc2,b);
 				
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				
 				
 			});
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		
 		
