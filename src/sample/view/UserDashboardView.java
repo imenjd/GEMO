@@ -60,7 +60,7 @@ public class UserDashboardView {
 			}
 			
 		}
-		public void Dashboard(Scene scene){
+		public void Dashboard(Scene scene,String b){
 			try {
 				Button Dashboardprob=(Button)scene.lookup("#Dashboard");
 				
@@ -80,18 +80,18 @@ public class UserDashboardView {
 					newstage.setScene(sc2);
 					newstage.show();
 					TextField username =(TextField)sc2.lookup("#txtUserName");
-					username.setText(a.SessionStorage(sc2));
+					username.setText(b);
 					
 					HomeView view= new HomeView();
-					view.dci(sc2);
-					view.med(sc2);
-					view.problem(sc2);
-					view.service(sc2);
-					view.userpending(sc2);
-					view.user(sc2);
-					view.Home(sc2);
-					view.intervention(sc2);
-					view.patient(sc2);
+					view.dci(sc2,b);
+					view.med(sc2,b);
+					view.problem(sc2,b);
+					view.service(sc2,b);
+					view.userpending(sc2,b);
+					view.user(sc2,b);
+					view.Home(sc2,b);
+					view.intervention(sc2,b);
+					view.patient(sc2,b);
 					
 				});
 				
@@ -103,13 +103,5 @@ public class UserDashboardView {
 			
 		}
 		
-		public String SessionStorage(Scene scene){
-			
-			TextField username =(TextField) scene.lookup("#txtUserName");
-			
-			String u= username.getText();
-			
-			
-			return  u;
-		}
+		
 }
