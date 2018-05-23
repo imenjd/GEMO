@@ -44,23 +44,23 @@ public class UserView {
 					}
 					UserView uview = new UserView();
 					String un= uview.SessionStorage(scene);
-					Scene sc2 = new Scene(root, 1000, 550);
+					Scene sc2=new Scene(root,840,562);
 					Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 					newstage.setScene(sc2);
 					newstage.show();
 					TextField username =(TextField) sc2.lookup("#txtUserName");
 					username.setText(un);
-					
+					String d=username.getText();
 					SearchView searchView=new SearchView();
 					VisitView v=new VisitView();
-					v.homebtn(sc2);
+					v.homebtn(sc2,d);
 					
 					searchView.fillCombobox(sc2);
 					searchView.filltable(sc2);
 					
-					searchView.addVisit(sc2);
+					searchView.addVisit(sc2,d);
 					searchView.logout(sc2);
-					searchView.Dashboard(sc2);
+					searchView.Dashboard(sc2,d);
 					
 					
 					
