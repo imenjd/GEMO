@@ -24,12 +24,12 @@ public class PatientView {
 	}
 	
 	
-	public  void add(Scene scene){
+	public  void add(Scene scene,String b){
 		Button add= (Button) scene.lookup("#add");
 		final TextField fn=  (TextField) scene.lookup("#fn");
 		final TextField ln= (TextField) scene.lookup("#ln");
 		final DatePicker db= (DatePicker) scene.lookup("#db");
-		Label label=(Label) scene.lookup("#label") ;
+		
 		
 		
 		add.setOnAction(event -> {
@@ -39,7 +39,7 @@ public class PatientView {
 			String d=db.getValue().toString();
 			
 			PatientController.add(f,l,d);
-			//label.setText("Added successfully !!");
+			
 			FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Visit.fxml"));
 			Parent root1 = null;
 			try {
@@ -47,13 +47,15 @@ public class PatientView {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			PatientView pview = new PatientView();
-			//String u=pview.SessionStorage(scene);
+			
 			
 			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 			stage.setTitle("Home Page");
 			Scene sc2 = new Scene(root1);
+			
+			TextField username =(TextField)sc2.lookup("#txtUserName");
+			username.setText(b);
 			stage.setScene(sc2);
 			stage.show();
 			PatientController e=new PatientController();
@@ -62,12 +64,14 @@ public class PatientView {
 			int val2=g.SearchLastID();
 			VisitView a=new VisitView();
 			a.add(sc2,val,val2);
+			a.homebtn(sc2,b);
+			
 			
 			
 		});
 	}
 	
-	public  void SearchPatient(Scene scene) {
+	public  void SearchPatient(Scene scene,String b) {
 		Button search = (Button) scene.lookup("#search");
 		TextField ln = (TextField) scene.lookup("#ln");
 		ControllerSearch a = new ControllerSearch();
@@ -110,13 +114,14 @@ public class PatientView {
 						} catch (IOException e1) {
 							e1.printStackTrace();
 						}
-						PatientView pview = new PatientView();
-						//String u=pview.SessionStorage(scene);
 						
 						
 						Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 						stage.setTitle("Home Page");
 						Scene sc2 = new Scene(root1);
+						
+						TextField username =(TextField)sc2.lookup("#txtUserName");
+						username.setText(b);
 						VisitController f=new VisitController();
 						int val2=f.SearchLastID();
 						stage.setScene(sc2);
@@ -142,7 +147,9 @@ public class PatientView {
 	
 	
 	public static void fillTable (Scene scene) {
+		Button load=(Button) scene.lookup("#LoadPatient");
 		
+		load.setOnAction(event ->{
 		try{
 			TableView table  = (TableView) scene.lookup("#table");
 			
@@ -169,15 +176,16 @@ public class PatientView {
 		
 		
 		
+	});
 	}
 	
 	
 	
 	
-	public void homebtn(Scene scene) {
-		
+	public void homebtn(Scene scene, String b) {
+		Button homebtnPatient = (Button) scene.lookup("#Home");
 		try {
-			Button homebtnPatient = (Button) scene.lookup("#homebtn");
+			
 			homebtnPatient.setOnAction(e -> {
 				
 				
@@ -188,9 +196,8 @@ public class PatientView {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				//PatientView pview = new PatientView();
-				//String u=pview.SessionStorage(scene);
-				UserView a=new UserView();
+				
+			
 				
 				Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
 				stage.setTitle("Home Page");
@@ -199,7 +206,7 @@ public class PatientView {
 				stage.show();
 				
 				TextField username =(TextField)sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				
 				
 				SearchView searchView=new SearchView();
@@ -207,9 +214,9 @@ public class PatientView {
 				searchView.filltable(sc2);
 				
 				
-				searchView.addVisit(sc2);
+				searchView.addVisit(sc2,b);
 				searchView.logout(sc2);
-				searchView.Dashboard(sc2);
+				searchView.Dashboard(sc2,b);
 				
 				
 			});
@@ -218,11 +225,13 @@ public class PatientView {
 		}
 		
 	}
-	public void Dashboard(Scene scene){
-		try {
-			Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+	public void Dashboard(Scene scene,String b){
+		Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+		
+			
 			
 			Dashboardprob.setOnAction(event -> {
+				try {
 				
 				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
 				Parent root = null;
@@ -231,41 +240,35 @@ public class PatientView {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				PatientView dview = new PatientView();
-				String u=dview.SessionStorage(scene);
-			
-				UserView a=new UserView();
+				
 				
 				Scene sc2 = new Scene(root, 849, 494);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField)sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				HomeView view = new HomeView();
-				view.dci(sc2);
-				view.med(sc2);
-				view.problem(sc2);
-				view.service(sc2);
-				view.userpending(sc2);
-				view.user(sc2);
-				view.Home(sc2);
-				view.intervention(sc2);
-				view.patient(sc2);
+				view.dci(sc2,b);
+				view.med(sc2,b);
+				view.problem(sc2,b);
+				view.service(sc2,b);
+				view.userpending(sc2,b);
+				view.user(sc2,b);
+				view.Home(sc2,b);
+				view.intervention(sc2,b);
+				view.patient(sc2,b);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				
 				
 			});
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		
 		
 		
 	}
-	public String SessionStorage(Scene scene){
-		TextField userName = (TextField) scene.lookup("#txtUserName");
-		String u = userName.getText().toLowerCase();
-		return  u;
-	}
+	
 }
