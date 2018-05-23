@@ -54,7 +54,9 @@ public class ServiceView {
 	
 	
 	public static void fillTable (Scene scene) {
+		Button load=(Button) scene.lookup("#LoadDataServices");
 		
+		load.setOnAction(event ->{
 		try{
 			TableView table  = (TableView) scene.lookup("#table");
 			
@@ -78,10 +80,11 @@ public class ServiceView {
 		
 		
 		
+	});
 	}
 	
 	
-	public void Dashboard(Scene scene){
+	public void Dashboard(Scene scene,String b){
 		try {
 			Button Dashboardservice=(Button)scene.lookup("#Dashboard");
 			
@@ -94,26 +97,23 @@ public class ServiceView {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				ServiceView dview = new ServiceView();
-				String u=dview.SessionStorage(scene);
-				//User a=new User();
-				UserView a=new UserView();
+				
 				Scene sc2 = new Scene(root, 849, 494);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField)sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				HomeView view = new HomeView();
-				view.dci(sc2);
-				view.med(sc2);
-				view.problem(sc2);
-				view.service(sc2);
-				view.userpending(sc2);
-				view.user(sc2);
-				view.Home(sc2);
-				view.intervention(sc2);
-				view.patient(sc2);
+				view.dci(sc2,b);
+				view.med(sc2,b);
+				view.problem(sc2,b);
+				view.service(sc2,b);
+				view.userpending(sc2,b);
+				view.user(sc2,b);
+				view.Home(sc2,b);
+				view.intervention(sc2,b);
+				view.patient(sc2,b);
 			});
 			
 		} catch (Exception e) {
@@ -123,19 +123,6 @@ public class ServiceView {
 		
 		
 	}
-	
-	
-	public String SessionStorage(Scene scene){
-		
-		Label username =(Label)scene.lookup("#username");
-		
-		String u= username.getText();
-		
-		
-		return  u;
-	}
-	
-	
 	
 	
 	
