@@ -17,7 +17,7 @@ public  class UserMain extends Application {
 	@Override
 	public void start(Stage primaryStage)throws Exception  {
 		try {
-			Root = FXMLLoader.load(getClass().getResource("../view/fxml/SignUp.fxml"));
+			Root = FXMLLoader.load(getClass().getResource("../view/fxml/SignIn.fxml"));
 			
 			Scene scene = new Scene(Root, 1000, 550);
 			primaryStage.setTitle("User");
