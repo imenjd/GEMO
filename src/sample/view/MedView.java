@@ -37,37 +37,42 @@ public class MedView {
 	
 	
 	public static void fillTable2(Scene scene) {
+		Button load=(Button) scene.lookup("#LoadDataMed");
 		
-		try{
-			TableView table2  = (TableView) scene.lookup("#table2");
+		load.setOnAction(event ->{
+			try{
+				TableView table2  = (TableView) scene.lookup("#table2");
 			
 			//view
-			MedController controller =new MedController();
+				MedController controller =new MedController();
 			
-			table2.setItems(controller.fillTable2());
+				table2.setItems(controller.fillTable2());
 			
 			
-			TableColumn<Med,String> columnid = new TableColumn<Med,String>("Identifiant");
-			columnid.setCellValueFactory(new PropertyValueFactory("id"));
-			TableColumn<Med,String> columnname = new TableColumn<Med,String>("Nom");
-			columnname.setCellValueFactory(new PropertyValueFactory("name"));
+				TableColumn<Med,String> columnid = new TableColumn<Med,String>("Identifiant");
+				columnid.setCellValueFactory(new PropertyValueFactory("id"));
+				TableColumn<Med,String> columnname = new TableColumn<Med,String>("Nom");
+				columnname.setCellValueFactory(new PropertyValueFactory("name"));
 			
-			table2.getColumns().setAll(columnid, columnname);
-			table2.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+				table2.getColumns().setAll(columnid, columnname);
+				table2.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 			
-		} catch (Exception e){
-			e.printStackTrace();
-		}
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 		
 		
 		
+		});
 	}
 	
-	public void Dashboard(Scene scene){
-		try {
-			Button Dashboardmed=(Button)scene.lookup("#Dashboard");
+	public void Dashboard(Scene scene,String b){
+		Button Dashboardmed=(Button)scene.lookup("#Dashboard");
+		
+			
 			
 			Dashboardmed.setOnAction(event -> {
+				try {
 				
 				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
 				Parent root = null;
@@ -77,7 +82,7 @@ public class MedView {
 					e1.printStackTrace();
 				}
 				MedView dview = new MedView();
-				String u=dview.SessionStorage(scene);
+				
 				UserView a=new UserView();
 				
 				Scene sc2 = new Scene(root, 849, 494);
@@ -85,34 +90,28 @@ public class MedView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField)sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				
 				HomeView view = new HomeView();
-				view.dci(sc2);
-				view.med(sc2);
-				view.problem(sc2);
-				view.service(sc2);
-				view.userpending(sc2);
-				view.user(sc2);
-				view.Home(sc2);
-				view.intervention(sc2);
-				view.patient(sc2);
+				view.dci(sc2,b);
+				view.med(sc2,b);
+				view.problem(sc2,b);
+				view.service(sc2,b);
+				view.userpending(sc2,b);
+				view.user(sc2,b);
+				view.Home(sc2,b);
+				view.intervention(sc2,b);
+				view.patient(sc2,b);
 				
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				
 			});
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		
 		
 	}
-	public String SessionStorage(Scene scene){
-		TextField userName = (TextField) scene.lookup("#txtUserName");
-		String u = userName.getText().toLowerCase();
-		return  u;
-	}
 	
 	
-}
