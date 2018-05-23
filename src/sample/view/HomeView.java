@@ -13,7 +13,8 @@ import sample.entities.User;
 import java.io.IOException;
 
 public class HomeView {
-	public void Home (Scene scene) {
+	
+	public void Home (Scene scene,String b) {
 		
 		try {
 			Button Home;
@@ -31,20 +32,19 @@ public class HomeView {
 				
 				
 				HomeView dview = new HomeView();
-				String u=dview.SessionStorage(scene);
-				Scene sc2 = new Scene(root,1000,550);
+				Scene sc2=new Scene(root,840,562);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(dview.SessionStorage(sc2));
+				username.setText(b);
 				
 				SearchView searchView=new SearchView();
 				searchView.fillCombobox(sc2);
 				searchView.filltable(sc2);
-				searchView.addVisit(sc2);
+				searchView.addVisit(sc2,b);
 				searchView.logout(sc2);
-				searchView.Dashboard(sc2);
+				searchView.Dashboard(sc2,b);
 				
 				
 			});
@@ -56,15 +56,9 @@ public class HomeView {
 		
 		
 	}
-	public String SessionStorage(Scene scene){
-		TextField userName = (TextField) scene.lookup("#txtUserName");
-		String u = userName.getText().toLowerCase();
-		return  u;
-	}
 	
 	
-	
-	public void dci (Scene scene) {
+	public void dci (Scene scene,String b) {
 		
 		try {
 			Button dci=(Button)scene.lookup("#Dcibtn");
@@ -89,13 +83,13 @@ public class HomeView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				DciView view3 = new DciView();
 				view3.fillTable(sc2);
 				view3.add(sc2);
 				view3.delete(sc2);
 				view3.update(sc2);
-				view3.Dashboard(sc2);
+				view3.Dashboard(sc2,b);
 				
 				
 				
@@ -109,7 +103,7 @@ public class HomeView {
 		
 	}
 	
-	public void med (Scene scene) {
+	public void med (Scene scene,String b) {
 		
 		try {
 			Button med=(Button)scene.lookup("#MedBtn");
@@ -128,17 +122,17 @@ public class HomeView {
 				//String u=dview.SessionStorage(scene);
 				//User a =new User();
 				UserView a=new UserView();
-				Scene sc2 = new Scene(root, 596, 638);
+				Scene sc2 = new Scene(root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.SessionStorage(sc2));
+				username.setText(b);
 				MedView view1 = new MedView();
 				view1.fillTable2(sc2);
 				view1.add2(sc2);
 				
-				view1.Dashboard(sc2);
+				view1.Dashboard(sc2,b);
 				
 				
 			});
@@ -150,7 +144,7 @@ public class HomeView {
 		
 		
 	}
-	public void problem (Scene scene) {
+	public void problem (Scene scene,String b) {
 		
 		try {
 			Button problem=(Button)scene.lookup("#ProbBtn");
@@ -169,18 +163,18 @@ public class HomeView {
 				//String u=dview.SessionStorage(scene);
 				User a=new User();
 				
-				Scene sc2 = new Scene(root, 596, 638);
+				Scene sc2 = new Scene(root, 730, 520);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				username.setText(b);
 				ProblemView view = new ProblemView();
 				view.insert(sc2);
 			
 				view.fillTable(sc2);
 		
-				view.Dashboard(sc2);
+				view.Dashboard(sc2,b);
 				
 				
 			});
@@ -193,7 +187,7 @@ public class HomeView {
 	}
 	
 	
-	public void intervention (Scene scene) {
+	public void intervention (Scene scene,String b) {
 		
 		try {
 			Button problem=(Button)scene.lookup("#InterBtn");
@@ -211,14 +205,14 @@ public class HomeView {
 				//HomeView dview = new HomeView();
 				//String u=dview.SessionStorage(scene);
 				User a=new User();
-				Scene sc2 = new Scene(root, 596, 638);
+				Scene sc2 = new Scene(root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				username.setText(b);
 				InterventionView view = new InterventionView();
-				view.Dashboard(sc2);
+				view.Dashboard(sc2,b);
 				view.insert(sc2);
 				view.fillTable(sc2);
 				
@@ -238,7 +232,7 @@ public class HomeView {
 	
 	
 	
-	public void service (Scene scene) {
+	public void service (Scene scene,String b) {
 		
 		try {
 			Button service=(Button)scene.lookup("#ServiceBtn");
@@ -262,13 +256,13 @@ public class HomeView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				username.setText(b);
 				
 				ServiceView view = new ServiceView();
 				view.fillTable(sc2);
 				view.add(sc2);
 				
-				view.Dashboard(sc2);
+				view.Dashboard(sc2,b);
 				
 				
 				
@@ -280,7 +274,7 @@ public class HomeView {
 		
 		
 	}
-	public void patient (Scene scene) {
+	public void patient (Scene scene,String b) {
 		
 		try {
 			Button service=(Button)scene.lookup("#PatientsBtn");
@@ -304,13 +298,13 @@ public class HomeView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				username.setText(b);
 				PatientView view=new PatientView();
 				//ServiceView view = new ServiceView();
 				view.fillTable(sc2);
 				
 				
-				view.Dashboard(sc2);
+				view.Dashboard(sc2,b);
 				
 				
 				
@@ -323,7 +317,7 @@ public class HomeView {
 		
 	}
 	
-	public void userpending (Scene scene) {
+	public void userpending (Scene scene,String b) {
 		
 		try {
 			Button userpending=(Button)scene.lookup("#UserPendingBtn");
@@ -346,14 +340,14 @@ public class HomeView {
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				username.setText(b);
 				
 				UserPendingView view = new UserPendingView();
 				view.fillTable(sc2);
 				view.reject(sc2);
 				view.accept(sc2);
 				view.UserInfo(sc2);
-				view.Dashboard(sc2);
+				view.Dashboard(sc2,b);
 				
 				
 			});
@@ -366,7 +360,7 @@ public class HomeView {
 		
 	}
 	
-	public void user (Scene scene) {
+	public void user (Scene scene,String b) {
 		
 		
 		try {
@@ -389,14 +383,14 @@ public class HomeView {
 				newstage.setScene(sc2);
 				newstage.show();
 				
-				
+				TextField username =(TextField) sc2.lookup("#txtUserName");
+				username.setText(b);
 				UserView uview = new UserView();
 				uview.fillTable(sc2);
 				
 				UserDashboardView view = new UserDashboardView();
-				view.Dashboard(sc2);
-				TextField username =(TextField) sc2.lookup("#txtUserName");
-				username.setText(a.getUserName());
+				view.Dashboard(sc2,b);
+				
 				uview.fillTable(sc2);
 				
 				
@@ -413,4 +407,3 @@ public class HomeView {
 	
 	
 }
-
