@@ -102,57 +102,7 @@ public class ServiceDaoImpl implements ServiceDao {
 	}
 	
 
-	@Override
-	public List<Service> selectNames() {
-		
-		List<Service> a=new ArrayList<>();
-		Connection connection = null;
-		PreparedStatement statement = null;
-		ResultSet resultSet = null;
-		
-		try {
-			connection = ConnectionConfiguration.getConnection();
-			statement = connection.prepareStatement("SELECT  name FROM service");
-			resultSet = statement.executeQuery();
-			
-			while (resultSet.next()){
-				Service b=new Service();
-				b.setName(resultSet.getString("1"));
-				a.add(b);
-			}
-			
-		} catch (Exception e){
-			e.printStackTrace();
-		}finally {
-			if (resultSet != null) {
-				try {
-					resultSet.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		
-		
-		return a;
-	}
+	
 	
 	
 	@Override
