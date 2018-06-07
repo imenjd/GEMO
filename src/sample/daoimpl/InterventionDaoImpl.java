@@ -12,18 +12,6 @@ import java.sql.SQLException;
 
 public class InterventionDaoImpl implements InterventionDao {
 	public InterventionDaoImpl(){}
-	@Override
-	public void insert(Intervention intervention) {
-	
-	}
-	
-	@Override
-	public void delete(int id) {
-	
-	}
-	
-	@Override
-	public void update(Intervention intervention, int id) {
 	
 	}
 	public int selectByName(String a) {
