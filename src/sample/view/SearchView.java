@@ -10,29 +10,30 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Optional;
+
 import javafx.stage.Stage;
-import sample.controller.ControllerDetails;
+
+
 import sample.entities.Search;
 import sample.controller.ControllerSearch;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import java.util.Optional;
-import javafx.scene.control.MenuItem;
-import javafx.event.EventHandler;
-import sample.entities.User;
 
-import javax.xml.soap.Text;
+import javafx.event.EventHandler;
+
 
 public class SearchView {
+	Parent Root;
+	URL url;
 	
 	
 	public static void fillCombobox(Scene scene) {
 		ObservableList<String> option_one = FXCollections.observableArrayList("Problème", "DCI", "Médicament", "Intervention", "Contexte", "Commentaire", "Date", "Patient", "Service");
-		Button searchbtn = (Button) scene.lookup("#BtnSearch");
+		
 		ComboBox CBSearch = (ComboBox) scene.lookup("#CBSearchBy");
 		ComboBox keyword = (ComboBox) scene.lookup("#keyword");
-		Label warning = (Label)scene.lookup("#warning");
-		TableView searchTable = (TableView) scene.lookup("#SearchResult");
+		
+		
 		ControllerSearch a = new ControllerSearch();
 		ObservableList<String> fill_problem = a.fillProblemlist();
 		ObservableList<String> fill_inter = a.fillInterlit();
@@ -54,12 +55,11 @@ public class SearchView {
 			
 		});
 	}
-	public static void filltable(Scene scene){
+	public  void filltable(Scene scene){
 		Button searchbtn = (Button) scene.lookup("#BtnSearch");
 		ComboBox CBSearch = (ComboBox) scene.lookup("#CBSearchBy");
 		ComboBox keyword = (ComboBox) scene.lookup("#keyword");
 		TableView searchTable = (TableView) scene.lookup("#SearchResult");
-		Label warning = (Label) scene.lookup("#warning");
 		ControllerSearch a=new ControllerSearch();
 		TableColumn<Search,String> id_visite=new TableColumn<Search,String>("Num visite");
 		id_visite.setCellValueFactory(new PropertyValueFactory<>("ref"));
@@ -71,7 +71,7 @@ public class SearchView {
 		fn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 		TableColumn<Search,String> ln=new TableColumn<Search,String>("Prenom");
 		ln.setCellValueFactory(new PropertyValueFactory<>("firstname"));
-		searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
+		
 		
 		searchbtn.setOnAction(event ->{
 			String first=String.valueOf(CBSearch.getValue().toString());
@@ -80,63 +80,70 @@ public class SearchView {
 			
 			if(first.equals("Problème")){
 				searchTable.setItems(a.SearchbProblem(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("DCI")){
 				searchTable.setItems(a.SearchByDci(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Médicament")){
 				searchTable.setItems(a.SearchByMed(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Intervention")){
 				searchTable.setItems(a.SearchByIntervention(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Contexte")){
 				searchTable.setItems(a.SearchbContexte(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Commentaire")){
 				searchTable.setItems(a.SearchByCom(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Date")){
 				searchTable.setItems(a.SearchByDate(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Patient")){
 				searchTable.setItems(a.SearchByPat(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 			else if(first.equals("Service")){
 				searchTable.setItems(a.SearchByService(second));
+				searchTable.getColumns().setAll(id_visite,id_patient,service,fn,ln);
 			}
 
 		});
 		String reference="";
 		searchTable.setRowFactory(tv -> {
+			
 			TableRow<Search> row = new TableRow<>();
 			row.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
 				@Override
 				public void handle(javafx.scene.input.MouseEvent event) {
 					if(event.getClickCount() == 2 && (!row.isEmpty())) {
 						String rowdata = row.getItem().getRef();
-						FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/MoreDetails.fxml"));
-						Parent root1 = null;
-						Search a=new Search();
-						a.setRef(rowdata);
+						url = getClass().getClassLoader().getResource("sample/view/fxml/MoreDetails.fxml");
 						try {
-							root1 = Loader.load();
-						} catch (IOException e1) {
-							e1.printStackTrace();
+							Root = FXMLLoader.load(url);
+						} catch (IOException e) {
+							e.printStackTrace();
 						}
-						//PatientView pview = new PatientView();
-						//String u=pview.SessionStorage(scene);
+						
+					
 						
 						
-						Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						stage.setTitle("Home Page");
-						Scene sc2 = new Scene(root1);
+						Stage stage = new Stage();
+						stage.setTitle("Plus de détails");
+						
+						Scene sc2 = new Scene(Root);
+						stage.setScene(sc2);
 						SearchDetailsView f=new SearchDetailsView();
-						//VisitController f=new VisitController();
-						//int val2=f.SearchLastID();
+						
 						stage.setScene(sc2);
 						stage.show();
-						//VisitView b = new VisitView();
 						f.fillFields(sc2,rowdata);
 						
 					}
@@ -157,24 +164,77 @@ public class SearchView {
 				Button visit=(Button)scene.lookup("#addVisit");
 				
 				visit.setOnAction(event -> {
-					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/visitepre.fxml"));
-					Parent root = null;
-					try {
-						root =  fxmlLoader.load();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+					Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+					alert.setTitle("Nouveau/Ancien Patient");
+					alert.setHeaderText("Veuillez-sélectionner une option :");
+					
+					ButtonType newp = new ButtonType("Nouveau Patient ?");
+					ButtonType oldp = new ButtonType("Ancien Patient ?");
+					
+					
+					
+					alert.getButtonTypes().clear();
+					
+					alert.getButtonTypes().addAll(newp,oldp);
+					
+					// option != null.
+					Optional<ButtonType> option = alert.showAndWait();
+					
+					if (option.get() == newp) {
+						url  = getClass().getClassLoader().getResource("sample/view/fxml/Patient.fxml");
+						try {
+							Root = FXMLLoader.load(url);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						
+						
+						
+						Scene sc2 = new Scene(Root);
+						TextField username =(TextField)sc2.lookup("#username");
+						username.setText(b);
+						Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
+						newstage.setScene(sc2);
+						newstage.setTitle("Nouveau Patient");
+						newstage.show();
+						PatientView a=new PatientView();
+						a.add(sc2,b);
+						a.homebtn(sc2,b);
+						
+						
 					}
-					
-					Scene sc2 = new Scene(root);
+					 else  {
+						url  = getClass().getClassLoader().getResource("sample/view/fxml/Ancien.fxml");
+						try {
+							Root = FXMLLoader.load(url);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						
+			
+			
+					Scene sc3 = new Scene(Root);
+					TextField username =(TextField)sc3.lookup("#username");
+					username.setText(b);
 					Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
-					newstage.setScene(sc2);
+						newstage.setTitle("Ancien Patient");
+					newstage.setScene(sc3);
 					newstage.show();
-					PreVisiteVIew a=new PreVisiteVIew();
-					a.choose(sc2,b);
-					
-				});
+					PatientView c=new PatientView();
+					c.SearchPatient(sc3,b);
+					c.homebtn(sc3,b);
+			
+		}
+		
+	});
+				
+				
+				
+				
+				
 					
 				}
+	
 				
 	
 	
@@ -185,18 +245,19 @@ public class SearchView {
 			
 			
 			logout.setOnAction(event -> {
-				
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/SignIn.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/SignIn.fxml");
 				try {
-					root =  fxmlLoader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				Scene sc2 = new Scene(root);
+				
+				
+				Scene sc2 = new Scene(Root);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
+				newstage.setTitle("Connexion");
 				newstage.show();
 				UserView view = new UserView();
 				view.BtnLogin(sc2);
@@ -215,23 +276,23 @@ public class SearchView {
 	
 	public void Dashboard(Scene scene, String b){
 		Button Dashboard=(Button)scene.lookup("#Dashboard");
-		try {
+		
 			
 			Dashboard.setOnAction(event -> {
-				
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
 				try {
-					root =  fxmlLoader.load();
+					Root = FXMLLoader.load(url);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 				
-				Scene sc2 = new Scene(root, 849, 494);
+				
+				Scene sc2 = new Scene(Root, 720, 540);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
+					newstage.setTitle("Menu");
 				username.setText(b);
 				HomeView view = new HomeView();
 				
@@ -245,30 +306,13 @@ public class SearchView {
 				view.intervention(sc2,b);
 				view.patient(sc2,b);
 				
+				
+				
+				
 			});
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		
 		
 	}
 	
 	}
-	
-		
-			
-			
-			
-	
-		
-		
-		
-	
-
-	
-		
-		
-		
-	
