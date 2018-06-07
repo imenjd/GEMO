@@ -1,6 +1,6 @@
 package sample.view;
 
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,19 +9,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import sample.controller.ControllerSearch;
-import sample.controller.PatientController;
-import sample.entities.Patient;
-import sample.entities.Visit;
+
 import sample.controller.VisitController;
-import sample.entities.User;
 
 
-import javax.xml.soap.Text;
+
+
 import java.io.IOException;
+import java.net.URL;
 
 public class VisitView {
+	Parent Root;
+	URL url;
 	public VisitView() {
 	}
+	
 	
 	
 	public void add(Scene scene, int id,int idvisite1) {
@@ -33,18 +35,17 @@ public class VisitView {
 		TextArea context = (TextArea) scene.lookup("#contexte");
 		TextField serviice = (TextField) scene.lookup("#Service");
 		DatePicker date = (DatePicker) scene.lookup("#dateVisit");
-	;
 		TextField dci = (TextField) scene.lookup("#Dci");
 		ComboBox inte = (ComboBox) scene.lookup("#Inter");
 		
 		ComboBox prob = (ComboBox) scene.lookup("#Probleme");
 		ComboBox med = (ComboBox) scene.lookup("#med");
-		TextField username =(TextField) scene.lookup("#username");
-		Patient c=new Patient ();
+		TextField username =(TextField) scene.lookup("#txtUserName");
+		
 		idp.setText(String.valueOf(id));
 		idv.setText(String.valueOf(idvisite1));
 		ControllerSearch a = new ControllerSearch();
-		VisitController b=new VisitController();
+	
 		ObservableList<String> fill_problem = a.fillProblemlist();
 		ObservableList<String> fill_inter = a.fillInterlit();
 		ObservableList<String> fill_med = a.fillMedlist();
@@ -94,26 +95,25 @@ public class VisitView {
 			
 			homebtn.setOnAction(e -> {
 				
-				
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
-				Parent root1 = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Home.fxml");
 				try {
-					root1 = fxmlLoader.load();
+					Root = FXMLLoader.load(url);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				UserView a=new UserView();
+				
+				
 				
 				
 				Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-				stage.setTitle("Home Page");
-				Scene sc2 = new Scene(root1);
+				stage.setTitle("Accueil");
+				Scene sc2 = new Scene(Root);
 				stage.setScene(sc2);
 				stage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				SearchView searchView=new SearchView();
-				searchView.fillCombobox(sc2);
+				SearchView.fillCombobox(sc2);
 				searchView.filltable(sc2);
 				searchView.addVisit(sc2,b);
 				searchView.logout(sc2);
