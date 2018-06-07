@@ -23,7 +23,7 @@ public class SearchDetailsView {
 			TextField inter=(TextField) scene.lookup("#interv");
 			TextField med=(TextField) scene.lookup("#med");
 			TextField dci=(TextField) scene.lookup("#dci");
-			TextField date=(TextField) scene.lookup("#date_visit");
+			
 			TextArea comm=(TextArea) scene.lookup("#comm");
 			TextArea contexte=(TextArea) scene.lookup("#cxte");
 			
