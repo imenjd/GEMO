@@ -11,15 +11,15 @@ import javafx.stage.Stage;
 import sample.controller.ControllerSearch;
 import sample.controller.VisitController;
 import sample.entities.Patient;
-import sample.entities.Visit;
-import sample.controller.PatientController;
-import sample.entities.User;
 
-import javax.xml.soap.Text;
-import java.awt.event.MouseEvent;
+import sample.controller.PatientController;
+
 import java.io.IOException;
+import java.net.URL;
 
 public class PatientView {
+	Parent Root;
+	URL url;
 	public PatientView() {
 	}
 	
@@ -51,7 +51,7 @@ public class PatientView {
 			
 			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-			stage.setTitle("Home Page");
+			stage.setTitle("Visite");
 			Scene sc2 = new Scene(root1);
 			
 			TextField username =(TextField)sc2.lookup("#txtUserName");
@@ -105,20 +105,20 @@ public class PatientView {
 				public void handle(javafx.scene.input.MouseEvent event) {
 					if(event.getClickCount() == 2 && (!row.isEmpty())) {
 						int rowdata = row.getItem().getId();
-						FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Visit.fxml"));
-						Parent root1 = null;
-						Visit a=new Visit();
-						a.setIdp(rowdata);
+						
+						url  = getClass().getClassLoader().getResource("sample/view/fxml/Visit.fxml");
 						try {
-							root1 = Loader.load();
-						} catch (IOException e1) {
-							e1.printStackTrace();
+							Root = FXMLLoader.load(url);
+						} catch (IOException e) {
+							e.printStackTrace();
 						}
 						
 						
+						
+						
 						Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						stage.setTitle("Home Page");
-						Scene sc2 = new Scene(root1);
+						stage.setTitle("Visite");
+						Scene sc2 = new Scene(Root);
 						
 						TextField username =(TextField)sc2.lookup("#txtUserName");
 						username.setText(b);
@@ -152,8 +152,7 @@ public class PatientView {
 		load.setOnAction(event ->{
 		try{
 			TableView table  = (TableView) scene.lookup("#table");
-			
-			//view
+	
 			PatientController controller =new PatientController();
 			
 			table.setItems(controller.fillTable());
@@ -188,20 +187,21 @@ public class PatientView {
 			
 			homebtnPatient.setOnAction(e -> {
 				
-				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
-				Parent root1 = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Home.fxml");
 				try {
-					root1 = Loader.load();
+					Root = FXMLLoader.load(url);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
 				
+				
+				
+				
 			
 				
 				Stage stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-				stage.setTitle("Home Page");
-				Scene sc2 = new Scene(root1);
+				stage.setTitle("Accueil");
+				Scene sc2 = new Scene(Root);
 				stage.setScene(sc2);
 				stage.show();
 				
@@ -210,7 +210,7 @@ public class PatientView {
 				
 				
 				SearchView searchView=new SearchView();
-				searchView.fillCombobox(sc2);
+				SearchView.fillCombobox(sc2);
 				searchView.filltable(sc2);
 				
 				
@@ -226,26 +226,27 @@ public class PatientView {
 		
 	}
 	public void Dashboard(Scene scene,String b){
-		Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+		Button Dashboardpat=(Button)scene.lookup("#Dashboard");
 		
 			
 			
-			Dashboardprob.setOnAction(event -> {
+			Dashboardpat.setOnAction(event -> {
 				try {
+					
+					url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
+					try {
+						Root = FXMLLoader.load(url);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+					
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-				Parent root = null;
-				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
-				
-				Scene sc2 = new Scene(root, 849, 494);
+				Scene sc2 = new Scene(Root, 720, 540);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+					newstage.setTitle("Menu");
 				TextField username =(TextField)sc2.lookup("#txtUserName");
 				username.setText(b);
 				HomeView view = new HomeView();
