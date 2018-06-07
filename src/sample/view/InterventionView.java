@@ -1,4 +1,5 @@
 package sample.view;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -9,9 +10,12 @@ import javafx.stage.Stage;
 import sample.controller.InterventionController;
 import sample.entities.Intervention;
 import java.io.*;
-import sample.entities.User;
+import java.net.URL;
+
 
 public class InterventionView {
+	Parent Root;
+	URL url;
 	public static void insert(Scene scene) {
 		
 		Button insert = (Button) scene.lookup("#AjoutBtn");
@@ -36,7 +40,7 @@ public class InterventionView {
 			TableView table  = (TableView) scene.lookup("#table");
 			
 			//view
-			InterventionController controller =new InterventionController();
+		
 			
 			table.setItems(InterventionController.fillTable());
 			
@@ -67,28 +71,26 @@ public class InterventionView {
 	
 	
 	public void Dashboard(Scene scene,String b){
-		Button Dashboardprob=(Button)scene.lookup("#Dashboard");
+		Button Dashboardinter=(Button)scene.lookup("#Dashboard");
 		
 			
 			
-			Dashboardprob.setOnAction(event -> {
+			Dashboardinter.setOnAction(event -> {
 				try {
+					url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
+					try {
+						Root = FXMLLoader.load(url);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-				Parent root = null;
-				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				InterventionView dview = new InterventionView();
-				//String u=dview.SessionStorage(scene);
-				UserView a=new UserView();
 				
-				Scene sc2 = new Scene(root, 849, 494);
+			
+				Scene sc2 = new Scene(Root, 720, 540);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+					newstage.setTitle("Menu");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				HomeView view = new HomeView();
