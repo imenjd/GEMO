@@ -17,7 +17,7 @@ public class SearchDaoImpl implements SearchDao {
 	ObservableList<String> Medicament_list = FXCollections.observableArrayList();
 	ObservableList<String> Intervention_list = FXCollections.observableArrayList();
 	ObservableList<String> data;
-	ObservableList<Search> result;
+
 	
 	@Override
 	public ObservableList fillProblemlist() {
