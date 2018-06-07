@@ -15,15 +15,7 @@ public class ProblemController {
 		ProblemDaoImpl dao=new ProblemDaoImpl();
 		dao.insert(problem);
 	}
-	public static void update(String name,int id){
-		ProblemDaoImpl dao=new ProblemDaoImpl();
-		Problem problem=new Problem(id,name);
-		dao.update(problem,id);
-	}
-	public static void delete(int id){
-		ProblemDaoImpl dao=new ProblemDaoImpl();
-		dao.delete(id);
-	}
+	
 	
 	
 	public ObservableList fillTable () {
