@@ -13,14 +13,13 @@
     <children>
         <AnchorPane prefHeight="101.0" prefWidth="734.0" style="-fx-background-color: #63c5a6;">
             <children>
-                <TextField layoutX="201.0" layoutY="25.0" prefHeight="45.0" prefWidth="251.0" style="-fx-background-color: #63c5a6 ;" text="Services">
+                <TextField editable="false" layoutX="201.0" layoutY="25.0" prefHeight="45.0" prefWidth="251.0" style="-fx-background-color: #63c5a6 ;" text="Services">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </TextField>
-                <TextField layoutX="446.0" layoutY="60.0" prefHeight="27.0" prefWidth="132.0" style="-fx-background-color: #63c5a6 #63c5a6;" text="Currently Active:" />
                 <TextField id="txtUserName" layoutX="561.0" layoutY="60.0" style="-fx-background-color: #63c5a6 ;" />
-                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 #63c5a6;" text="Dashboard" />
+                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 #63c5a6;" text="Menu" />
             </children>
         </AnchorPane>
         <SplitPane dividerPositions="0.22404371584699453" layoutY="101.0" prefHeight="421.0" prefWidth="734.0">
@@ -36,8 +35,8 @@
                     <children>
                         <TableView id="table" layoutX="16.0" layoutY="75.0" prefHeight="253.0" prefWidth="544.0">
                             <columns>
-                                <TableColumn id="IdSer" prefWidth="75.0" text="Identifiant" />
-                                <TableColumn id="NameSer" prefWidth="468.0" text="Nom" />
+                                <TableColumn id="IdSer" editable="false" prefWidth="75.0" text="Identifiant" />
+                                <TableColumn id="NameSer" editable="false" prefWidth="468.0" text="Nom" />
                             </columns>
                         </TableView>
                         <Button id="LoadDataServices" layoutX="18.0" layoutY="29.0" mnemonicParsing="false" text="Afficher liste de services" />
