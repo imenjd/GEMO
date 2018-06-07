@@ -18,7 +18,6 @@
                     </font>
                 </TextField>
                 <Button id="Home" layoutX="524.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Home" />
-                <TextField layoutX="287.0" layoutY="9.0" style="-fx-background-color: #63c5a6;" text="Current user:" />
                 <TextField id="txtUserName" layoutX="385.0" layoutY="9.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #63c5a6;" />
             </children>
         </AnchorPane>
@@ -27,8 +26,8 @@
         <TextField id="Service" layoutX="32.0" layoutY="222.0" prefHeight="27.0" prefWidth="167.0" promptText="Service" />
         <ComboBox id="Inter" layoutX="30.0" layoutY="279.0" prefHeight="27.0" prefWidth="299.0" promptText="Intervention" />
         <TextField id="Dci" layoutX="254.0" layoutY="222.0" prefHeight="27.0" prefWidth="289.0" promptText="DCI" />
-        <ComboBox id="Probleme" layoutX="30.0" layoutY="319.0" prefHeight="27.0" prefWidth="299.0" promptText="Probleme" />
-        <ComboBox id="med" layoutX="30.0" layoutY="360.0" prefHeight="27.0" prefWidth="299.0" promptText="Medicament" />
+        <ComboBox id="Probleme" layoutX="30.0" layoutY="319.0" prefHeight="27.0" prefWidth="299.0" promptText="Problème" />
+        <ComboBox id="med" layoutX="30.0" layoutY="360.0" prefHeight="27.0" prefWidth="299.0" promptText="Médicament" />
         <TextArea id="contexte" layoutX="30.0" layoutY="409.0" prefHeight="80.0" prefWidth="227.0" promptText="Contexte" wrapText="true" />
         <TextArea id="commentaire" layoutX="300.0" layoutY="409.0" prefHeight="80.0" prefWidth="269.0" promptText="Commentaire..." wrapText="true" />
         <Button id="add" layoutX="206.0" layoutY="516.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="157.0" text="Ajouter" />
