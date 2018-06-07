@@ -22,21 +22,7 @@ public class PatientController {
 	}
 	
 	
-	public static boolean exist(int id) {
-		PatientDaoImpl dao = new PatientDaoImpl();
-		
-		return dao.exist(id);
-	}
-	public ObservableList SearchPatients(String val){
-		PatientDaoImpl dao=new PatientDaoImpl();
-		List<Patient> patientss=dao.select(val);
-		ObservableList<Patient> obspatients= FXCollections.observableArrayList();
-		for (Patient p: patientss){
-			obspatients.add(p);
-		}
-		
-		return obspatients;
-	}
+
 	
 	public ObservableList fillTable () {
 		
