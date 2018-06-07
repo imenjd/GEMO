@@ -13,29 +13,6 @@ import java.util.List;
 
 public class MedDaoImpl implements MedDao {
 	
-	public MedDaoImpl(){}
-	@Override
-	public void insert(Med med) {
-	
-	}
-	
-	@Override
-	public void update(Med med, int id) {
-	
-	}
-	
-	@Override
-	public void delete(int id) {
-	
-	}
-	
-
-
-	
-	@Override
-	public Med selectById(int id) {
-		return null;
-	}
 	
 	@Override
 	public List<Med> selectAll() {
@@ -94,10 +71,7 @@ public class MedDaoImpl implements MedDao {
 		
 	}
 	
-	@Override
-	public int checkId(int id) {
-		return 0;
-	}
+	
 	@Override
 	public int selectByName(String a) {
 		
