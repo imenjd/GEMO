@@ -7,14 +7,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.*;
+import java.net.URL;
+
 import sample.controller.MedController;
 import sample.entities.Med;
-import sample.entities.User;
 
-import javax.xml.soap.Text;
 
 public class MedView {
-	
+	Parent Root;
+	URL url;
 	public static void add2(Scene scene ) {
 		
 		
@@ -46,7 +47,7 @@ public class MedView {
 			//view
 				MedController controller =new MedController();
 			
-				table2.setItems(controller.fillTable2());
+				table2.setItems(MedController.fillTable2());
 			
 			
 				TableColumn<Med,String> columnid = new TableColumn<Med,String>("Identifiant");
@@ -73,22 +74,19 @@ public class MedView {
 			
 			Dashboardmed.setOnAction(event -> {
 				try {
+					url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
+					try {
+						Root = FXMLLoader.load(url);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-				Parent root = null;
-				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				MedView dview = new MedView();
 				
-				UserView a=new UserView();
-				
-				Scene sc2 = new Scene(root, 849, 494);
+				Scene sc2 = new Scene(Root, 720, 540);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+					newstage.setTitle("Menu");
 				TextField username =(TextField)sc2.lookup("#txtUserName");
 				username.setText(b);
 				
@@ -115,3 +113,5 @@ public class MedView {
 	}
 	
 	
+	
+}
