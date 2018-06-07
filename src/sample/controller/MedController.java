@@ -36,11 +36,5 @@ public class MedController {
 		return oblmeds;
 	}
 	
-	public boolean checkId2 (int id) {
-		MedDaoImpl dao = new MedDaoImpl();
-		if (dao.checkId(id) >= 0)
-			return true;
-		else
-			return false;
-	}
+	
 }
