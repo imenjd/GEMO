@@ -11,6 +11,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProblemDaoImpl implements ProblemDao {
+	@Override
+	public void insert(Problem problem) {
+		Connection connection= null;
+		PreparedStatement preparedStatement=null;
+		
+		
+		
+		
+		try {
+			connection = ConnectionConfiguration.getConnection();
+			
+			preparedStatement = connection.prepareStatement("INSERT INTO problem (name) VALUES(?)");
+			preparedStatement.setString(1, problem.getName());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			
+			
+		} finally {
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	
+	}
 	public int selectByName(String a) {
 		
 		int value=0;
