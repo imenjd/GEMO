@@ -137,30 +137,7 @@ public class PatientDaoImpl implements PatientDao {
 		return pats;
 		
 	}
-	public boolean exist(int id) {
-		Connection connection=null;
-		connection=ConnectionConfiguration.getConnection();
-		PreparedStatement preparedStatement=null;
-		ResultSet resultSet=null;
-		try {
-			preparedStatement=connection.prepareStatement("SELECT * FROM patient");
-			
-			resultSet=preparedStatement.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		int idd=0;
-		try {
-			while (resultSet.next()){
-				idd=idd+1;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return id <= idd;
-		
-	}
+	
 	public int searchLast(){
 		Connection connection=null;
 		connection=ConnectionConfiguration.getConnection();
