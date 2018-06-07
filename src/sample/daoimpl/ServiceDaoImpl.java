@@ -18,17 +18,11 @@ public class ServiceDaoImpl implements ServiceDao {
 		Connection connection= null;
 		PreparedStatement preparedStatement=null;
 		
-		ServiceDaoImpl dao = new ServiceDaoImpl();
+
 		
 		
 			try {
 				connection = ConnectionConfiguration.getConnection();
-				
-				
-				int id=0;
-				
-				
-				
 				preparedStatement = connection.prepareStatement("INSERT INTO service (name) VALUES(?)");
 				preparedStatement.setString(1, service.getName());
 				preparedStatement.executeUpdate();
@@ -56,18 +50,6 @@ public class ServiceDaoImpl implements ServiceDao {
 			}
 			
 		}
-	
-	
-	
-	@Override
-	public void update(Service service, int id) {
-	
-	}
-	
-	@Override
-	public void delete(int id) {
-	
-	}
 	
 	@Override
 	public int selectByName(String service) {
@@ -119,14 +101,57 @@ public class ServiceDaoImpl implements ServiceDao {
 		
 	}
 	
+
 	@Override
-	public Service selectById(int id) {
-		return null;
-	}
-	
-	@Override
-	public List<String> selectAllNames() {
-		return null;
+	public List<Service> selectNames() {
+		
+		List<Service> a=new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = ConnectionConfiguration.getConnection();
+			statement = connection.prepareStatement("SELECT  name FROM service");
+			resultSet = statement.executeQuery();
+			
+			while (resultSet.next()){
+				Service b=new Service();
+				b.setName(resultSet.getString("1"));
+				a.add(b);
+			}
+			
+		} catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+		
+		return a;
 	}
 	
 	
@@ -186,9 +211,4 @@ public class ServiceDaoImpl implements ServiceDao {
 		
 	}
 	
-	
-	@Override
-	public int checkId(int id) {
-		return 0;
-	}
 }
