@@ -12,23 +12,14 @@ import java.util.List;
 public class DciDaoImpl implements DciDao {
 	
 	
-	
 	public DciDaoImpl(){}
 	@Override
 	public void insert(Dci dci) {
 		Connection connection= null;
 		PreparedStatement preparedStatement=null;
-		
-		DciDaoImpl dao = new DciDaoImpl();
-		
-		
+	
 		try {
 			connection = ConnectionConfiguration.getConnection();
-			
-			
-			int id=0;
-			
-			
 			
 			preparedStatement = connection.prepareStatement("INSERT INTO DCI (name) VALUES(?)");
 			preparedStatement.setString(1, dci.getName());
@@ -36,9 +27,7 @@ public class DciDaoImpl implements DciDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
-			
-			
+				
 		} finally {
 			if (preparedStatement != null) {
 				try {
@@ -58,15 +47,7 @@ public class DciDaoImpl implements DciDao {
 	
 	}
 	
-	@Override
-	public void update(Dci dci, int id) {
 	
-	}
-	
-	@Override
-	public void delete(int id) {
-	
-	}
 	
 	@Override
 	public int selectByName(String a) {
@@ -118,18 +99,58 @@ public class DciDaoImpl implements DciDao {
 		
 	}
 	
-	@Override
-	public Dci selectById(int id) {
-		return null;
-	}
+	
 	
 	@Override
 	public List<Dci> selectAll() {
-		return null;
-	}
-	
-	@Override
-	public int checkId(int id) {
-		return 0;
+		List<Dci> dcis = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = ConnectionConfiguration.getConnection();
+			statement = connection.prepareStatement("SELECT  * FROM DCI" );
+			resultSet = statement.executeQuery();
+			
+			while (resultSet.next()){
+				Dci dci = new Dci();
+				dci.setId(resultSet.getInt("id"));
+				dci.setName(resultSet.getString("name"));
+				dcis.add(dci);
+			}
+			
+		} catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if (statement != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+		
+		return dcis;
+		
 	}
 }
