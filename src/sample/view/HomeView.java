@@ -5,42 +5,45 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.entities.User;
+
+
 
 import java.io.IOException;
+import java.net.URL;
 
 public class HomeView {
+	Parent Root;
+	URL url;
 	
 	public void Home (Scene scene,String b) {
-		
+		Button Home;
+		Home = (Button)scene.lookup("#Home");
 		try {
-			Button Home;
-			Home = (Button)scene.lookup("#Home");
+			
 			
 			Home.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Home.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Home.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
 				
-				HomeView dview = new HomeView();
-				Scene sc2=new Scene(root,840,562);
+				Scene sc2=new Scene(Root,840,562);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Accueil");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				
 				SearchView searchView=new SearchView();
-				searchView.fillCombobox(sc2);
+				SearchView.fillCombobox(sc2);
 				searchView.filltable(sc2);
 				searchView.addVisit(sc2,b);
 				searchView.logout(sc2);
@@ -65,30 +68,26 @@ public class HomeView {
 			
 			dci.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dci.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Dci.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				UserView a=new UserView();
 				
 				
-				Scene sc2 = new Scene(root, 596, 638);
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
+				newstage.setTitle("DCI");
 				newstage.show();
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				DciView view3 = new DciView();
-				view3.fillTable(sc2);
-				view3.add(sc2);
-				view3.delete(sc2);
-				view3.update(sc2);
+				DciView.fillTable(sc2);
+				
 				view3.Dashboard(sc2,b);
 				
 				
@@ -110,28 +109,24 @@ public class HomeView {
 			
 			med.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Medicament.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Medicament.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				//User a =new User();
-				UserView a=new UserView();
-				Scene sc2 = new Scene(root, 730, 510);
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Médicaments");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				MedView view1 = new MedView();
-				view1.fillTable2(sc2);
-				view1.add2(sc2);
-				
+				MedView.fillTable2(sc2);
+				MedView.add2(sc2);
 				view1.Dashboard(sc2,b);
 				
 				
@@ -150,29 +145,26 @@ public class HomeView {
 			Button problem=(Button)scene.lookup("#ProbBtn");
 			
 			problem.setOnAction(event -> {
-				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Problem.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Problem.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a=new User();
 				
-				Scene sc2 = new Scene(root, 730, 520);
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Problèmes");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				ProblemView view = new ProblemView();
-				view.insert(sc2);
+				ProblemView.insert(sc2);
 			
-				view.fillTable(sc2);
+				ProblemView.fillTable(sc2);
 		
 				view.Dashboard(sc2,b);
 				
@@ -194,27 +186,26 @@ public class HomeView {
 			
 			problem.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Intervention.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Intervention.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a=new User();
-				Scene sc2 = new Scene(root, 730, 510);
+				
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Interventions");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				InterventionView view = new InterventionView();
 				view.Dashboard(sc2,b);
-				view.insert(sc2);
-				view.fillTable(sc2);
+				InterventionView.insert(sc2);
+				InterventionView.fillTable(sc2);
 				
 				
 				
@@ -239,28 +230,26 @@ public class HomeView {
 			
 			service.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Service.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Service.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a=new User();
 				
-				Scene sc2 = new Scene(root, 596, 638);
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Services");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				
 				ServiceView view = new ServiceView();
-				view.fillTable(sc2);
-				view.add(sc2);
+				ServiceView.fillTable(sc2);
+				ServiceView.add(sc2);
 				
 				view.Dashboard(sc2,b);
 				
@@ -281,27 +270,24 @@ public class HomeView {
 			
 			service.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/PatientList.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/PatientList.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a=new User();
 				
-				Scene sc2 = new Scene(root, 596, 638);
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Patients");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
 				PatientView view=new PatientView();
-				//ServiceView view = new ServiceView();
-				view.fillTable(sc2);
+				PatientView.fillTable(sc2);
 				
 				
 				view.Dashboard(sc2,b);
@@ -318,36 +304,34 @@ public class HomeView {
 	}
 	
 	public void userpending (Scene scene,String b) {
-		
+		Button user_pending=(Button)scene.lookup("#UserPendingBtn");
 		try {
-			Button userpending=(Button)scene.lookup("#UserPendingBtn");
 			
-			userpending.setOnAction(event -> {
+			
+			user_pending.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/UserPending.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/usersPending.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a=new User();
 				
-				Scene sc2 = new Scene(root);
+				
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("En attente");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
+				UserPendingView view=new UserPendingView();
+				UserPendingView.fillTable(sc2);
 				
-				UserPendingView view = new UserPendingView();
-				view.fillTable(sc2);
-				view.reject(sc2);
-				view.accept(sc2);
-				view.UserInfo(sc2);
+				
 				view.Dashboard(sc2,b);
+				
 				
 				
 			});
@@ -361,37 +345,32 @@ public class HomeView {
 	}
 	
 	public void user (Scene scene,String b) {
-		
+		Button user_btn=(Button)scene.lookup("#UsersBtn");
 		
 		try {
-			Button user=(Button)scene.lookup("#UsersBtn");
 			
-			user.setOnAction(event -> {
+			user_btn.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Users.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/UserList.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				//HomeView dview = new HomeView();
-				//String u=dview.SessionStorage(scene);
-				User a =new User();
-				Scene sc2 = new Scene(root);
+				
+				
+				
+				Scene sc2 = new Scene(Root, 730, 510);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
-				
+				newstage.setTitle("Utilisateurs");
 				TextField username =(TextField) sc2.lookup("#txtUserName");
 				username.setText(b);
-				UserView uview = new UserView();
-				uview.fillTable(sc2);
+				UserView view=new UserView();
+				UserView.fillTable(sc2);
 				
-				UserDashboardView view = new UserDashboardView();
 				view.Dashboard(sc2,b);
-				
-				uview.fillTable(sc2);
 				
 				
 				
@@ -401,9 +380,8 @@ public class HomeView {
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
 	
 	
 }
+
