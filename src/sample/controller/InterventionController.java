@@ -16,17 +16,7 @@ public class InterventionController {
 		InterventionDaoImpl dao=new InterventionDaoImpl();
 		dao.insert(intervention);
 	}
-	public static void update(String name,int id){
-		InterventionDaoImpl dao=new InterventionDaoImpl();
-		Intervention intervention=new Intervention(id,name);
-		dao.update(intervention,id);
-	}
-	public static void delete(int id){
-		InterventionDaoImpl dao=new InterventionDaoImpl();
-		
-		dao.delete(id);
-	}
-	
+
 	public static ObservableList fillTable() {
 		
 		
