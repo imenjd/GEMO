@@ -2,7 +2,7 @@ package sample.dao;
 import sample.entities.Problem;
 public interface ProblemDao {
 	void insert(Problem problem);
-	void delete (int id);
+	int selectByName(String a);
+	List<Problem> selectAll()
 	
-	void update (Problem problem , int id);
 }
