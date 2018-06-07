@@ -14,6 +14,44 @@ public class InterventionDaoImpl implements InterventionDao {
 	public InterventionDaoImpl(){}
 	
 	}
+@Override
+	public void insert(Intervention intervention) {
+		Connection connection= null;
+		PreparedStatement preparedStatement=null;
+		
+
+		
+		
+		try {
+			connection = ConnectionConfiguration.getConnection();
+			
+			preparedStatement = connection.prepareStatement("INSERT INTO intervention (name) VALUES(?)");
+			preparedStatement.setString(1, intervention.getName());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			
+			
+		} finally {
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	
+	}
 	public int selectByName(String a) {
 		
 		int value=0;
