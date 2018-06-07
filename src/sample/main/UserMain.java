@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.net.URL;
 
 
 import java.io.IOException;
@@ -14,13 +15,17 @@ import java.io.IOException;
 public  class UserMain extends Application {
 	
 	Parent Root;
+	URL url;
 	@Override
 	public void start(Stage primaryStage)throws Exception  {
+		
 		try {
-			Root = FXMLLoader.load(getClass().getResource("../view/fxml/SignIn.fxml"));
+			
+			url  = getClass().getClassLoader().getResource("sample/view/fxml/SignIn.fxml");
+			Root = FXMLLoader.load(url);
 			
 			Scene scene = new Scene(Root, 1000, 550);
-			primaryStage.setTitle("User");
+			primaryStage.setTitle("Connexion");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
