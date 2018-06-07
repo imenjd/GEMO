@@ -15,22 +15,18 @@ public class UserDaoImpl implements UserDao {
 		
 		try {
 			connection= ConnectionConfiguration.getConnection();
-			preparedStatement = connection.prepareStatement("INSERT INTO user (firstName,lastName,userName,password, status,email,admin) VALUES(?,?,?,?,?,?,?) ");
+			preparedStatement = connection.prepareStatement("INSERT INTO user (first_name,last_name,username,status,email,password,admin) VALUES(?,?,?,?,?,?,?) ");
 			
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getUserName());
-			preparedStatement.setString(4, user.getPassword());
-			preparedStatement.setString(5, user.getStatus());
-			preparedStatement.setString(6, user.getEmail());
+			preparedStatement.setString(4, user.getStatus());
+			preparedStatement.setString(5, user.getEmail());
+			preparedStatement.setString(6, user.getPassword());
 			preparedStatement.setBoolean(7, user.isAdmin());
 			preparedStatement.executeUpdate();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println("Inserted Successfully");
+		
+		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,11 +49,6 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 	
-	public void update(User user, String userName) {
-	
-	
-	}
-	
 	
 	public void delete(int id) {
 		
@@ -70,7 +61,7 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement = connection.prepareStatement("DELETE FROM user WHERE id=?");
 			preparedStatement.setInt(1, id);
 			preparedStatement.executeUpdate();
-			System.out.println("DELETE FROM user WHERE name=?");
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,7 +149,7 @@ public class UserDaoImpl implements UserDao {
 			while (resultSet.next()) {
 				user.setUserName(resultSet.getString("userName"));
 				user.setPassword(resultSet.getString("password"));
-				user.setId(resultSet.getString("id"));
+				user.setId(resultSet.getInt("id"));
 			}
 			
 		} catch (Exception e) {
@@ -202,20 +193,15 @@ public class UserDaoImpl implements UserDao {
 		try {
 			connection = ConnectionConfiguration.getConnection();
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("SELECT  * FROM user");
+			resultSet = statement.executeQuery("SELECT id,first_name,last_name,username FROM user");
 			
 			while (resultSet.next()) {
 				User uzer = new User();
-				uzer.setId(resultSet.getString("id"));
-				uzer.setFirstName(resultSet.getString("firstName"));
-				uzer.setLastName(resultSet.getString("lastName"));
-				uzer.setUserName(resultSet.getString("userName"));
-				uzer.setEmail(resultSet.getString("email"));
-				uzer.setPassword(resultSet.getString("password"));
-				uzer.setStatus(resultSet.getString("status"));
-				uzer.setAdmin(resultSet.getBoolean("admin"));
-				
-				
+				uzer.setId(resultSet.getInt("id"));
+
+				uzer.setFirstName(resultSet.getString("first_name"));
+				uzer.setLastName(resultSet.getString("last_name"));
+				uzer.setUserName(resultSet.getString("username"));
 				uzers.add(uzer);
 			}
 			
@@ -265,7 +251,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			connection = ConnectionConfiguration.getConnection();
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery( "SELECT userName FROM user"  );
+			resultSet = statement.executeQuery( "SELECT username FROM user");
 			
 			while (resultSet.next()){
 				String name;
@@ -308,7 +294,6 @@ public class UserDaoImpl implements UserDao {
 		return names;
 		
 	}
-	
 	
 }
 
