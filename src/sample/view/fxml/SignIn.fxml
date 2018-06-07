@@ -14,31 +14,31 @@
             <children>
                 <AnchorPane layoutX="516.0" prefHeight="500.0" prefWidth="452.0" style="-fx-background-color: #ffffff;">
                     <children>
-                        <Label layoutX="188.0" layoutY="47.0" prefHeight="65.0" prefWidth="127.0" text="Log In" textAlignment="CENTER">
+                        <Label layoutX="136.0" layoutY="47.0" prefHeight="65.0" prefWidth="200.0" text="Connexion" textAlignment="CENTER">
                             <font>
                                 <Font size="30.0" />
                             </font>
                         </Label>
-                        <CheckBox layoutX="145.0" layoutY="424.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="24.0" />
-                        <PasswordField fx:id="txtPassword" layoutX="54.0" layoutY="248.0" prefHeight="51.0" prefWidth="338.0" promptText="Password" />
-                        <TextField fx:id="txtUserName" layoutX="54.0" layoutY="156.0" prefHeight="51.0" prefWidth="338.0" promptText="UserName" />
-                        <Button fx:id="btn" layoutX="169.0" layoutY="349.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #63c5a6;" text="LogIn" textFill="WHITE">
+                        <CheckBox layoutX="175.0" layoutY="424.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="24.0" />
+                        <PasswordField fx:id="txtPassword" layoutX="54.0" layoutY="248.0" prefHeight="51.0" prefWidth="338.0" promptText="Mot de passe" />
+                        <TextField fx:id="txtUserName" layoutX="54.0" layoutY="156.0" prefHeight="51.0" prefWidth="338.0" promptText="Nom d'utilisateur" />
+                        <Button fx:id="btn" layoutX="115.0" layoutY="349.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="210.0" style="-fx-background-color: #63c5a6;" text="Se connecter" textFill="WHITE">
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Button>
                         <Button layoutX="354.0" layoutY="435.0" mnemonicParsing="false" text="Click Here" />
-                        <Label layoutX="54.0" layoutY="436.0" prefHeight="25.0" prefWidth="93.0" text="Remember me" textAlignment="CENTER" />
-                        <Label layoutX="248.0" layoutY="436.0" prefHeight="25.0" prefWidth="106.0" text="Forgot Password? " textAlignment="CENTER" />
+                        <Label layoutX="54.0" layoutY="436.0" prefHeight="25.0" prefWidth="120.0" text="Se souvenir de moi" textAlignment="CENTER" />
+                        <Label layoutX="199.0" layoutY="436.0" prefHeight="25.0" prefWidth="155.0" text="Mot de passe oublié ? " textAlignment="CENTER" />
                         <Label fx:id="lblStatus" layoutX="58.0" layoutY="311.0" prefHeight="31.0" prefWidth="321.0" />
                     </children>
                 </AnchorPane>
-                <Button fx:id="ToSignUp" layoutX="19.0" layoutY="203.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="134.0" style="-fx-background-color: #dbdcdd;" text="Sign up">
+                <Button fx:id="ToSignUp" layoutX="19.0" layoutY="203.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="141.0" style="-fx-background-color: #dbdcdd;" text="S'inscrire">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button layoutX="19.0" layoutY="267.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="134.0" style="-fx-background-color: #dbdcdd;" text="Log In">
+                <Button layoutX="19.0" layoutY="267.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="141.0" style="-fx-background-color: #dbdcdd;" text="Se connecter">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -47,7 +47,7 @@
         </AnchorPane>
         <AnchorPane layoutX="190.0" layoutY="35.0" prefHeight="472.0" prefWidth="350.0" style="-fx-background-color: #63c5a6;">
             <children>
-                <Label layoutX="57.0" layoutY="97.0" prefHeight="75.0" prefWidth="254.0" text="Welcome to GEMO" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="57.0" layoutY="97.0" prefHeight="75.0" prefWidth="254.0" text="Bienvenue sur GEMO" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
