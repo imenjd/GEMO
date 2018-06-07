@@ -25,37 +25,32 @@ public class VisitController {
 		d.setName(dci);
 		dcivalue.insert(d);
 		int iddci=dcivalue.selectByName(dci);
-		System.out.println("This is the id of the dci");
-		System.out.println(iddci);
+		
 		
 		MedDaoImpl meddao=new MedDaoImpl();
 		Med m=new Med();
 		m.setName(med);
 		int idmed=meddao.selectByName(med);
-		System.out.println("This is the id of the med");
-		System.out.println(idmed);
+		
 		
 		
 		InterventionDaoImpl interdao=new InterventionDaoImpl();
-		Intervention inter=new Intervention();
-		//inter.setName(interv);
+		
 		int idinter=interdao.selectByName(interv);
-		System.out.println("This is the id of the intervention");
-		System.out.println(idinter);
+		
 		
 		
 		ServiceDaoImpl serviceval=new ServiceDaoImpl();
 		Service s=new Service();
+	
 		s.setName(service);
 		serviceval.insert(s);
 		int idservice=serviceval.selectByName(service);
-		System.out.println("This is the id of the service");
-		System.out.println(idservice);
+		
 		
 		ProblemDaoImpl problemval=new ProblemDaoImpl();
 		int idprob=problemval.selectByName(prob);
-		System.out.println("This is the id of the service");
-		System.out.println(idprob);
+		
 		
 		
 		
@@ -64,8 +59,7 @@ public class VisitController {
 		User b=new User();
 		b.setUserName(user);
 		int idUser=u.selectByName(user);
-		System.out.println("This is the id of the user");
-		System.out.println(idUser);
+		
 		
 		visit.setIdp(Integer.parseInt(idp));
 		visit.setDate(date);
@@ -77,13 +71,13 @@ public class VisitController {
 		visit.setDci(iddci);
 		visit.setInterv(idinter);
 		visit.setMed(idmed);
-		//visit.setUser(user);
+		
 		visit.setProb(idprob);
 		VisitDaoImpl dao = new VisitDaoImpl();
-		String id= dao.findId();
-		//visit.setIdv(id);
-		UserController userC = new UserController();
-		String Userid= userC.sessionStorage(user);
+	
+	
+
+		
 		visit.setUser(idUser);
 		dao.insert(visit);
 		try {
