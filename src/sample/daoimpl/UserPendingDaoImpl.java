@@ -11,10 +11,6 @@ public class UserPendingDaoImpl implements UserPendingDao {
 	public void insert(UserPending userp){
 		Connection connection= null;
 		PreparedStatement preparedStatement=null;
-		
-		
-		
-		
 		try {
 			connection = ConnectionConfiguration.getConnection();
 			preparedStatement = connection.prepareStatement("INSERT INTO userpending (firstName, lastName ,userName, status, email, password, admin ) VALUES(?,?,?,?,?,?,?)");
@@ -48,16 +44,9 @@ public class UserPendingDaoImpl implements UserPendingDao {
 					e.printStackTrace();
 				}
 			}
-		}
-		
-		
-		
-		
-		
+		}	
 		
 	}
-	
-	
 	
 	
 	public UserPending selectById(int id) {
@@ -69,19 +58,20 @@ public class UserPendingDaoImpl implements UserPendingDao {
 		ResultSet resultSet = null;  // from java sql package ; resultSrt is a table of records from your database
 		try {
 			conection = ConnectionConfiguration.getConnection();
-			preparedStatement = conection.prepareStatement( "SELECT  * FROM  userpending WHERE  id = ?" );
-			preparedStatement.setInt( 1, id);
+			preparedStatement = conection.prepareStatement( "SELECT  * FROM  userpending WHERE  id ='" + id +"'" );
+
 			resultSet = preparedStatement.executeQuery();
 			
 			while (resultSet.next()){
-				userp.setId(resultSet.getInt("id"));
-				userp.setFirstName(resultSet.getString("firstName"));
-				userp.setLastName(resultSet.getString("lastName"));
-				userp.setUserName(resultSet.getString("userName"));
-				userp.setStatus(resultSet.getString("status"));
-				userp.setEmail(resultSet.getString("email"));
-				userp.setPassword(resultSet.getString("password"));
-				userp.setAdmin(resultSet.getBoolean("admin"));
+				userp.setId(resultSet.getInt(1));
+			
+				userp.setFirstName(resultSet.getString(2));
+				userp.setLastName(resultSet.getString(3));
+				userp.setUserName(resultSet.getString(4));
+				userp.setStatus(resultSet.getString(5));
+				userp.setEmail(resultSet.getString(6));
+				userp.setPassword(resultSet.getString(7));
+				userp.setAdmin(resultSet.getBoolean(8));
 				
 			}
 			
@@ -282,6 +272,5 @@ public class UserPendingDaoImpl implements UserPendingDao {
 		
 		return r;
 	}
-	
 }
 
