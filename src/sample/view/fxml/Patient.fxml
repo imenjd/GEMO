@@ -12,7 +12,7 @@
             <children>
                 <Label layoutX="255.0" layoutY="28.0" text="Nouveau Patient" />
                 <Label id="active" layoutX="524.0" layoutY="28.0" />
-                <Button id="Home" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 ;" text="Home" />
+                <Button id="Home" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6 ;" text="Accueil" />
             </children>
         </AnchorPane>
         <Label layoutX="88.0" layoutY="128.0" text="Nom de famille" />
@@ -25,4 +25,3 @@
       <TextField id="username" editable="false" layoutX="407.0" style="-fx-background-color: #63c5a6;" layoutY="18.0" />
     </children>
 </AnchorPane>
-
