@@ -18,7 +18,7 @@
                             <children>
                                 <Label layoutX="40.0" layoutY="48.0" text="Identifiant patient" />
                                 <Label layoutX="40.0" layoutY="98.0" text="Nom de famille" />
-                                <Label layoutX="40.0" layoutY="150.0" prefHeight="17.0" prefWidth="113.0" text="Prenom" />
+                                <Label layoutX="40.0" layoutY="150.0" prefHeight="17.0" prefWidth="113.0" text="Prénom" />
                                 <Label layoutX="40.0" layoutY="202.0" text="Date de naissance" />
                                 <TextField id="id_patient" editable="false" layoutX="183.0" layoutY="43.0" />
                                 <TextField id="ln_patient" editable="false" layoutX="183.0" layoutY="93.0" />
@@ -35,7 +35,7 @@
                                 <Label layoutX="32.0" layoutY="62.0" text="Identifiant visite" />
                                 <Label layoutX="33.0" layoutY="117.0" text="Date" />
                                 <Label layoutX="30.0" layoutY="178.0" text="Service" />
-                                <Label layoutX="24.0" layoutY="234.0" text="Probleme" />
+                                <Label layoutX="24.0" layoutY="234.0" text="Problème" />
                                 <Label layoutX="25.0" layoutY="285.0" text="Intervention" />
                                 <Label layoutX="24.0" layoutY="337.0" text="Medicament" />
                                 <Label layoutX="22.0" layoutY="393.0" text="DCI" />
@@ -59,7 +59,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
                                 <Label layoutX="54.0" layoutY="47.0" text="Nom de famille" />
-                                <Label layoutX="54.0" layoutY="94.0" text="Prenom" />
+                                <Label layoutX="54.0" layoutY="94.0" text="Prénom" />
                                 <Label layoutX="54.0" layoutY="144.0" text="Statut" />
                                 <TextField id="ln_user" editable="false" layoutX="169.0" layoutY="42.0" />
                                 <TextField id="fn_user" editable="false" layoutX="169.0" layoutY="89.0" />
