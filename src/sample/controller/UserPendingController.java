@@ -34,21 +34,19 @@ public class UserPendingController {
 		
 		UserPendingDaoImpl dao = new UserPendingDaoImpl();
 		UserPending userp=dao.selectById(d);
+		String firstn=userp.getFirstName();
+		String lastn=userp.getLastName();
+		String username=userp.getUserName();
+		String status=userp.getStatus();
+		String email=userp.getEmail();
+		String psw=userp.getPassword();
+		boolean adm=userp.isAdmin();
 		
-		User user = new User(userp.getFirstName(),userp.getLastName(),userp.getUserName(),userp.getStatus(),userp.getEmail(),userp.getPassword(),userp.isAdmin());
-		
+		User user = new User(firstn,lastn,username,status,email,psw,adm);
 		UserDaoImpl userdao = new UserDaoImpl();
 		userdao.insert(user);
 		
 		
 		dao.delete(d);
-	}
-	
-	public boolean checkId (int id) {
-		UserPendingDaoImpl dao = new UserPendingDaoImpl();
-		if (dao.checkId(id) >= 0)
-			return true;
-		else
-			return false;
 	}
 }
