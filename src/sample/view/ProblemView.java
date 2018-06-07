@@ -4,17 +4,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.*;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.entities.Problem;
 import sample.controller.ProblemController;
 import java.io.*;
-import sample.entities.User;
+import java.net.URL;
 
 
 public class ProblemView {
-	
+	Parent Root;
+	URL url;
 		
 		public ProblemView() {
 		}
@@ -73,24 +74,18 @@ public class ProblemView {
 				
 				
 				Dashboardprob.setOnAction(event -> {
+					url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
 					try {
-					
-					FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-					Parent root = null;
-					try {
-						root =  Loader.load();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+						Root = FXMLLoader.load(url);
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
-					ProblemView dview = new ProblemView();
 					
-					//User a=new User();
-					UserView a=new UserView();
-					
-					Scene sc2 = new Scene(root, 849, 494);
+						Scene sc2 = new Scene(Root, 720, 540);
 					Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 					newstage.setScene(sc2);
 					newstage.show();
+						newstage.setTitle("Menu");
 					TextField username =(TextField)sc2.lookup("#txtUserName");
 					username.setText(b);
 					HomeView view = new HomeView();
@@ -103,10 +98,6 @@ public class ProblemView {
 					view.user(sc2,b);
 					view.Home(sc2,b);
 					view.intervention(sc2,b);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					
 					
 				});
 				
