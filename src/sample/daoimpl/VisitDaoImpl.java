@@ -26,10 +26,7 @@ public class VisitDaoImpl {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println();
-			System.out.println();
 			
-			System.out.println("Added successfully !!!!!!!!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -198,65 +195,9 @@ public class VisitDaoImpl {
 		
 		
 	}
-	public boolean exist(int id) {
-		Connection connection = null;
-		connection = ConnectionConfiguration.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		
-		try {
-			preparedStatement = connection.prepareStatement("SELECT id FROM visit");
-			
-			resultSet = preparedStatement.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		int idd = 0;
-		try {
-			while (resultSet.next()) {
-				idd = idd + 1;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		if (id > idd) {
-			return false;
-		} else {
-			return true;
-		}
-		
-	}
 	
-	public String findId() {
-		Connection connection = null;
-		connection = ConnectionConfiguration.getConnection();
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		
-		try {
-			preparedStatement = connection.prepareStatement("SELECT id FROM visit");
-			
-			resultSet = preparedStatement.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		int max =0;int id;
-		try {
-			while (resultSet.next()) {
-				id = resultSet.getInt("id");
-				if(id>max)
-					max=id;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		return String.valueOf((max+1));
-		
-	}
+	
+	
 	public int searchLast(){
 		Connection connection=null;
 		connection=ConnectionConfiguration.getConnection();
