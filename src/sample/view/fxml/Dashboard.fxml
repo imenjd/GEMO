@@ -9,13 +9,12 @@
     <children>
         <AnchorPane prefHeight="104.0" prefWidth="734.0" style="-fx-background-color: #63c5a6;">
             <children>
-                <TextField editable="false" layoutX="230.0" layoutY="30.0" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #63c5a6;" text="Dashboard">
+                <TextField editable="false" layoutX="230.0" layoutY="30.0" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #63c5a6;" text="Menu">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </TextField>
-                <Button id="Home" layoutX="23.0" layoutY="39.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Home" />
-                <TextField layoutX="440.0" layoutY="62.0" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #63c5a6;" text="Currently active" />
+                <Button id="Home" layoutX="23.0" layoutY="39.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Accueil" />
                 <TextField id="txtUserName" editable="false" layoutX="555.0" layoutY="62.0" style="-fx-background-color: #63c5a6;" />
             </children>
         </AnchorPane>
@@ -24,12 +23,12 @@
                 <Font size="24.0" />
             </font>
         </Button>
-        <Button id="UserPendingBtn" layoutX="348.0" layoutY="200.0" mnemonicParsing="false" prefWidth="200.0" text="User Pending">
+        <Button id="UserPendingBtn" layoutX="348.0" layoutY="200.0" mnemonicParsing="false" prefWidth="200.0" text="En attente">
             <font>
                 <Font size="24.0" />
             </font>
         </Button>
-        <Button id="UsersBtn" layoutX="150.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Users">
+        <Button id="UsersBtn" layoutX="150.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Utilisateurs">
             <font>
                 <Font size="24.0" />
             </font>
@@ -44,12 +43,12 @@
                 <Font size="24.0" />
             </font>
         </Button>
-        <Button id="ProbBtn" layoutX="348.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Problemes">
+        <Button id="ProbBtn" layoutX="348.0" layoutY="447.0" mnemonicParsing="false" prefWidth="200.0" text="Problèmes">
             <font>
                 <Font size="24.0" />
             </font>
         </Button>
-        <Button id="MedBtn" layoutX="150.0" layoutY="363.0" mnemonicParsing="false" prefWidth="200.0" text="Medicaments">
+        <Button id="MedBtn" layoutX="150.0" layoutY="363.0" mnemonicParsing="false" prefWidth="200.0" text="Médicaments">
             <font>
                 <Font size="24.0" />
             </font>
@@ -61,4 +60,3 @@
         </Button>
     </children>
 </AnchorPane>
-
