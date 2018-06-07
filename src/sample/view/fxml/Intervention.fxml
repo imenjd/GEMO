@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane prefHeight="101.0" prefWidth="734.0" style="-fx-background-color: #63c5a6;">
@@ -17,9 +18,8 @@
                         <Font size="24.0" />
                     </font>
                 </TextField>
-                <TextField layoutX="446.0" layoutY="60.0" prefHeight="27.0" prefWidth="132.0" style="-fx-background-color: #63c5a6;" text="Currently Active:" />
                 <TextField id="txtUserName" layoutX="561.0" layoutY="60.0" style="-fx-background-color: #63c5a6;" />
-                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Dashboard" />
+                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Menu" />
             </children>
         </AnchorPane>
         <SplitPane dividerPositions="0.22404371584699453" layoutY="101.0" prefHeight="421.0" prefWidth="734.0">
