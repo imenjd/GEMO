@@ -16,16 +16,15 @@
                         <Font size="24.0" />
                     </font>
                 </TextField>
-                <TextField layoutX="446.0" layoutY="60.0" prefHeight="27.0" prefWidth="132.0" style="-fx-background-color: #63c5a6;" text="Currently Active:" />
                 <TextField id="txtUserName" layoutX="561.0" layoutY="60.0" style="-fx-background-color: #63c5a6;" />
-                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Dashboard" />
+                <Button id="Dashboard" layoutX="36.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Menu" />
             </children>
         </AnchorPane>
         <TableView id="table" layoutX="67.0" layoutY="191.0" prefHeight="200.0" prefWidth="560.0">
             <columns>
                 <TableColumn id="idpat" prefWidth="104.0" text="Identifiant" />
                 <TableColumn id="NamePat" prefWidth="216.0" text="Nom" />
-                <TableColumn id="FnPat" prefWidth="239.0" text="Prenom" />
+                <TableColumn id="FnPat" prefWidth="239.0" text="Prénom" />
             </columns>
         </TableView>
         <Button id="LoadPatient" layoutX="45.0" layoutY="123.0" mnemonicParsing="false" text="Afficher la liste de patients" />
