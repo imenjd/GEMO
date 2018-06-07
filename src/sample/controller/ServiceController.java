@@ -12,23 +12,7 @@ public class ServiceController {
 	
 	
 	
-	public  void delete (int d) {
-		
-		ServiceDaoImpl dao = new ServiceDaoImpl();
-		dao.delete(d);
-	}
-	
-	public  void update (int id, String name , int x) {
-		
-		ServiceDaoImpl dao = new ServiceDaoImpl();
-		Service service = new Service();
-		
-		service.setId(id);//controller
-		service.setName(name);//controller
-		
-		dao.update(service, x);//controller
-		
-	}
+
 	
 	public  void add (String name ) {
 		
@@ -39,13 +23,6 @@ public class ServiceController {
 		
 	}
 	
-	public boolean checkId (int id) {
-		ServiceDaoImpl dao = new ServiceDaoImpl();
-		if (dao.checkId(id) >= 0)
-			return true;
-		else
-			return false;
-	}
 	
 	
 	public ObservableList fillTable () {
