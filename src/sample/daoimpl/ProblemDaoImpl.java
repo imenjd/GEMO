@@ -11,21 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProblemDaoImpl implements ProblemDao {
-	public ProblemDaoImpl(){}
-	@Override
-	public void insert(Problem problem) {
-	
-	}
-	
-	@Override
-	public void delete(int id) {
-	
-	}
-	
-	@Override
-	public void update(Problem problem, int id) {
-	
-	}
 	public int selectByName(String a) {
 		
 		int value=0;
