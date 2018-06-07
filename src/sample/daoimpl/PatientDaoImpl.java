@@ -158,12 +158,7 @@ public class PatientDaoImpl implements PatientDao {
 			e.printStackTrace();
 		}
 		
-		if (id>idd){
-			return false;
-		}
-		else {
-			return true;
-		}
+		return id <= idd;
 		
 	}
 	public int searchLast(){
