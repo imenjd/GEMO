@@ -14,20 +14,20 @@
             <children>
                 <AnchorPane fx:id="Admin" layoutX="520.0" layoutY="1.0" prefHeight="500.0" prefWidth="452.0" style="-fx-background-color: #ffffff;">
                     <children>
-                        <Label layoutX="99.0" layoutY="7.0" prefHeight="65.0" prefWidth="295.0" text="Create an account" textAlignment="CENTER">
+                        <Label layoutX="99.0" layoutY="7.0" prefHeight="65.0" prefWidth="295.0" text="Création compte" textAlignment="CENTER">
                             <font>
                                 <Font size="30.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtFirstName" layoutX="56.0" layoutY="72.0" prefHeight="51.0" prefWidth="338.0" promptText="FirstName" />
-                        <TextField fx:id="txtLastName" layoutX="56.0" layoutY="124.0" prefHeight="51.0" prefWidth="338.0" promptText="LastName" />
-                        <TextField fx:id="txtUserName1" layoutX="56.0" layoutY="176.0" prefHeight="51.0" prefWidth="338.0" promptText="UserName" />
-                        <PasswordField fx:id="txtPassword1" layoutX="56.0" layoutY="228.0" prefHeight="51.0" prefWidth="338.0" promptText="Password" />
-                        <PasswordField fx:id="txtConfPass" layoutX="56.0" layoutY="280.0" prefHeight="51.0" prefWidth="338.0" promptText="ConfirmPassword" />
-                        <TextField fx:id="txtOccupation" layoutX="56.0" layoutY="332.0" prefHeight="51.0" prefWidth="338.0" promptText="Status/Occupation" />
-                        <TextField fx:id="txtEmail" layoutX="56.0" layoutY="384.0" prefHeight="51.0" prefWidth="338.0" promptText="E-mail" />
-                        <CheckBox fx:id="check" layoutX="56.0" layoutY="449.0" mnemonicParsing="false" text="Admin" />
-                        <Button fx:id="btnSignUp" layoutX="320.0" layoutY="444.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #63c5a6;" text="Sign up">
+                        <TextField fx:id="txtFirstName" layoutX="56.0" layoutY="72.0" prefHeight="51.0" prefWidth="338.0" promptText="Prénom" />
+                        <TextField fx:id="txtLastName" layoutX="56.0" layoutY="124.0" prefHeight="51.0" prefWidth="338.0" promptText="Nom de famille" />
+                        <TextField fx:id="txtUserName1" layoutX="56.0" layoutY="176.0" prefHeight="51.0" prefWidth="338.0" promptText="Nom d'utilisateur" />
+                        <PasswordField fx:id="txtPassword1" layoutX="56.0" layoutY="228.0" prefHeight="51.0" prefWidth="338.0" promptText="Mot de passe" />
+                        <PasswordField fx:id="txtConfPass" layoutX="56.0" layoutY="280.0" prefHeight="51.0" prefWidth="338.0" promptText="Mot de passe" />
+                        <TextField fx:id="txtOccupation" layoutX="56.0" layoutY="332.0" prefHeight="51.0" prefWidth="338.0" promptText="Statut/poste" />
+                        <TextField fx:id="email" layoutX="56.0" layoutY="384.0" prefHeight="51.0" prefWidth="338.0" promptText="E-mail" />
+                        <CheckBox fx:id="check" layoutX="56.0" layoutY="449.0" mnemonicParsing="false" text="Admin?" />
+                        <Button fx:id="btnSignUp" layoutX="255.0" layoutY="444.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" style="-fx-background-color: #63c5a6;" text="S'inscrire">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -36,17 +36,17 @@
 
                     </children>
                 </AnchorPane>
-                <Button layoutX="284.0" layoutY="432.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #63c5a6;" text="Sign up">
+                <Button layoutX="284.0" layoutY="432.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #63c5a6;" text="S'inscrire">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="15.0" layoutY="198.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="134.0" style="-fx-background-color: #dbdcdd;" text="Sign up">
+                <Button layoutX="15.0" layoutY="198.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #dbdcdd;" text="S'incrire">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="ToLogin" layoutX="15.0" layoutY="262.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="134.0" style="-fx-background-color: #dbdcdd;" text="Log In">
+                <Button fx:id="ToLogin" layoutX="15.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #dbdcdd;" text="Se connecter">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -55,7 +55,7 @@
         </AnchorPane>
         <AnchorPane layoutX="190.0" layoutY="35.0" prefHeight="472.0" prefWidth="350.0" style="-fx-background-color: #63c5a6;">
             <children>
-                <Label layoutX="57.0" layoutY="97.0" prefHeight="75.0" prefWidth="254.0" text="Welcome to GEMO" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="57.0" layoutY="97.0" prefHeight="75.0" prefWidth="254.0" text="Bienvenue sur GEMO" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
