@@ -10,9 +10,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import sample.controller.ServiceController;
 import sample.entities.Service;
-import sample.entities.User;
+import java.net.URL;
+
 
 public class ServiceView {
+	Parent Root;
+	URL url;
 	
 	
 	
@@ -27,7 +30,7 @@ public class ServiceView {
 
 		TextArea textname = (TextArea) scene.lookup("#textname");
 		
-		TableView table  = (TableView) scene.lookup("#table");
+		
 		
 		addbutton.setOnAction(event -> {
 			
@@ -86,22 +89,22 @@ public class ServiceView {
 	
 	public void Dashboard(Scene scene,String b){
 		try {
-			Button Dashboardservice=(Button)scene.lookup("#Dashboard");
+			Button Dashboard_ser=(Button)scene.lookup("#Dashboard");
 			
-			Dashboardservice.setOnAction(event -> {
+			Dashboard_ser.setOnAction(event -> {
 				
-				FXMLLoader Loader = new FXMLLoader(getClass().getResource("../view/fxml/Dashboard.fxml"));
-				Parent root = null;
+				url  = getClass().getClassLoader().getResource("sample/view/fxml/Dashboard.fxml");
 				try {
-					root =  Loader.load();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+					Root = FXMLLoader.load(url);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 				
-				Scene sc2 = new Scene(root, 849, 494);
+				Scene sc2 = new Scene(Root, 720, 540);
 				Stage newstage =  (Stage)((Node) event.getSource()).getScene().getWindow();
 				newstage.setScene(sc2);
 				newstage.show();
+				newstage.setTitle("Menu");
 				TextField username =(TextField)sc2.lookup("#txtUserName");
 				username.setText(b);
 				HomeView view = new HomeView();
