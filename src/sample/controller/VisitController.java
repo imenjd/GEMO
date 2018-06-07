@@ -91,12 +91,5 @@ public class VisitController {
 		dao.insert4(visit);
 	}
 	
-	
-	
-	public static boolean exist(int id) {
-		VisitDaoImpl dao = new VisitDaoImpl();
-		
-		return dao.exist(id);
-	}
 }
 
