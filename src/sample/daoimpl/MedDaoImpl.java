@@ -12,7 +12,44 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MedDaoImpl implements MedDao {
+	@Override
+	public void insert(Med med) {
+		Connection connection= null;
+		PreparedStatement preparedStatement=null;
+		
+		
+		
+		
+		try {
+			connection = ConnectionConfiguration.getConnection();
+			
+			preparedStatement = connection.prepareStatement("INSERT INTO med (name) VALUES(?)");
+			preparedStatement.setString(1, med.getName());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			
+			
+		} finally {
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	
+	}
 	
 	@Override
 	public List<Med> selectAll() {
