@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane prefHeight="74.0" prefWidth="839.0" style="-fx-background-color: #63c5a6 ;">
+            <children>
+                <TextField id="txtUserName" editable="false" layoutX="642.0" layoutY="24.0" style="-fx-background-color: #63c5a6 ;" />
+            <Button id="addVisit" layoutX="107.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Ajouter une visite" />
+            <Button id="Dashboard" layoutX="255.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Menu" />
+            <Button id="LogOut" layoutX="361.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Se déconnecter" />
+            <Button id="Home" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #63c5a6;" text="Accueil" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="72.0" prefHeight="111.0" prefWidth="839.0" style="-fx-background-color: #D7D7D7;">
+            <children>
+                <ComboBox id="CBSearchBy" layoutX="140.0" layoutY="42.0" prefHeight="27.0" prefWidth="209.0" promptText="Rechercher par:" />
+                <ComboBox id="keyword" editable="true" layoutX="383.0" layoutY="42.0" prefHeight="27.0" prefWidth="230.0" promptText="Mot-clé" />
+                <Button id="BtnSearch" layoutX="642.0" layoutY="42.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Rechercher" />
+            </children>
+        </AnchorPane>
+        <TableView id="SearchResult" layoutX="48.0" layoutY="228.0" prefHeight="280.0" prefWidth="737.0">
+            <columns>
+                <TableColumn id="RefVisite" prefWidth="94.0" text="Num visite" />
+                <TableColumn id="IdPatient" prefWidth="92.0" text="Num patient" />
+                <TableColumn id="LastName" prefWidth="208.0" text="Nom" />
+                <TableColumn id="FirstName" prefWidth="188.0" text="Prénom" />
+                <TableColumn id="Service" prefWidth="154.0" text="Service" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
